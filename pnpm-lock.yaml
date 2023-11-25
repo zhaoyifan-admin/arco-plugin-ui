@@ -36,8 +36,8 @@ dependencies:
     specifier: ^0.1.19
     version: 0.1.19
   vue-arco-ui:
-    specifier: ^0.1.30
-    version: 0.1.30
+    specifier: ^0.1.32
+    version: 0.1.32
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.4)
@@ -3690,8 +3690,8 @@ packages:
       - universal-cookie
     dev: false
 
-  /vue-arco-ui@0.1.30:
-    resolution: {integrity: sha512-sN1mzZuKKh9jZXmdzsI2YJTdAbA8LelKzREW6zFHrgMyhox8n3vHyiouIUHnwTULQcJA+VhD4FBQfb4q3iUtFQ==}
+  /vue-arco-ui@0.1.32:
+    resolution: {integrity: sha512-LF4ZYcZd7BSQnenB34oqS8AvUV60nzB3PoEGInjkAaCy7GqGMitX4MTM3PLIq3XAPeFDPpMRrTZuyAJBk26tQw==}
     dependencies:
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)
       '@vueuse/core': 10.5.0(vue@3.3.4)
