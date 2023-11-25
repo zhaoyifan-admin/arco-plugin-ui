@@ -20,7 +20,6 @@ import Badge from './badge'
 import Breadcrumb from './breadcrumb'
 import Button from './button'
 import Card from './card'
-import Carousel from './carousel'
 import Cascader from './cascader'
 import Checkbox from './checkbox'
 import Col from './col'
@@ -29,17 +28,14 @@ import Countdown from './countdown'
 import DatePicker from './datepicker'
 import Descriptions from './descriptions'
 import DescriptionsItem from './descriptionsitem'
-import Dialog from './dialog'
 import Divider from './divider'
 import Drawer from './drawer'
 import Ellipsis from './ellipsis'
 import Empty from './empty'
 import Flex from './flex'
-import Image from './image'
 import Input from './input'
 import InputNumber from './inputnumber'
 import Message from './message'
-import Modal from './modal'
 import Notification from './notification'
 import NumberAnimation from './numberanimation'
 import Pagination from './pagination'
@@ -53,7 +49,6 @@ import Row from './row'
 import Select from './select'
 import Slider from './slider'
 import Space from './space'
-import Spin from './spin'
 import Statistic from './statistic'
 import Steps from './steps'
 import Swiper from './swiper'
@@ -65,9 +60,7 @@ import Textarea from './textarea'
 import TextScroll from './textscroll'
 import Timeline from './timeline'
 import Tooltip from './tooltip'
-import Upload from './upload'
 import Video from './video'
-import Waterfall from './waterfall'
 
 // 所有组件列表
 const components = [
@@ -78,7 +71,6 @@ const components = [
   Breadcrumb,
   Button,
   Card,
-  Carousel,
   Cascader,
   Checkbox,
   Col,
@@ -87,17 +79,14 @@ const components = [
   DatePicker,
   Descriptions,
   DescriptionsItem,
-  Dialog,
   Divider,
   Drawer,
   Ellipsis,
   Empty,
   Flex,
-  Image,
   Input,
   InputNumber,
   Message,
-  Modal,
   Notification,
   NumberAnimation,
   Pagination,
@@ -111,7 +100,6 @@ const components = [
   Select,
   Slider,
   Space,
-  Spin,
   Statistic,
   Steps,
   Swiper,
@@ -123,9 +111,7 @@ const components = [
   TextScroll,
   Timeline,
   Tooltip,
-  Upload,
-  Video,
-  Waterfall
+  Video
 ]
 
 // 定义 install 方法
@@ -162,7 +148,6 @@ export {
   Breadcrumb,
   Button,
   Card,
-  Carousel,
   Cascader,
   Checkbox,
   Col,
@@ -171,17 +156,14 @@ export {
   DatePicker,
   Descriptions,
   DescriptionsItem,
-  Dialog,
   Divider,
   Drawer,
   Ellipsis,
   Empty,
   Flex,
-  Image,
   Input,
   InputNumber,
   Message,
-  Modal,
   Notification,
   NumberAnimation,
   Pagination,
@@ -195,7 +177,6 @@ export {
   Select,
   Slider,
   Space,
-  Spin,
   Statistic,
   Steps,
   Swiper,
@@ -207,12 +188,10 @@ export {
   TextScroll,
   Timeline,
   Tooltip,
-  Upload,
-  Video,
-  Waterfall
+  Video
 }
 
-const VueAmazingUI = {
+const VueArcoUI = {
   install
 }
-export default VueAmazingUI
+export default VueArcoUI

@@ -1,0 +1,149 @@
+::v-deep(.ant-table-th) {
+  background-color: var(--color-bg-2);
+}
+
+::v-deep(.ant-tabs-content-list) {
+  height: 100%;
+}
+
+::v-deep(.ant-tabs-pane) {
+  height: 100%;
+}
+
+.ant-compontent-page {
+  width: 100%;
+  height: 100%;
+}
+
+.ant-compontent-page-tabs {
+  height: 100%;
+  background-color: var(--color-menu-light-bg);
+  border-radius: 5px;
+  margin-right: 15px;
+  transition: all 0.5s ease;
+
+  .collapse-btn-box {
+    background-color: rgb(var(--primary-6));
+    width: 20px;
+    height: 75px;
+    border-radius: 10px;
+    right: -10px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .ant-compontent-page-tab-search-box {
+    width: 100%;
+    height: 100%;
+
+    .ant-compontent-page-tab-search-form {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .ant-compontent-page-tab-search-btns {
+      height: 30px;
+      text-align: right;
+    }
+  }
+}
+
+.ant-compontent-page-table {
+  flex: 1;
+  background-color: var(--color-menu-light-bg);
+  border-radius: 5px;
+  padding: 10px;
+  height: 100%;
+}
+
+::v-deep(.warning-row>.ant-table-td) {
+  background: var(--eh-color-warningRow)
+}
+
+::v-deep(.success-row>.ant-table-td) {
+  background: #36C036;
+}
+
+::v-deep(.ant-table-th) {
+  font-weight: bold;
+  background: var(--eh-bg-tableHeader)
+}
+
+::v-deep(.ant-table-hover:not(.ant-table-dragging) .ant-table-tr:not(.ant-table-tr-empty):not(.ant-table-tr-summary):hover .ant-table-td:not(.ant-table-col-fixed-left):not(.ant-table-col-fixed-right)) {
+  background: var(--eh-color-tableHover-cloumn)!important;
+}
+.ant-table {
+  flex: 1;
+}
+.ant-pagination {
+  margin-top: 10px;
+  justify-content: center;
+}
+/* flex布局 */
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.j-start {
+  justify-content: flex-start;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.j-end {
+  justify-content: flex-end;
+}
+
+.j-sb {
+  justify-content: space-between;
+}
+
+.j-sa {
+  justify-content: space-around;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.a-start {
+  align-items: flex-start;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.a-end {
+  align-items: flex-end;
+}
+
+.a-stretch {
+  align-items: stretch;
+}
+
+.a-self-start {
+  align-self: flex-start;
+}
+
+.a-self-end {
+  align-self: flex-end;
+}
+
+.flex-shrink {
+  flex-shrink: 0;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}

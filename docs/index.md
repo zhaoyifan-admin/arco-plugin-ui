@@ -1,26 +1,26 @@
 ---
 layout: home
 
-title: Vue Amazing UI
-titleTemplate: Amazing UI Components Library
+title: Vue Arco UI
+titleTemplate: Arco UI Components Library
 
 hero:
-  name: Vue Amazing UI
-  text: Amazing UI 组件库
+  name: Vue Arco UI
+  text: Arco UI 组件库
   tagline: 基于 Vue3 + TS + Vite 开发
   image:
-    src: /amazing-logo.svg
-    alt: Vue Amazing UI
+    src: /arco-logo.svg
+    alt: Vue Arco UI
   actions:
     - theme: brand
       text: Get Started
       link: /guide/features
     - theme: alt
       text: View on GitHub
-      link: https://github.com/themusecatcher/vue-amazing-ui
+      link: https://github.com/themusecatcher/vue-arco-ui
     - theme: alt
       text: View on NPM
-      link: https://www.npmjs.com/package/vue-amazing-ui
+      link: https://www.npmjs.com/package/vue-arco-ui
 features:
   - icon: 🛠️
     title: 开发依赖

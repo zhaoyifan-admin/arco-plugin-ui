@@ -46,7 +46,6 @@ function onAntChange (number: number) {
       :max="10"
       :step="0.01"
       :precision="1"
-      @change="onAntChange"
       v-model:value="value" />
   </div>
 </template>

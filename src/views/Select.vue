@@ -181,7 +181,6 @@ function onAntChange (value: string|number, option: any) {
       :disabled="false"
       allowClear
       show-search
-      v-model:value="selectedValue"
-      @change="onAntChange" />
+      v-model:value="selectedValue" />
   </div>
 </template>

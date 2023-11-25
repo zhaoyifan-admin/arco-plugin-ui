@@ -67,12 +67,6 @@ export const routes = [
         component: () => import('@/views/Card.vue')
       },
       {
-        path: '/carousel',
-        name: 'Carousel',
-        meta: { title: '走马灯' },
-        component: () => import('@/views/Carousel.vue')
-      },
-      {
         path: '/cascader',
         name: 'Cascader',
         meta: { title: '级联选择' },
@@ -107,12 +101,6 @@ export const routes = [
         name: 'Descriptions',
         meta: { title: '描述列表' },
         component: () => import('@/views/Descriptions.vue')
-      },
-      {
-        path: '/dialog',
-        name: 'Dialog',
-        meta: { title: '对话框' },
-        component: () => import('@/views/Dialog.vue')
       },
       {
         path: '/divider',
@@ -151,12 +139,6 @@ export const routes = [
         component: () => import('@/views/Grid.vue')
       },
       {
-        path: '/image',
-        name: 'Image',
-        meta: { title: '图片' },
-        component: () => import('@/views/Image.vue')
-      },
-      {
         path: '/input',
         name: 'Input',
         meta: { title: '输入框' },
@@ -173,12 +155,6 @@ export const routes = [
         name: 'Message',
         meta: { title: '全局提示' },
         component: () => import('@/views/Message.vue')
-      },
-      {
-        path: '/modal',
-        name: 'Modal',
-        meta: { title: '信息提示' },
-        component: () => import('@/views/Modal.vue')
       },
       {
         path: '/notification',
@@ -253,12 +229,6 @@ export const routes = [
         component: () => import('@/views/Space.vue')
       },
       {
-        path: '/spin',
-        name: 'Spin',
-        meta: { title: '加载中' },
-        component: () => import('@/views/Spin.vue')
-      },
-      {
         path: '/statistic',
         name: 'Statistic',
         meta: { title: '统计数值' },
@@ -325,22 +295,10 @@ export const routes = [
         component: () => import('@/views/Tooltip.vue')
       },
       {
-        path: '/upload',
-        name: 'Upload',
-        meta: { title: '上传' },
-        component: () => import('@/views/Upload.vue')
-      },
-      {
         path: '/video',
         name: 'Video',
         meta: { title: '播放器' },
         component: () => import('@/views/Video.vue')
-      },
-      {
-        path: '/waterfall',
-        name: 'Waterfall',
-        meta: { title: '瀑布流' },
-        component: () => import('@/views/Waterfall.vue')
       }
     ]
   },

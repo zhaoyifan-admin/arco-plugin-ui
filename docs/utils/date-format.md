@@ -61,7 +61,7 @@ function dateFormat (value: number|string|Date = Date.now(), format = 'YYYY-MM-D
 
 ```vue
 <script setup lang="ts">
-import { dateFormat } from 'vue-amazing-ui'
+import { dateFormat } from 'vue-arco-ui'
 
 dateFormat(1685514045679) // 2023-05-31 14:20:45
 </script>
@@ -75,7 +75,7 @@ dateFormat(1685514045679) // 2023-05-31 14:20:45
 
 ```vue
 <script setup lang="ts">
-import { dateFormat } from 'vue-amazing-ui'
+import { dateFormat } from 'vue-arco-ui'
 
 dateFormat('2023-05-31', 'MM/DD/YYYY') // 05/31/2023
 </script>
@@ -89,7 +89,7 @@ dateFormat('2023-05-31', 'MM/DD/YYYY') // 05/31/2023
 
 ```vue
 <script setup lang="ts">
-import { dateFormat } from 'vue-amazing-ui'
+import { dateFormat } from 'vue-arco-ui'
 
 dateFormat(1685514045679, 'YYYY-MM-DD HH:mm:ss:SSS') // 2023-05-31 14:20:45:679
 </script>

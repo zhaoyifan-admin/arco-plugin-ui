@@ -1,4 +1,4 @@
-# vue-amazing-ui
+# vue-arco-ui
 
 *该组件库采用 `Vue@3.3.4 `+ `TypeScript@5.2.2` + `Vite@4.4.11` + `Less@4.2.0` 实现！*<br/>
 *所有组件样式 `CSS` 均使用 `box-sizing: border-box;` 模式！*<br/>
@@ -7,16 +7,16 @@
 
 ## Document & Online preview
 
-[Vue Amazing UI](https://themusecatcher.github.io/vue-amazing-ui/)
+[Vue Arco UI](https://themusecatcher.github.io/vue-arco-ui/)
 
 ## Install & Use
 
 ```bash
-pnpm i vue-amazing-ui
+pnpm i vue-arco-ui
 # or
-npm install vue-amazing-ui
+npm install vue-arco-ui
 # or
-yarn add vue-amazing-ui
+yarn add vue-arco-ui
 ```
 
 Import and register component
@@ -27,26 +27,26 @@ Import and register component
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import VueAmazingUI from 'vue-amazing-ui'
-import 'vue-amazing-ui/css'
+import VueArcoUI from 'vue-arco-ui'
+import 'vue-arco-ui/css'
 
 const app = createApp(App)
-app.use(VueAmazingUI)
+app.use(VueArcoUI)
 ```
 
 **Local**
 
 ```vue
 <script setup lang="ts">
-import { Button } from 'vue-amazing-ui'
-import 'vue-amazing-ui/css'
+import { Button } from 'vue-arco-ui'
+import 'vue-arco-ui/css'
 </script>
 ```
 
 ## Use CDN in Project
 
 ```html
-<script src="https://unpkg.com/vue-amazing-ui@latest"></script>
+<script src="https://unpkg.com/vue-arco-ui@latest"></script>
 ```
 
 ## Project
@@ -54,13 +54,13 @@ import 'vue-amazing-ui/css'
 - Get the project code
 
 ```sh
-git clone https://github.com/themusecatcher/vue-amazing-ui.git
+git clone https://github.com/themusecatcher/vue-arco-ui.git
 ```
 
 - Install dependencies
 
 ```sh
-cd vue-amazing-ui
+cd vue-arco-ui
 
 pnpm i
 ```

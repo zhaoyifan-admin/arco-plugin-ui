@@ -259,7 +259,6 @@ function filter (inputValue: string, option: any) {
       placeholder="Please select"
       :disabled="false"
       allowClear
-      v-model:value="selectedValue"
-      @change="onAntChange" />
+      v-model:value="selectedValue" />
   </div>
 </template>

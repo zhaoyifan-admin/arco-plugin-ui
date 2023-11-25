@@ -14,8 +14,8 @@ pnpm push
 # 发布到npm，pnpm(高性能的npm)
 pnpm publish
 
-# 升级 vue-amazing-ui 依赖版本
-pnpm up vue-amazing-ui@$version
+# 升级 vue-arco-ui 依赖版本
+pnpm up vue-arco-ui@$version
 
 # 提交版本更新代码到github
 git add .

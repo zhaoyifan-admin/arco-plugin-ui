@@ -42,7 +42,7 @@ function downloadFile (url: string, name: string) {
 
 ```vue
 <script setup lang="ts">
-import { downloadFile } from 'vue-amazing-ui'
+import { downloadFile } from 'vue-arco-ui'
 
 donwloadFile('https://cdn.jsdelivr.net/gh/themusecatcher/resources@0.0.3/Markdown.pdf', 'Markdown')
 </script>

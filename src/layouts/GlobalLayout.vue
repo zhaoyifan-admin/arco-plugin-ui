@@ -18,8 +18,8 @@ onMounted(() => {
   observer.value = new MutationObserver(callback)
   // 以上述配置开始观察目标节点
   observer.value.observe(document.documentElement, config)
-  themeDark.value = document.documentElement.classList.contains('dark')
-  if (!themeDark.value) { // 默认开启暗黑模式
+  themeDark.value = document.documentElement.classList.contains('light')
+  if (themeDark.value) { // 默认开启暗黑模式
     toggleDark()
   }
 })
@@ -74,20 +74,20 @@ const routerViewRef = ref()
       finished-text="GO GO GO"
       @finish="onFinish" />
   </Transition>
-  <a-row style="width: 100%;">
-    <a-col :xs="5" :xl="4">
-      <a-menu
+  <arco-row style="width: 100%;">
+    <arco-col :xs="5" :xl="4">
+      <arco-menu
         class="m-menus"
         v-model:selectedKeys="current"
         mode="inline"
         :theme="themeDark ? 'dark':'light'"
-        @click="onClick">
-        <a-menu-item v-for="menu in menus" :key="menu.name" :title="menu.meta.title">
+        @menu-item-click="onClick">
+        <arco-menu-item v-for="menu in menus" :key="menu.name" :title="menu.meta.title">
           <router-link :to="menu.path">{{ menu.meta.title }} {{ menu.name }}</router-link>
-        </a-menu-item>
-      </a-menu>
-    </a-col>
-    <a-col :xs="19" :xl="20">
+        </arco-menu-item>
+      </arco-menu>
+    </arco-col>
+    <arco-col :xs="19" :xl="20">
       <div class="router-view" ref="routerViewRef">
         <RouterView v-slot="{ Component }">
           <Transition name="fade" mode="out-in">
@@ -95,8 +95,8 @@ const routerViewRef = ref()
           </Transition>
         </RouterView>
       </div>
-    </a-col>
-  </a-row>
+    </arco-col>
+  </arco-row>
   <BackTop :listen-to="routerViewRef" />
 </template>
 <style lang="less" scoped>

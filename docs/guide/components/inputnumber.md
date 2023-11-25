@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import { formatNumber } from 'vue-amazing-ui'
+import { formatNumber } from 'vue-arco-ui'
 const value = ref(3)
 const formatValue = ref(1000)
 watchEffect(() => {
@@ -99,7 +99,7 @@ watchEffect(() => {
 ```vue
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import { formatNumber } from 'vue-amazing-ui'
+import { formatNumber } from 'vue-arco-ui'
 const formatValue = ref(1000)
 watchEffect(() => {
   console.log('formatValue:', formatValue.value)

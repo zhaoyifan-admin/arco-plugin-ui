@@ -7,7 +7,7 @@ const theme = ref({
 })
 </script>
 <template>
-  <a-config-provider :theme="theme">
+  <arco-config-provider :theme="theme">
     <RouterView />
-  </a-config-provider>
+  </arco-config-provider>
 </template>

@@ -85,6 +85,6 @@ function onChange (value: any) {
     <h2 class="mt30 mb10">自定义间距</h2>
     <Radio :gap="24" :options="options" v-model:value="value" />
     <h2 class="mt30 mb10">Ant Design Vue 的 a-radio-group 组件</h2>
-    <a-radio-group @change="onChange($event.target.value)" v-model:value="value" :options="options" />
+    <a-radio-group v-model:value="value" :options="options" />
   </div>
 </template>
