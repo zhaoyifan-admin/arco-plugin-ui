@@ -47,6 +47,7 @@
     "swiper": "^10.3.1",
     "vue": "^3.3.4",
     "vue-amazing-ui": "^0.1.19",
+    "vue-arco-ui": "^0.1.30",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

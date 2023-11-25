@@ -53,7 +53,7 @@ import Statistic from './statistic'
 import Steps from './steps'
 import Swiper from './swiper'
 import Switch from './switch'
-import Table from './table'
+import ehTable from './table'
 import Tabs from './tabs'
 import Tag from './tag'
 import Textarea from './textarea'
@@ -104,7 +104,7 @@ const components = [
   Steps,
   Swiper,
   Switch,
-  Table,
+  ehTable,
   Tabs,
   Tag,
   Textarea,
@@ -181,7 +181,7 @@ export {
   Steps,
   Swiper,
   Switch,
-  Table,
+  ehTable,
   Tabs,
   Tag,
   Textarea,

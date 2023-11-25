@@ -54,7 +54,7 @@ import 'vue-arco-ui/css'
 - Get the project code
 
 ```sh
-git clone https://github.com/themusecatcher/vue-arco-ui.git
+git clone https://gitee.com/tianjin-enheng-entertainment/arco-plugin-ui.git
 ```
 
 - Install dependencies
@@ -104,7 +104,7 @@ Video | 播放器 | Waterfall | 瀑布流
 
 ## Details
 
-[My CSDN Blogs](https://blog.csdn.net/Dandrose)
+[My CSDN Blogs]()
 
 ## Functions
 

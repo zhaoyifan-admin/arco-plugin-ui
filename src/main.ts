@@ -6,11 +6,7 @@ import ArcoVue from '@arco-design/web-vue';
 import '@arco-design/web-vue/dist/arco.css';
 
 import VueArcoUI from '../packages'
-// import VueArcoUI from '../dist/vue-arco-ui.js'
-// import '../dist/style.css'
-
-// import VueArcoUI from 'vue-arco-ui'
-// import 'vue-arco-ui/css'
+import '../dist/style.css'
 
 const app = createApp(App)
 // window.rafTimeout = rafTimeout // 挂载到window上，全局可用，无需引入

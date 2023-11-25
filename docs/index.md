@@ -17,7 +17,7 @@ hero:
       link: /guide/features
     - theme: alt
       text: View on GitHub
-      link: https://github.com/themusecatcher/vue-arco-ui
+      link: https://gitee.com/tianjin-enheng-entertainment/arco-plugin-ui.git
     - theme: alt
       text: View on NPM
       link: https://www.npmjs.com/package/vue-arco-ui
@@ -34,8 +34,8 @@ features:
 ---
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { fetchVersion } from './.vitepress/utils/fetchVersion'
+import { onMounted } from 'vue';
+import { fetchVersion } from './.vitepress/utils/fetchVersion';
 
 onMounted(() => {
   fetchVersion()

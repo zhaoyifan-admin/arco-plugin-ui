@@ -1,9 +1,9 @@
 import type { App } from 'vue'
-import Table from './Table.vue'
+import ehTable from './eh-table.vue'
 
 // 使用install方法，在app.use挂载
-Table.install = (app: App): void => {
-    app.component(Table.__name as string, Table)
+ehTable.install = (app: App): void => {
+    app.component(ehTable.__name as string, ehTable)
 }
 
-export default Table
+export default ehTable

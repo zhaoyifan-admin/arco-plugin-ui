@@ -10,12 +10,12 @@
 - 进行分类
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue';
 
-const strTags = ref(['天空', '大海', '湖泊'])
+const strTags = ref(['天空', '大海', '湖泊']);
 watchEffect(() => {
   console.log('strTags', strTags.value)
-})
+});
 const objTags = ref([
   {
     label: '天空',
@@ -30,15 +30,15 @@ const objTags = ref([
     label: '湖泊',
     color: 'pink'
   }
-])
+]);
 watchEffect(() => {
   console.log('objTags', objTags.value)
-})
+});
 const onClose = (e: MouseEvent) => {
   console.log('e', e)
-}
+};
 const onDynamicClose = (tag: any, index: number) => {
-  console.log('tag', tag)  
+  console.log('tag', tag)  ;
   console.log('index', index)  
 }
 </script>
