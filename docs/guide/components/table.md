@@ -14,34 +14,29 @@
 import {ref} from "vue";
 
 const columns = ref([
-  {
-    title: '名字',
-    width: 100,
-    dataIndex: 'name',
-    slot: 'name'
-  },
-  {
-    title: '年龄',
-    width: 100,
-    dataIndex: 'age'
-  },
-  {
-    title: '职业',
-    width: 100,
-    dataIndex: 'job',
-    slot: 'job'
-  },
-  {
-    title: '性别',
-    width: 100,
-    dataIndex: 'sex'
-  },
-  {
-    title: '地址',
-    width: 120,
-    dataIndex: 'address'
-  }
-])
+    {
+      title: '名字',
+      dataIndex: 'name',
+      slot: 'name'
+    },
+    {
+      title: '年龄',
+      dataIndex: 'age'
+    },
+    {
+      title: '职业',
+      dataIndex: 'job',
+      slot: 'job'
+    },
+    {
+      title: '性别',
+      dataIndex: 'sex'
+    },
+    {
+      title: '地址',
+      dataIndex: 'address'
+    }
+  ])
 </script>
 
 ## 基本使用
@@ -53,6 +48,7 @@ const columns = ref([
 ::: details Show Code
 
 ```vue
+
 <script setup lang="ts">
 
   import {ref} from "vue";
@@ -60,29 +56,24 @@ const columns = ref([
   const columns = ref([
     {
       title: '名字',
-      width: 100,
       dataIndex: 'name',
       slot: 'name'
     },
     {
       title: '年龄',
-      width: 100,
       dataIndex: 'age'
     },
     {
       title: '职业',
-      width: 100,
       dataIndex: 'job',
       slot: 'job'
     },
     {
       title: '性别',
-      width: 100,
       dataIndex: 'sex'
     },
     {
       title: '地址',
-      width: 120,
       dataIndex: 'address'
     }
   ])
@@ -94,36 +85,85 @@ const columns = ref([
 
 :::
 
-## APIs
+## 加载中
 
-参数 | 说明 | 类型 | 默认值 | 必传
--- | -- | -- | -- | --
-columns | 表格列的配置项 | Column[] | [] | false
-dataSource | 表格数据数组 | any[] | [] | false
-pagination | 分页配置 | Pagination | { page: 1&#44; pageSize: 10 } | false
-showPagination | 是否显示分页 | boolean | true | false
-hideOnSinglePage | 只有 `1` 页时是否隐藏分页 | boolean | false
-total | 数据总数 | number | 0 | false
-loading | 是否加载中 | boolean | false | false
+<ClientOnly>
+  <eh-table :columns="columns" loading />
+</ClientOnly>
 
-## Column Type
+::: details Show Code
 
-名称 | 说明 | 类型 | 必传
--- | -- | -- | --
-title | 列头显示文字 | string | false
-width | 列宽度 | number &#124; string | true
-dataIndex | 列数据字符索引 | string | true
-slot | 列插槽名称索引 | string | false
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const columns = ref([
+        {
+          title: '名字',
+          width: 60,
+          dataIndex: 'name',
+          slot: 'name'
+        },
+        {
+          title: '年龄',
+          width: 30,
+          dataIndex: 'age'
+        },
+        {
+          title: '职业',
+          width: 50,
+          dataIndex: 'job',
+          slot: 'job'
+        },
+        {
+          title: '性别',
+          width: 30,
+          dataIndex: 'sex'
+        },
+        {
+          title: '地址',
+          width: 100,
+          dataIndex: 'address'
+        }
+      ])
+</script>
+<template>
+  <eh-table :columns="columns" loading />
+</template>
+```
 
-## Pagination Type
+:::
 
-名称 | 说明 | 类型 | 必传
--- | -- | -- | --
-page | 当前页码 | number | true
-pageSize | 每页条数 | number | true
+## APIs 
 
-## Events
+### table Props
 
-事件名称 | 说明 | 参数
--- | -- | --
-change | 分页变化时的回调 | (pager: {page: number, pageSize: number}) => void
+| 参数               | 说明              | 类型          | 默认值                                                                    |
+|------------------|:----------------|:------------|------------------------------------------------------------------------|
+| data             | 表格数据数组          | TableData[] | []                                                                     |
+| page             | 分页配置            | Pagination  | currentPage: 1, pageSize: 10, pageSizes: [5, 10, 20, 30, 50], total: 0 |
+| showPagination   | 是否显示分页          | boolean     | true                                                                   |
+| hideOnSinglePage | 只有 `1` 页时是否隐藏分页 | boolean     | false                                                                  |
+| options          | 表单配置项参考Option配置 | object      | -                                                                      |
+
+### options Type
+
+| 名称         | 说明                | 类型                | 默认值   |
+|------------|-------------------|-------------------|-------|
+| index      | 是否有序号	            | boolean           | false |
+| indexWidth | 序号列宽度             | number            | 50    |
+| columns    | 表单列配置参考Column相关配置 | TableColumnData[] |       |
+
+### Pagination Type
+
+| 名称          | 说明           | 类型       | 默认值                  |
+|-------------|--------------|----------|----------------------|
+| currentPage | 当前页码         | number   | 1                    |
+| pageSize    | 每页展示的数据条数    | number   | 5                    |
+| pageSizes   | 数据条数选择器的选项列表 | number[] | [10, 20, 30, 40, 50] |
+| total       | 数据总数         | number   |                      |
+
+### Events
+
+| 事件名称   | 说明       | 参数                                                |
+|--------|----------|---------------------------------------------------|
+| change | 分页变化时的回调 | (pager: {page: number, pageSize: number}) => void |

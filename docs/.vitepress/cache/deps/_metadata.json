@@ -1,86 +1,62 @@
 {
-  "hash": "18ead906",
-  "browserHash": "2073ec77",
+  "hash": "c4657cef",
+  "browserHash": "c9fa49ec",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "85797bc8",
+      "fileHash": "e6d6acf6",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@6.5.1/node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "58504a29",
-      "needsInterop": false
-    },
-    "@vuepic/vue-datepicker": {
-      "src": "../../../../node_modules/.pnpm/@vuepic+vue-datepicker@6.1.0_vue@3.3.4/node_modules/@vuepic/vue-datepicker/dist/vue-datepicker.js",
-      "file": "@vuepic_vue-datepicker.js",
-      "fileHash": "d765d4f1",
-      "needsInterop": false
-    },
-    "@vueuse/core": {
-      "src": "../../../../node_modules/.pnpm/@vueuse+core@10.5.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
-      "file": "@vueuse_core.js",
-      "fileHash": "6a4a3c80",
-      "needsInterop": false
-    },
-    "@vueuse/integrations/useQRCode": {
-      "src": "../../../../node_modules/.pnpm/@vueuse+integrations@10.5.0_focus-trap@7.5.4_qrcode@1.5.3_vue@3.3.4/node_modules/@vueuse/integrations/useQRCode.mjs",
-      "file": "@vueuse_integrations_useQRCode.js",
-      "fileHash": "52a41d2a",
-      "needsInterop": false
-    },
-    "swiper/vue": {
-      "src": "../../../../node_modules/.pnpm/swiper@10.3.1/node_modules/swiper/swiper-vue.mjs",
-      "file": "swiper_vue.js",
-      "fileHash": "13100bed",
-      "needsInterop": false
-    },
-    "swiper/modules": {
-      "src": "../../../../node_modules/.pnpm/swiper@10.3.1/node_modules/swiper/modules/index.mjs",
-      "file": "swiper_modules.js",
-      "fileHash": "5c9b6feb",
-      "needsInterop": false
-    },
-    "vue-arco-ui": {
-      "src": "../../../../node_modules/.pnpm/vue-arco-ui@0.1.30/node_modules/vue-arco-ui/dist/vue-arco-ui.js",
-      "file": "vue-arco-ui.js",
-      "fileHash": "e220c8a6",
+      "fileHash": "21b1225a",
       "needsInterop": false
     },
     "@arco-design/web-vue": {
       "src": "../../../../node_modules/.pnpm/@arco-design+web-vue@2.53.3_vue@3.3.4/node_modules/@arco-design/web-vue/es/index.js",
       "file": "@arco-design_web-vue.js",
-      "fileHash": "d6086da4",
+      "fileHash": "10325689",
+      "needsInterop": false
+    },
+    "@vuepic/vue-datepicker": {
+      "src": "../../../../node_modules/.pnpm/@vuepic+vue-datepicker@6.1.0_vue@3.3.4/node_modules/@vuepic/vue-datepicker/dist/vue-datepicker.js",
+      "file": "@vuepic_vue-datepicker.js",
+      "fileHash": "6f477b31",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../../node_modules/.pnpm/@vueuse+core@10.5.0_vue@3.3.4/node_modules/@vueuse/core/index.mjs",
+      "file": "@vueuse_core.js",
+      "fileHash": "092859d6",
+      "needsInterop": false
+    },
+    "@vueuse/integrations/useQRCode": {
+      "src": "../../../../node_modules/.pnpm/@vueuse+integrations@10.5.0_focus-trap@7.5.4_qrcode@1.5.3_vue@3.3.4/node_modules/@vueuse/integrations/useQRCode.mjs",
+      "file": "@vueuse_integrations_useQRCode.js",
+      "fileHash": "ff2133d0",
+      "needsInterop": false
+    },
+    "swiper/vue": {
+      "src": "../../../../node_modules/.pnpm/swiper@10.3.1/node_modules/swiper/swiper-vue.mjs",
+      "file": "swiper_vue.js",
+      "fileHash": "6b45fbdb",
+      "needsInterop": false
+    },
+    "swiper/modules": {
+      "src": "../../../../node_modules/.pnpm/swiper@10.3.1/node_modules/swiper/modules/index.mjs",
+      "file": "swiper_modules.js",
+      "fileHash": "c2dd4366",
       "needsInterop": false
     }
   },
   "chunks": {
-    "index-9ae26415-4GKPZYRB": {
-      "file": "index-9ae26415-4GKPZYRB.js"
-    },
-    "chunk-O7NL36PV": {
-      "file": "chunk-O7NL36PV.js"
-    },
-    "chunk-W6TZYUAE": {
-      "file": "chunk-W6TZYUAE.js"
-    },
-    "chunk-FVN67OAP": {
-      "file": "chunk-FVN67OAP.js"
-    },
     "chunk-5BCG5FEI": {
       "file": "chunk-5BCG5FEI.js"
     },
-    "chunk-KUJQ7XC6": {
-      "file": "chunk-KUJQ7XC6.js"
-    },
     "chunk-67UUJLDS": {
       "file": "chunk-67UUJLDS.js"
-    },
-    "chunk-BDXATM4V": {
-      "file": "chunk-BDXATM4V.js"
     },
     "chunk-4NAX6VIJ": {
       "file": "chunk-4NAX6VIJ.js"
