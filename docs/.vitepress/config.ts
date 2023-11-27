@@ -17,12 +17,12 @@ export default defineConfig({
     logo: '/arco-icon.svg',
 
     editLink: {
-      pattern: 'https://github.com/themusecatcher/vue-arco-ui/tree/master/docs/:path',
+      pattern: 'https://github.com/zhaoyifan-admin/vue-arco-ui/tree/master/docs/:path',
       text: 'Suggest changes to this page'
     },
     // 默认支持icon包括：'discord'|'facebook'|'github'|'instagram'|'linkedin'|'mastodon'|'slack'|'twitter'|'youtube'
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/themusecatcher/vue-arco-ui' }
+      { icon: 'github', link: 'https://github.com/zhaoyifan-admin/vue-arco-ui' }
       // 自定义icon
       // {
       //   icon: {
@@ -53,9 +53,9 @@ export default defineConfig({
       {
         text: '链接',
         items: [
-          { text: 'My Github', link: 'https://github.com/themusecatcher' },
+          { text: 'My Github', link: 'https://github.com/zhaoyifan-admin' },
           { text: 'My CSDN', link: 'https://blog.csdn.net/Dandrose?type=blog' },
-          { text: 'Front-end Notes', link: 'https://themusecatcher.github.io/front-end-notes/' },
+          { text: 'Front-end Notes', link: 'https://zhaoyifan-admin.github.io/front-end-notes/' },
           {
             items: [
               {
