@@ -74,20 +74,20 @@ const routerViewRef = ref()
       finished-text="GO GO GO"
       @finish="onFinish" />
   </Transition>
-  <arco-row style="width: 100%;">
-    <arco-col :xs="5" :xl="4">
-      <arco-menu
+  <a-row style="width: 100%;">
+    <a-col :xs="5" :xl="4">
+      <a-menu
         class="m-menus"
         v-model:selectedKeys="current"
         mode="inline"
         :theme="themeDark ? 'dark':'light'"
         @menu-item-click="onClick">
-        <arco-menu-item v-for="menu in menus" :key="menu.name" :title="menu.meta.title">
+        <a-menu-item v-for="menu in menus" :key="menu.name" :title="menu.meta.title">
           <router-link :to="menu.path">{{ menu.meta.title }} {{ menu.name }}</router-link>
-        </arco-menu-item>
-      </arco-menu>
-    </arco-col>
-    <arco-col :xs="19" :xl="20">
+        </a-menu-item>
+      </a-menu>
+    </a-col>
+    <a-col :xs="19" :xl="20">
       <div class="router-view" ref="routerViewRef">
         <RouterView v-slot="{ Component }">
           <Transition name="fade" mode="out-in">
@@ -95,8 +95,8 @@ const routerViewRef = ref()
           </Transition>
         </RouterView>
       </div>
-    </arco-col>
-  </arco-row>
+    </a-col>
+  </a-row>
   <BackTop :listen-to="routerViewRef" />
 </template>
 <style lang="less" scoped>

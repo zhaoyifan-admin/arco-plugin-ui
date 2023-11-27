@@ -17,17 +17,17 @@ withDefaults(defineProps<Props>(), {
     return {currentPage: 1, pageSize: 10, pageSizes: [5, 10, 20, 30, 50], total: 0}
   },
 })
-const emit = defineEmits(['changePage','changePagesize'])
-function changePage (pager: {currentPage: number}) { // 分页回调
-  emit('changePage', pager)
+const emit = defineEmits(['currentChange','sizeChange'])
+function currentChange (page: {currentPage: number}) { // 分页回调
+  emit('currentChange', page)
 }
-function changePagesize (pager: {pageSize: number}) { // 分页回调
-  emit('changePagesize', pager)
+function sizeChange (page: {pageSize: number}) { // 分页回调
+  emit('sizeChange', page)
 }
 </script>
 
 <template>
-  <arco-pagination
+  <a-pagination
       :total="page.total"
       :page-size="page.pageSize"
       :page-size-options="page.pageSizes"
@@ -37,8 +37,8 @@ function changePagesize (pager: {pageSize: number}) { // 分页回调
       show-total
       show-jumper
       show-page-size
-      @change="changePage"
-      @page-size-change="changePagesize"
+      @change="currentChange"
+      @page-size-change="sizeChange"
   />
 </template>
 

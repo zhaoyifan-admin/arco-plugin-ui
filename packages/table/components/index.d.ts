@@ -21,8 +21,8 @@ declare interface TableOptions {
 }
 
 declare interface Pagination {
-    currentPage?: number // 当前页码
-    pageSize?: number // 每页条数
-    pageSizes?: any[]
-    total?: number // 总条数
+    currentPage: number // 当前页码
+    pageSize: number // 每页条数
+    pageSizes: any[]
+    total: number // 总条数
 }

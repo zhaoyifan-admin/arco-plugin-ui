@@ -39,6 +39,14 @@ const rowClass = (record: any, rowIndex: number) => {
   }
   return '';
 };
+
+const emit = defineEmits(['currentChange','sizeChange'])
+function currentChange (page: {currentPage: number}) { // 分页回调
+  emit('currentChange', page)
+}
+function sizeChange (page: {pageSize: number}) { // 分页回调
+  emit('sizeChange', page)
+}
 </script>
 
 <template>
@@ -55,9 +63,9 @@ const rowClass = (record: any, rowIndex: number) => {
         </template>
       </component>
       <!--      Table展示区-->
-      <arco-spin dot :loading="loading" :tip="tip">
+      <a-spin dot :loading="loading" :tip="tip">
         <div class="table-show d-flex flex-column">
-          <arco-table :bordered="bordered"
+          <a-table :bordered="bordered"
                       :columns="options.columns"
                       :data="data"
                       :pagination="false"
@@ -66,14 +74,14 @@ const rowClass = (record: any, rowIndex: number) => {
                       column-resizable>
             <template #columns>
               <!--            序号-->
-              <arco-table-column v-if="options.index" title="序号" align="center">
+              <a-table-column v-if="options.index" title="序号" align="center">
                 <template #cell="{ rowIndex }">
                   {{ (page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
                 </template>
-              </arco-table-column>
+              </a-table-column>
               <!--            columns-->
               <template v-for="(item, index) in options.columns">
-                <arco-table-column
+                <a-table-column
                     v-if="!item.hide"
                     :key="index"
                     :title="item.title"
@@ -85,19 +93,21 @@ const rowClass = (record: any, rowIndex: number) => {
                   <template #cell="{ record }">
                     {{ record[item.dataIndex as any] }}
                   </template>
-                </arco-table-column>
+                </a-table-column>
               </template>
             </template>
-          </arco-table>
+          </a-table>
           <!--        分页-->
           <component
               :is="tablePagination"
               :data="data"
               :size="size"
               :page="page"
+              @current-change="currentChange"
+              @size-change="sizeChange"
           />
         </div>
-      </arco-spin>
+      </a-spin>
     </div>
   </div>
 </template>

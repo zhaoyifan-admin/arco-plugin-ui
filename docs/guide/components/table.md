@@ -164,6 +164,7 @@ const columns = ref([
 
 ### Events
 
-| 事件名称   | 说明       | 参数                                                |
-|--------|----------|---------------------------------------------------|
-| change | 分页变化时的回调 | (pager: {page: number, pageSize: number}) => void |
+| 事件名称           | 说明        | 参数               |
+|----------------|-----------|------------------|
+| current-change | 分页变化时的回调  | current: number  |
+| size-change    | 数据条数改变时触发 | pageSize: number |

@@ -3,7 +3,7 @@
 import {reactive} from "vue";
 
 const page = reactive({
-  total: 0,
+  total: 20,
   currentPage: 1,
   pageSize: 5,
   pageSizes: [5, 10, 20, 30, 50],
@@ -34,10 +34,18 @@ const options = reactive({
     }
   ]
 })
+// 分页
+const currentChange = (current: number)=> {
+  page.currentPage = current
+}
+const sizeChange = (pageSize: number)=> {
+  page.pageSize = pageSize
+}
 </script>
 
 <template>
-  <eh-table :data="[]" :page="page" :options="options"></eh-table>
+  <eh-table :data="[]" v-model:page="page" :options="options" @current-change="currentChange"
+            @size-change="sizeChange"></eh-table>
 </template>
 
 <style scoped lang="less">

@@ -14,7 +14,7 @@ onBeforeMount(() => {
 });
 </script>
 <template>
-  <arco-config-provider :theme="theme">
+  <a-config-provider :theme="theme">
     <RouterView />
-  </arco-config-provider>
+  </a-config-provider>
 </template>

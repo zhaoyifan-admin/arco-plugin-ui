@@ -14,21 +14,21 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="arco-compontent-page-button d-flex a-center">
     <div class="arco-compontent-page-left-button">
-      <arco-button type="primary" :size="size">
+      <a-button type="primary" :size="size">
         <template #icon>
           <i class="rtdp xinzeng"></i>
         </template>
         新 增
-      </arco-button>
+      </a-button>
       <slot name="menuLeft" :size="size"></slot>
     </div>
     <div class="arco-compontent-page-right-button d-flex a-center j-end">
       <slot name="menuRight"></slot>
-      <arco-button type="outline" shape="circle" :size="size">
+      <a-button type="outline" shape="circle" :size="size">
         <template #icon>
           <i class="rtdp refresh"></i>
         </template>
-      </arco-button>
+      </a-button>
     </div>
   </div>
 </template>
