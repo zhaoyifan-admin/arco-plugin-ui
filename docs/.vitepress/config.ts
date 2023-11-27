@@ -36,11 +36,11 @@ export default defineConfig({
     //   provider: 'local'
     // },
 
-    algolia: { // algolia 搜索服务 与 内置 search 可二选一
-      appId: 'SHDNEYGA8Z',
-      apiKey: '91419401b0b0efd31b610e54e5b97249',
-      indexName: 'vue-arco-ui'
-    },
+    // algolia: { // algolia 搜索服务 与 内置 search 可二选一
+    //   appId: 'SHDNEYGA8Z',
+    //   apiKey: '91419401b0b0efd31b610e54e5b97249',
+    //   indexName: 'vue-arco-ui'
+    // },
 
     footer: {
       message: 'Released under the MIT License.',
@@ -54,7 +54,7 @@ export default defineConfig({
         text: '链接',
         items: [
           { text: 'My Github', link: 'https://github.com/zhaoyifan-admin' },
-          { text: 'My CSDN', link: 'https://blog.csdn.net/Dandrose?type=blog' },
+          { text: 'My CSDN', link: 'https://mp.csdn.net/mp_blog/manage/article?spm=1011.2124.3001.5298' },
           { text: 'Front-end Notes', link: 'https://zhaoyifan-admin.github.io/front-end-notes/' },
           {
             items: [
