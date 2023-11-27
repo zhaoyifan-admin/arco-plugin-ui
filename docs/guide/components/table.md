@@ -11,38 +11,59 @@
 
 <script setup lang="ts">
 
-import {ref} from "vue";
+import {reactive} from "vue";
 
-const columns = ref([
+const page = reactive({
+  total: 20,
+  currentPage: 1,
+  pageSize: 5,
+  pageSizes: [5, 10, 20, 30, 50],
+});
+const options = reactive({
+  index: false,
+  columns: [
     {
       title: '名字',
+      width: 60,
       dataIndex: 'name',
       slot: 'name'
     },
     {
       title: '年龄',
+      width: 30,
       dataIndex: 'age'
     },
     {
       title: '职业',
+      width: 50,
       dataIndex: 'job',
       slot: 'job'
     },
     {
       title: '性别',
+      width: 30,
       dataIndex: 'sex'
     },
     {
       title: '地址',
+      width: 100,
       dataIndex: 'address'
     }
-  ])
+  ]
+})
+const currentChange = (current: number)=> {
+  page.currentPage = current
+}
+const sizeChange = (pageSize: number)=> {
+  page.pageSize = pageSize
+}
 </script>
 
 ## 基本使用
 
 <ClientOnly>
-  <eh-table :columns="columns" :data="[]"></eh-table>
+  <eh-table :data="[]" v-model:page="page" :options="options" @current-change="currentChange"
+            @size-change="sizeChange"></eh-table>
 </ClientOnly>
 
 ::: details Show Code
@@ -51,35 +72,50 @@ const columns = ref([
 
 <script setup lang="ts">
 
-  import {ref} from "vue";
+  import {reactive} from "vue";
 
-  const columns = ref([
-    {
-      title: '名字',
-      dataIndex: 'name',
-      slot: 'name'
-    },
-    {
-      title: '年龄',
-      dataIndex: 'age'
-    },
-    {
-      title: '职业',
-      dataIndex: 'job',
-      slot: 'job'
-    },
-    {
-      title: '性别',
-      dataIndex: 'sex'
-    },
-    {
-      title: '地址',
-      dataIndex: 'address'
-    }
-  ])
+  const page = reactive({
+    total: 20,
+    currentPage: 1,
+    pageSize: 5,
+    pageSizes: [5, 10, 20, 30, 50],
+  });
+  const options = reactive({
+    index: false,
+    columns: [
+      {
+        title: '名字',
+        dataIndex: 'name',
+      },
+      {
+        title: '年龄',
+        dataIndex: 'age'
+      },
+      {
+        title: '职业',
+        dataIndex: 'job',
+        slot: 'job'
+      },
+      {
+        title: '性别',
+        dataIndex: 'sex'
+      },
+      {
+        title: '地址',
+        dataIndex: 'address'
+      }
+    ]
+  })
+  const currentChange = (current: number)=> {
+    page.currentPage = current
+  }
+  const sizeChange = (pageSize: number)=> {
+    page.pageSize = pageSize
+  }
 </script>
 <template>
-  <eh-table :columns="columns" :data="[]"></eh-table>
+  <eh-table :data="[]" v-model:page="page" :options="options" @current-change="currentChange"
+            @size-change="sizeChange"></eh-table>
 </template>
 ```
 
@@ -88,7 +124,7 @@ const columns = ref([
 ## 加载中
 
 <ClientOnly>
-  <eh-table :columns="columns" loading />
+  <eh-table :options="options" loading />
 </ClientOnly>
 
 ::: details Show Code
