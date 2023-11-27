@@ -74,7 +74,7 @@
   "description": "An Arco Vue3 UI Components Library.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themusecatcher/vue-arco-ui.git"
+    "url": "git+https://github.com/zhaoyifan-admin/vue-arco-ui.git"
   },
   "keywords": [
     "Vue3",
@@ -86,12 +86,12 @@
     "Components",
     "Tools"
   ],
-  "author": "theMuseCatcher",
+  "author": "zhaoyifan-admin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/themusecatcher/vue-arco-ui/issues"
+    "url": "https://github.com/zhaoyifan-admin/vue-arco-ui/issues"
   },
-  "homepage": "https://themusecatcher.github.io/vue-arco-ui",
+  "homepage": "https://zhaoyifan-admin.github.io/vue-arco-ui",
   "browserslist": [
     "> 1%",
     "last 2 versions",
