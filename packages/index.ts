@@ -23,7 +23,6 @@ import Card from './card'
 import Cascader from './cascader'
 import Checkbox from './checkbox'
 import Col from './col'
-import Collapse from './collapse'
 import Countdown from './countdown'
 import DatePicker from './datepicker'
 import Descriptions from './descriptions'
@@ -74,7 +73,6 @@ const components = [
   Cascader,
   Checkbox,
   Col,
-  Collapse,
   Countdown,
   DatePicker,
   Descriptions,
@@ -151,7 +149,6 @@ export {
   Cascader,
   Checkbox,
   Col,
-  Collapse,
   Countdown,
   DatePicker,
   Descriptions,
