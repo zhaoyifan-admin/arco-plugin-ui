@@ -79,12 +79,6 @@ export const routes = [
         component: () => import('@/views/Checkbox.vue')
       },
       {
-        path: '/collapse',
-        name: 'Collapse',
-        meta: { title: '折叠面板' },
-        component: () => import('@/views/Collapse.vue')
-      },
-      {
         path: '/countdown',
         name: 'Countdown',
         meta: { title: '倒计时' },
