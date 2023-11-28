@@ -10,6 +10,7 @@ const page = reactive({
 });
 const options = reactive({
   index: false,
+  menuWidth: 425,
   columns: [
     {
       title: '名字',
@@ -44,7 +45,7 @@ const sizeChange = (pageSize: number)=> {
 </script>
 
 <template>
-  <eh-table :data="[]" v-model:page="page" :options="options" @current-change="currentChange"
+  <eh-table :data="[{}]" v-model:page="page" :options="options" @current-change="currentChange"
             @size-change="sizeChange"></eh-table>
 </template>
 

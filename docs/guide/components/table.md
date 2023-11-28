@@ -180,14 +180,16 @@ const columns = ref([
 | showPagination   | 是否显示分页          | boolean     | true                                                                   |
 | hideOnSinglePage | 只有 `1` 页时是否隐藏分页 | boolean     | false                                                                  |
 | options          | 表单配置项参考Option配置 | object      | -                                                                      |
+| size             |                 | string      | small                                                                  |
 
-### options Type
+### Options Type
 
 | 名称         | 说明                | 类型                | 默认值   |
 |------------|-------------------|-------------------|-------|
 | index      | 是否有序号	            | boolean           | false |
 | indexWidth | 序号列宽度             | number            | 50    |
 | columns    | 表单列配置参考Column相关配置 | TableColumnData[] |       |
+| menuWidth  | 操作栏宽度             | number            |       |
 
 ### Pagination Type
 

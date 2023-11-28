@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 // ant-desing按需引入
 import Components from 'unplugin-vue-components/vite'
 import {ArcoResolver} from 'unplugin-vue-components/resolvers'
+import { vitePluginForArco } from '@arco-plugins/vite-vue'
 // 打包体积可视化插件
 // import { visualizer } from 'rollup-plugin-visualizer'
 
@@ -26,7 +27,10 @@ export default defineConfig({
     // }),
     Components({
       resolvers: [ArcoResolver()],
-    })
+    }),
+    vitePluginForArco({
+      theme: '@arco-themes/vue-eh-arco-plugin',
+    }),
   ],
   resolve: {
     alias: {

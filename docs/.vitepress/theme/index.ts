@@ -10,10 +10,7 @@ import '@arco-design/web-vue/dist/arco.css';
 export default {
   extends: DefaultTheme, // or ...DefaultTheme
   enhanceApp ({ app }) {
-    app.use(ArcoVue, {
-      // 用于改变使用组件时的前缀名称
-      componentPrefix: 'arco'
-    })
+    app.use(ArcoVue)
     app.use(VueArcoUI)
   }
 }

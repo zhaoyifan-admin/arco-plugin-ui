@@ -18,6 +18,7 @@ declare interface TableOptions {
     index?: boolean // 是否有序号
     indexWidth?: number
     columns?: TableColumnData[]
+    menuWidth?: number
 }
 
 declare interface Pagination {

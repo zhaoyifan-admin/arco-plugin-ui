@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {defineAsyncComponent} from "vue";
+import {computed, defineAsyncComponent} from "vue";
 
 const tablePagination = defineAsyncComponent(
     () => import('./components/table-pagination/index.vue')
@@ -24,7 +24,7 @@ withDefaults(defineProps<Props>(), {
   },
   data: () => [],
   loading: false,
-  size: 'medium',
+  size: 'small',
   tip: '加载中...',
   options: () => {
     return {index: false}
@@ -39,12 +39,14 @@ const rowClass = (record: any, rowIndex: number) => {
   }
   return '';
 };
-
-const emit = defineEmits(['currentChange','sizeChange'])
-function currentChange (page: {currentPage: number}) { // 分页回调
+const handleMenuClick = (type: string, params: any) => {
+  console.log(type, params);
+};
+const emit = defineEmits(['currentChange', 'sizeChange'])
+const currentChange = (page: { currentPage: number }) => { // 分页回调
   emit('currentChange', page)
 }
-function sizeChange (page: {pageSize: number}) { // 分页回调
+const sizeChange = (page: { pageSize: number }) => { // 分页回调
   emit('sizeChange', page)
 }
 </script>
@@ -66,12 +68,12 @@ function sizeChange (page: {pageSize: number}) { // 分页回调
       <a-spin dot :loading="loading" :tip="tip">
         <div class="table-show d-flex flex-column">
           <a-table :bordered="bordered"
-                      :columns="options.columns"
-                      :data="data"
-                      :pagination="false"
-                      :row-class="rowClass"
-                      :size="size"
-                      column-resizable>
+                   :columns="options.columns"
+                   :data="data"
+                   :pagination="false"
+                   :row-class="rowClass"
+                   :size="size"
+                   column-resizable>
             <template #columns>
               <!--            序号-->
               <a-table-column v-if="options.index" title="序号" align="center">
@@ -95,6 +97,52 @@ function sizeChange (page: {pageSize: number}) { // 分页回调
                   </template>
                 </a-table-column>
               </template>
+              <!--            操作栏-->
+              <a-table-column
+                  title="操作栏"
+                  align="center"
+                  :width="options.menuWidth"
+                  fixed="right"
+              >
+                <template #cell="{ record }">
+                  <a-button
+                      type="text"
+                      :size="size"
+                      @click="handleMenuClick('see', record)"
+                  >
+                    <template #icon>
+                      <i class="rtdp chakan"></i>
+                    </template>
+                    查 看
+                  </a-button>
+                  <a-button
+                      type="text"
+                      :size="size"
+                      @click="handleMenuClick('edit', record)"
+                  >
+                    <template #icon>
+                      <i class="rtdp caozuo-bianji"></i>
+                    </template>
+                    编 辑
+                  </a-button>
+                  <a-button
+                      type="text"
+                      :size="size"
+                      @click="handleMenuClick('seeVedio', record)"
+                  >
+                    <template #icon>
+                      <i class="rtdp shipin"></i>
+                    </template>
+                    查看视频
+                  </a-button>
+                  <a-button type="text" :size="size" status="danger">
+                    <template #icon>
+                      <i class="rtdp deletebtn"></i>
+                    </template>
+                    删 除
+                  </a-button>
+                </template>
+              </a-table-column>
             </template>
           </a-table>
           <!--        分页-->
