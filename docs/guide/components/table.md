@@ -30,7 +30,7 @@ const options = reactive({
     },
     {
       title: '年龄',
-      width: 30,
+      width: 70,
       dataIndex: 'age'
     },
     {
@@ -41,7 +41,7 @@ const options = reactive({
     },
     {
       title: '性别',
-      width: 30,
+      width: 70,
       dataIndex: 'sex'
     },
     {
@@ -85,23 +85,29 @@ const sizeChange = (pageSize: number)=> {
     columns: [
       {
         title: '名字',
+        width: 60,
         dataIndex: 'name',
+        slot: 'name'
       },
       {
         title: '年龄',
+        width: 70,
         dataIndex: 'age'
       },
       {
         title: '职业',
+        width: 50,
         dataIndex: 'job',
         slot: 'job'
       },
       {
         title: '性别',
+        width: 70,
         dataIndex: 'sex'
       },
       {
         title: '地址',
+        width: 100,
         dataIndex: 'address'
       }
     ]
@@ -141,7 +147,7 @@ const columns = ref([
         },
         {
           title: '年龄',
-          width: 30,
+          width: 70,
           dataIndex: 'age'
         },
         {
@@ -152,7 +158,7 @@ const columns = ref([
         },
         {
           title: '性别',
-          width: 30,
+          width: 70,
           dataIndex: 'sex'
         },
         {

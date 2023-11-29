@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import {computed, defineAsyncComponent} from "vue";
+import {computed, defineAsyncComponent, ref} from "vue";
 
+const tabs = defineAsyncComponent(
+    () => import('./components/tabs/index.vue')
+);
 const tablePagination = defineAsyncComponent(
     () => import('./components/table-pagination/index.vue')
 );
@@ -39,6 +42,26 @@ const rowClass = (record: any, rowIndex: number) => {
   }
   return '';
 };
+const searchTabs = ref(true);
+const menuStyle = computed(() => {
+  const width = {
+    width: '0',
+  };
+  const padding = {
+    padding: '0',
+  };
+  if (searchTabs.value) {
+    width.width = '425px';
+    padding.padding = '10px 10px 10px 0';
+  } else {
+    width.width = '0';
+    padding.padding = '0';
+  }
+  return {...width, ...padding};
+});
+const onCollapse = () => {
+  searchTabs.value = !searchTabs.value;
+};
 const handleMenuClick = (type: string, params: any) => {
   console.log(type, params);
 };
@@ -53,8 +76,26 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
 
 <template>
   <div ref="atble" class="arco-compontent-page d-flex a-start">
+    <!--    Tab操作区-->
+    <div class="arco-compontent-page-tabs p-relative" :style="menuStyle">
+      <component
+          :is="tabs"
+          v-show="searchTabs"
+          :options="options"
+          :searchTabs="searchTabs"
+      />
+      <div class="collapse-btn-box p-absolute" @click="onCollapse"></div>
+    </div>
     <!--    主视图-->
     <div class="arco-compontent-page-table d-flex flex-column">
+      <div class="arco-compontent-page-search">
+        <component
+            :is="tabs"
+            v-show="!searchTabs"
+            :options="options"
+            :searchTabs="searchTabs"
+        />
+      </div>
       <!--    菜单栏按钮-->
       <component :is="topButton" :columns="options.columns">
         <template #menuLeft>

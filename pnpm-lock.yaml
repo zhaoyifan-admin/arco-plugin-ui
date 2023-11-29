@@ -36,8 +36,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4
   vue-arco-ui:
-    specifier: ^0.1.33
-    version: 0.1.33
+    specifier: ^0.1.36
+    version: 0.1.36(@arco-design/web-vue@2.53.3)
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.4)
@@ -3687,9 +3687,10 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
-  /vue-arco-ui@0.1.33:
-    resolution: {integrity: sha512-dtQ0YRMhsbLCvw9DnMFWeq45Z9W8zzMi70+4A0gYuFLJoeRqkOTQpbu4D/TeIQQwmkRXTdD/cN5ySuNtb5cViw==}
+  /vue-arco-ui@0.1.36(@arco-design/web-vue@2.53.3):
+    resolution: {integrity: sha512-fND4GTve4FyL1tFFqmKkzRp1tY0zxP3xuIis4yvDb0M9ricJI/1d5BmWaerm+CDrnOnJgtyeQ3dWYUiIfyyIAA==}
     dependencies:
+      '@arco-themes/vue-eh-arco-plugin': 0.0.7(@arco-design/web-vue@2.53.3)
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)
       '@vueuse/core': 10.5.0(vue@3.3.4)
       '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
@@ -3701,6 +3702,7 @@ packages:
       vue: 3.3.4
       vue-router: 4.2.5(vue@3.3.4)
     transitivePeerDependencies:
+      - '@arco-design/web-vue'
       - '@vue/composition-api'
       - async-validator
       - axios
