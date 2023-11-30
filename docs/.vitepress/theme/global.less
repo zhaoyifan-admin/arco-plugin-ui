@@ -382,3 +382,165 @@ html.dark .VPHome {
 .VPNavBarMenuLink {
   color:#FFFFFF!important;
 }
+::v-deep(.arco-table-th) {
+  background-color: var(--color-bg-2);
+}
+
+::v-deep(.arco-tabs-content-list) {
+  height: 100%;
+}
+
+::v-deep(.arco-tabs-pane) {
+  height: 100%;
+}
+
+.arco-compontent-page {
+  width: 100%;
+  height: 100%;
+}
+
+.arco-compontent-page-tabs {
+  height: 100%;
+  background-color: var(--color-menu-light-bg);
+  border-radius: 5px;
+  margin-right: 15px;
+  transition: all 0.5s ease;
+
+  .collapse-btn-box {
+    background-color: rgb(var(--primary-6));
+    width: 20px;
+    height: 75px;
+    border-radius: 10px;
+    right: -10px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .arco-compontent-page-tab-search-box {
+    width: 100%;
+    height: 100%;
+
+    .arco-compontent-page-tab-search-form {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .arco-compontent-page-tab-search-btns {
+      height: 30px;
+      text-align: right;
+    }
+  }
+}
+
+.arco-compontent-page-table {
+  flex: 1;
+  background-color: var(--color-menu-light-bg);
+  border-radius: 5px;
+  padding: 10px;
+  height: 100%;
+}
+
+::v-deep(.warning-row>.arco-table-td) {
+  background: var(--eh-color-warningRow)
+}
+
+::v-deep(.success-row>.arco-table-td) {
+  background: #36C036;
+}
+
+::v-deep(.arco-table-th) {
+  font-weight: bold;
+  background: var(--eh-bg-tableHeader)
+}
+
+::v-deep(.arco-table-hover:not(.arco-table-dragging) .arco-table-tr:not(.arco-table-tr-empty):not(.arco-table-tr-summary):hover .arco-table-td:not(.arco-table-col-fixed-left):not(.arco-table-col-fixed-right)) {
+  background: var(--eh-color-tableHover-cloumn)!important;
+}
+.arco-table {
+  flex: 1;
+}
+.arco-pagination {
+  margin-top: 10px;
+  justify-content: center;
+}
+
+/* flex布局 */
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.j-start {
+  justify-content: flex-start;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.j-end {
+  justify-content: flex-end;
+}
+
+.j-sb {
+  justify-content: space-between;
+}
+
+.j-sa {
+  justify-content: space-around;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.a-start {
+  align-items: flex-start;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.a-end {
+  align-items: flex-end;
+}
+
+.a-stretch {
+  align-items: stretch;
+}
+
+.a-self-start {
+  align-self: flex-start;
+}
+
+.a-self-end {
+  align-self: flex-end;
+}
+
+.flex-shrink {
+  flex-shrink: 0;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.p-fixed {
+  position: fixed !important;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}

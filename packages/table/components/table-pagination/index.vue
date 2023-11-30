@@ -18,10 +18,10 @@ withDefaults(defineProps<Props>(), {
   },
 })
 const emit = defineEmits(['currentChange','sizeChange'])
-const currentChange = (page: { currentPage: number }) => { // 分页回调
+const currentChange = (page: { currentPage: number }) => {
   emit('currentChange', page)
 }
-const sizeChange = (page: { pageSize: number }) => { // 分页回调
+const sizeChange = (page: { pageSize: number }) => {
   emit('sizeChange', page)
 }
 </script>

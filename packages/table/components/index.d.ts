@@ -7,18 +7,24 @@ declare interface TableBorder {
 
 declare interface TableColumnData {
     align?: 'left' | 'center' | 'right'
-    dataIndex?: string
+    dataIndex: string
     hide?: boolean
+    options?: any[]
+    search?: boolean
     slot?: string
-    title?: string
+    span?: number
+    title: string
+    type?: string
     width?: number
 }
 
 declare interface TableOptions {
-    index?: boolean // 是否有序号
+    loading?: boolean
+    index?: boolean
     indexWidth?: number
     columns?: TableColumnData[]
     menuWidth?: number
+    search?: boolean
 }
 
 declare interface Pagination {

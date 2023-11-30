@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import {computed, defineAsyncComponent, ref} from "vue";
 
+const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'update:searchForm'])
+
+const search = defineAsyncComponent(
+    () => import('./components/search/index.vue')
+);
 const tabs = defineAsyncComponent(
     () => import('./components/tabs/index.vue')
 );
@@ -12,37 +17,49 @@ const topButton = defineAsyncComponent(
 );
 
 interface Props {
-  bordered?: TableBorder
+  bordered?: boolean | TableBorder
   data?: any[],
   loading?: boolean,
+  searchForm?: object,
   size?: 'mini' | 'small' | 'medium' | 'large',
   tip?: string,
   options?: TableOptions,
   page?: Pagination,
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   bordered: () => {
     return {cell: true}
   },
   data: () => [],
   loading: false,
+  searchForm: () => {
+    return {}
+  },
   size: 'small',
   tip: '加载中...',
   options: () => {
-    return {index: false}
+    return {
+      loading: false,
+      index: false,
+      indexWidth: 60,
+      columns: [],
+      menuWidth: 120,
+      search: false,
+    }
   },
   page: () => {
     return {currentPage: 1, pageSize: 10, pageSizes: [5, 10, 20, 30, 50], total: 0}
   },
 })
+
 const rowClass = (record: any, rowIndex: number) => {
   if (rowIndex % 2 === 1) {
     return 'warning-row';
   }
   return '';
 };
-const searchTabs = ref(true);
+const searchTabs = ref(false);
 const menuStyle = computed(() => {
   const width = {
     width: '0',
@@ -59,13 +76,25 @@ const menuStyle = computed(() => {
   }
   return {...width, ...padding};
 });
+
+const Form: { [key: string]: any } = computed({
+  get() {
+    return props.searchForm
+  },
+  set(val) {
+    emit('update:searchForm', val)
+  }
+})
+
 const onCollapse = () => {
   searchTabs.value = !searchTabs.value;
 };
 const handleMenuClick = (type: string, params: any) => {
   console.log(type, params);
 };
-const emit = defineEmits(['currentChange', 'sizeChange'])
+const onSearch = (object: object, done: any) => {
+  emit('searchChange', object, done)
+};
 const currentChange = (page: { currentPage: number }) => { // 分页回调
   emit('currentChange', page)
 }
@@ -80,9 +109,11 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
     <div class="arco-compontent-page-tabs p-relative" :style="menuStyle">
       <component
           :is="tabs"
+          :size="size"
           v-show="searchTabs"
           :options="options"
           :searchTabs="searchTabs"
+          v-model:searchForm="Form"
       />
       <div class="collapse-btn-box p-absolute" @click="onCollapse"></div>
     </div>
@@ -90,14 +121,16 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
     <div class="arco-compontent-page-table d-flex flex-column">
       <div class="arco-compontent-page-search">
         <component
-            :is="tabs"
-            v-show="!searchTabs"
+            :is="search"
+            :size="size"
             :options="options"
             :searchTabs="searchTabs"
+            v-model:searchForm="Form"
+            @search-change="onSearch"
         />
       </div>
       <!--    菜单栏按钮-->
-      <component :is="topButton" :columns="options.columns">
+      <component :is="topButton" :size="size" :columns="options.columns">
         <template #menuLeft>
           <slot name="menuLeft" :size="size"></slot>
         </template>
@@ -114,6 +147,7 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                    :pagination="false"
                    :row-class="rowClass"
                    :size="size"
+                   :loading="options.loading"
                    column-resizable>
             <template #columns>
               <!--            序号-->

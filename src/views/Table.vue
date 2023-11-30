@@ -15,6 +15,7 @@ const options = reactive({
     {
       title: '名字',
       dataIndex: 'name',
+      search: true,
     },
     {
       title: '年龄',
@@ -35,6 +36,13 @@ const options = reactive({
     }
   ]
 })
+const searchForm = reactive({});
+const onSearch = (form: object, done:any) => {
+  console.log(form)
+  setTimeout(()=>{
+    done();
+  },3500)
+};
 // 分页
 const currentChange = (current: number)=> {
   page.currentPage = current
@@ -45,7 +53,8 @@ const sizeChange = (pageSize: number)=> {
 </script>
 
 <template>
-  <eh-table :data="[{}]" v-model:page="page" :options="options" @current-change="currentChange"
+  <eh-table :data="[]" v-model:page="page" v-model:searchForm="searchForm" :options="options" @current-change="currentChange"
+            @search-change="onSearch"
             @size-change="sizeChange"></eh-table>
 </template>
 
