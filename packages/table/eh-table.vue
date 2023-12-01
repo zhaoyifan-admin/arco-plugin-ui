@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, defineAsyncComponent, ref} from "vue";
+import {computed, defineAsyncComponent, ref, watch} from "vue";
 
 const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'update:searchForm'])
 
@@ -85,7 +85,6 @@ const Form: { [key: string]: any } = computed({
     emit('update:searchForm', val)
   }
 })
-
 const onCollapse = () => {
   searchTabs.value = !searchTabs.value;
 };
@@ -95,6 +94,9 @@ const handleMenuClick = (type: string, params: any) => {
 const onSearch = (object: object, done: any) => {
   emit('searchChange', object, done)
 };
+const onReset = (object: object) => {
+  emit('searchReset', object)
+}
 const currentChange = (page: { currentPage: number }) => { // 分页回调
   emit('currentChange', page)
 }
@@ -127,6 +129,7 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
             :searchTabs="searchTabs"
             v-model:searchForm="Form"
             @search-change="onSearch"
+            @search-reset="onReset"
         />
       </div>
       <!--    菜单栏按钮-->

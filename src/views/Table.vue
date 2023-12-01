@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
 
 const page = reactive({
   total: 20,
@@ -36,13 +36,18 @@ const options = reactive({
     }
   ]
 })
-const searchForm = reactive({});
+const searchForm = ref({});
 const onSearch = (form: object, done:any) => {
-  console.log(form)
+  console.log(searchForm.value,1101)
+  console.log(form,1102);
   setTimeout(()=>{
     done();
   },3500)
 };
+const onReset = (form: object) => {
+  console.log(searchForm.value,1103)
+  console.log(form,1104);
+}
 // 分页
 const currentChange = (current: number)=> {
   page.currentPage = current
@@ -55,6 +60,7 @@ const sizeChange = (pageSize: number)=> {
 <template>
   <eh-table :data="[]" v-model:page="page" v-model:searchForm="searchForm" :options="options" @current-change="currentChange"
             @search-change="onSearch"
+            @search-reset="onReset"
             @size-change="sizeChange"></eh-table>
 </template>
 

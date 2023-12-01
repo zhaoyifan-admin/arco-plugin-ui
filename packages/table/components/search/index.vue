@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, onMounted, ref} from "vue";
+import {onMounted, reactive, ref, watch} from "vue";
 
-const emit = defineEmits(['searchChange', 'update:searchForm'])
+const emit = defineEmits(['searchChange', 'searchReset', 'update:searchForm'])
 
 interface Props {
   data?: any[],
@@ -29,30 +29,31 @@ const props = withDefaults(defineProps<Props>(), {
   },
 })
 const disabledForm = ref(false);
-const Form: { [key: string]: any } = computed({
-  get() {
-    return props.searchForm
-  },
-  set(val) {
-    emit('update:searchForm', val)
-  }
-})
+let Form: { [key: string]: any } = reactive({})
 const showSearch = ref(false);
+watch(() => props.searchForm, () => {
+  Form = props.searchForm;
+}, {
+  immediate: true
+})
 onMounted(() => {
-  if(props.options.columns) {
+  if (props.options.columns) {
     const index = props.options.columns.findIndex((item) => item.search === true);
     showSearch.value = index !== -1;
   }
 })
-const done = () =>{
+const done = () => {
   disabledForm.value = false;
 }
 const onSearch = () => {
   disabledForm.value = true;
-  emit('searchChange', Form.value, done)
+  emit('update:searchForm', Form);
+  emit('searchChange', Form, done);
 };
 const onReset = () => {
-
+  Form = {};
+  emit('update:searchForm', Form);
+  emit('searchReset', Form);
 };
 </script>
 
