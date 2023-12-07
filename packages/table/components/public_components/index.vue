@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import {computed, reactive, ref, watch} from "vue";
-const emit = defineEmits([])
+import {computed} from "vue";
+
+const emit = defineEmits(['update:searchForm'])
 
 interface Props {
   disabledForm: boolean,
@@ -9,6 +10,7 @@ interface Props {
   size?: 'mini' | 'small' | 'medium' | 'large',
   options?: TableOptions,
 }
+
 const props = withDefaults(defineProps<Props>(), {
   disabledForm: false,
   data: () => [],

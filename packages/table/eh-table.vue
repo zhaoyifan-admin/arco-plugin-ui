@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed, defineAsyncComponent, ref} from "vue";
 
-const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset'])
+const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'update:searchForm'])
 
 const search = defineAsyncComponent(
     () => import('./components/search/index.vue')
@@ -20,11 +20,11 @@ interface Props {
   bordered?: boolean | TableBorder
   data?: any[],
   loading?: boolean,
+  options?: TableOptions,
+  page?: Pagination,
   searchForm?: object,
   size?: 'mini' | 'small' | 'medium' | 'large',
   tip?: string,
-  options?: TableOptions,
-  page?: Pagination,
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -40,14 +40,14 @@ const props = withDefaults(defineProps<Props>(), {
   tip: '加载中...',
   options: () => {
     return {
-      loading: false,
+      columns: [],
       index: false,
       indexWidth: 60,
-      columns: [],
+      loading: false,
       menuWidth: 120,
       search: false,
-      searchSpan: 6,
       searchBtnSpan: 6,
+      searchSpan: 6,
     }
   },
   page: () => {
@@ -111,10 +111,10 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
     <div class="arco-compontent-page-tabs p-relative" :style="menuStyle">
       <component
           :is="tabs"
-          :size="size"
           v-show="searchTabs"
           :options="options"
           :searchTabs="searchTabs"
+          :size="size"
       />
       <div class="collapse-btn-box p-absolute" @click="onCollapse"></div>
     </div>
@@ -123,10 +123,10 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
       <div class="arco-compontent-page-search">
         <component
             :is="search"
-            :size="size"
+            v-model:searchForm="searchForm"
             :options="options"
             :searchTabs="searchTabs"
-            v-model:searchForm="searchForm"
+            :size="size"
             @search-change="searchChange"
             @search-reset="searchReset"
         />
@@ -146,10 +146,10 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
           <a-table :bordered="bordered"
                    :columns="options.columns"
                    :data="data"
+                   :loading="options.loading"
                    :pagination="false"
                    :row-class="rowClass"
                    :size="size"
-                   :loading="options.loading"
                    column-resizable>
             <template #columns>
               <!--            序号-->
@@ -163,11 +163,11 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                 <a-table-column
                     v-if="!item.hide"
                     :key="index"
-                    :title="item.title"
                     :data-index="item.dataIndex"
+                    :ellipsis="item.ellipsis"
+                    :title="item.title"
+                    :tooltip="item.tooltip"
                     :width="item.width"
-                    ellipsis
-                    tooltip
                 >
                   <template #cell="{ record }">
                     {{ record[item.dataIndex as any] }}
@@ -176,15 +176,15 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
               </template>
               <!--            操作栏-->
               <a-table-column
-                  title="操作栏"
-                  align="center"
                   :width="options.menuWidth"
+                  align="center"
                   fixed="right"
+                  title="操作栏"
               >
                 <template #cell="{ record }">
                   <a-button
-                      type="text"
                       :size="size"
+                      type="text"
                       @click="handleMenuClick('see', record)"
                   >
                     <template #icon>
@@ -193,8 +193,8 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                     查 看
                   </a-button>
                   <a-button
-                      type="text"
                       :size="size"
+                      type="text"
                       @click="handleMenuClick('edit', record)"
                   >
                     <template #icon>
@@ -203,8 +203,8 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                     编 辑
                   </a-button>
                   <a-button
-                      type="text"
                       :size="size"
+                      type="text"
                       @click="handleMenuClick('seeVedio', record)"
                   >
                     <template #icon>
@@ -226,8 +226,8 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
           <component
               :is="tablePagination"
               :data="data"
-              :size="size"
               :page="page"
+              :size="size"
               @current-change="currentChange"
               @size-change="sizeChange"
           />

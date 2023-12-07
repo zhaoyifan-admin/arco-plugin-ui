@@ -8,7 +8,9 @@ declare interface TableBorder {
 declare interface TableColumnData {
     align?: 'left' | 'center' | 'right'
     dataIndex: string
+    ellipsis?: boolean
     hide?: boolean
+    fixed?: string
     options?: any[]
     search?: boolean
     slot?: string
@@ -16,17 +18,18 @@ declare interface TableColumnData {
     title: string
     type?: string
     width?: number
+    tooltip?:boolean|object
 }
 
 declare interface TableOptions {
-    loading?: boolean
+    columns?: TableColumnData[]
     index?: boolean
     indexWidth?: number
-    columns?: TableColumnData[]
+    loading?: boolean
     menuWidth?: number
     search?: boolean
-    searchSpan?: number
     searchBtnSpan?: number
+    searchSpan?: number
 }
 
 declare interface Pagination {

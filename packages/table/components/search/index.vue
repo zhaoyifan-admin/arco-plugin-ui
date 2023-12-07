@@ -4,7 +4,7 @@ import {onMounted, defineAsyncComponent, ref, computed} from "vue";
 const publicComponents = defineAsyncComponent(
     () => import('../public_components/index.vue')
 );
-const emit = defineEmits(['searchChange', 'searchReset'])
+const emit = defineEmits(['searchChange', 'searchReset', 'update:searchForm'])
 
 interface Props {
   data?: any[],
@@ -41,6 +41,8 @@ const props = withDefaults(defineProps<Props>(), {
   },
 })
 const disabledForm = ref(false);
+const Loading = ref(false);
+const showSearch = ref(false);
 const publicComponentsRef = ref<any>();
 const searchForm: { [key: string]: any } = computed({
   get() {
@@ -50,7 +52,6 @@ const searchForm: { [key: string]: any } = computed({
     emit('update:searchForm', val)
   }
 })
-const showSearch = ref(false);
 onMounted(() => {
   if (props.options.columns) {
     const index = props.options.columns.findIndex((item) => item.search === true);
@@ -59,8 +60,10 @@ onMounted(() => {
 })
 const done = () => {
   disabledForm.value = false;
+  Loading.value = false;
 }
 const searchChange = () => {
+  Loading.value = true;
   disabledForm.value = true;
   emit('searchChange', searchForm.value, done);
 };
@@ -77,11 +80,12 @@ defineExpose({
   <div class="arco-compontent-page-tab-search-form">
     <a-form v-if="showSearch" :model="searchForm" :size="size" :disabled="disabled">
       <a-row :gutter="16">
-        <component :is="publicComponents" ref="publicComponentsRef" :disabledForm="disabledForm" :data="data" :size="size" v-model:searchForm="searchForm"
+        <component :is="publicComponents" ref="publicComponentsRef" :disabledForm="disabledForm" :data="data"
+                   :size="size" v-model:searchForm="searchForm"
                    :options="options"/>
         <a-col :span="options.searchBtnSpan || 6" class="t-c">
           <a-space>
-            <a-button type="primary" :size="size" @click="searchChange">
+            <a-button type="primary" :size="size" :loading="Loading" @click="searchChange">
               <template #icon>
                 <i class="rtdp sousuo"></i>
               </template>

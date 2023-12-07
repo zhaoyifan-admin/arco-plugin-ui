@@ -154,6 +154,18 @@ const sizeChange = (pageSize: number)=> {
 | searchSpan	   | 搜索项框栅列	           | number            | 6     |
 | searchBtnSpan | 查询表单按钮栅列          | number            | 6     |
 
+### < column >  Props
+
+| 名称         | 说明                      | 类型                        | 默认值   |
+|------------|-------------------------|---------------------------|-------|
+| title      | 列标题	                    | string                    |       |
+| data-index | 列信息的标识，对应TableData中的数据	 | string                    |       |
+| width      | 列宽度	                    | number                    |       |
+| align      | 对齐方向                    | TableColumnData['align']  |       |
+| fixed      | 固定位置	                   | TableColumnData['fixed']	 |       |
+| ellipsis   | 是否显示为省略                 | boolean                   | false |
+
+
 ### Pagination Type
 
 | 名称          | 说明           | 类型       | 默认值                  |
