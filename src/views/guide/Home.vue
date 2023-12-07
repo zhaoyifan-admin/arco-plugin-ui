@@ -76,6 +76,11 @@ const sum = computed(() => {
       <li class="u-tip mb10"><Tag color="volcano">downloadFile</Tag>: 下载文件并自定义文件名，未传文件名时，从文件地址中自动获取文件名称！</li>
       <li class="u-tip mb10"><Tag color="volcano">formatNumber</Tag>: 数字格式化函数！</li>
       <li class="u-tip mb10"><Tag color="volcano">toggleDark</Tag>: 一键切换暗黑模式函数！</li>
+      <li class="u-tip mb10"><Tag color="volcano">gps84_To_Gcj02</Tag>: 84 to 火星坐标系 (GCJ-02) 函数！</li>
+      <li class="u-tip mb10"><Tag color="volcano">gcj02_To_Gps84</Tag>: 火星坐标系 (GCJ-02) to 84函数！</li>
+      <li class="u-tip mb10"><Tag color="volcano">gps84_To_bd09</Tag>: gps84转为bd09函数！</li>
+      <li class="u-tip mb10"><Tag color="volcano">bd09_To_gps84</Tag>: gbd09转为ps84函数！</li>
+      <li class="u-tip mb10"><Tag color="volcano">gcj02_To_Bd09</Tag>: 火星坐标系 (GCJ-02) 与百度坐标系 (BD-09) 的转换算法函数！</li>
     </ul>
     <Collapse
       lang="vue3"

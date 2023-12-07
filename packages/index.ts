@@ -10,7 +10,12 @@ import {
   add,
   downloadFile,
   formatNumber,
-  toggleDark
+  toggleDark,
+  gps84_To_Gcj02,
+  gcj02_To_Gps84,
+  gps84_To_bd09,
+  bd09_To_gps84,
+  gcj02_To_Bd09,
 } from './utils'
 import type { App } from 'vue'
 import Alert from './alert'
@@ -136,7 +141,12 @@ export {
   add,
   downloadFile,
   formatNumber,
-  toggleDark
+  toggleDark,
+  gps84_To_Gcj02,
+  gcj02_To_Gps84,
+  gps84_To_bd09,
+  bd09_To_gps84,
+  gcj02_To_Bd09,
 }
 export {
   Alert,
