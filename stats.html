@@ -978,7 +978,7 @@ var drawChart = (function (exports) {
    * @param {String} `str`
    * @param {Object} `options`
    * @return {Object} Returns an object with tokens and regex source string.
-   * @api public
+   * @api public_components
    */
 
   const scan$1 = (input, options) => {
@@ -2418,7 +2418,7 @@ var drawChart = (function (exports) {
    * @param {String|Array} `globs` One or more glob patterns.
    * @param {Object=} `options`
    * @return {Function=} Returns a matcher function.
-   * @api public
+   * @api public_components
    */
 
   const picomatch = (glob, options, returnState = false) => {
@@ -2503,7 +2503,7 @@ var drawChart = (function (exports) {
    * @param {String} `input` String to test.
    * @param {RegExp} `regex`
    * @return {Object} Returns an object with matching info.
-   * @api public
+   * @api public_components
    */
 
   picomatch.test = (input, regex, options, { glob, posix } = {}) => {
@@ -2547,7 +2547,7 @@ var drawChart = (function (exports) {
    * @param {String} `input` String to test.
    * @param {RegExp|String} `glob` Glob pattern or regex created by [.makeRe](#makeRe).
    * @return {Boolean}
-   * @api public
+   * @api public_components
    */
 
   picomatch.matchBase = (input, glob, options) => {
@@ -2569,7 +2569,7 @@ var drawChart = (function (exports) {
    * @param {String|Array} patterns One or more glob patterns to use for matching.
    * @param {Object} [options] See available [options](#options).
    * @return {Boolean} Returns true if any patterns match `str`
-   * @api public
+   * @api public_components
    */
 
   picomatch.isMatch = (str, patterns, options) => picomatch(patterns, options)(str);
@@ -2585,7 +2585,7 @@ var drawChart = (function (exports) {
    * @param {String} `pattern`
    * @param {Object} `options`
    * @return {Object} Returns an object with useful properties and output to be used as a regex source string.
-   * @api public
+   * @api public_components
    */
 
   picomatch.parse = (pattern, options) => {
@@ -2617,7 +2617,7 @@ var drawChart = (function (exports) {
    * @param {String} `input` Glob pattern to scan.
    * @param {Object} `options`
    * @return {Object} Returns an object with
-   * @api public
+   * @api public_components
    */
 
   picomatch.scan = (input, options) => scan(input, options);
@@ -2636,7 +2636,7 @@ var drawChart = (function (exports) {
    * @param {String} `state` The object returned from the `.parse` method.
    * @param {Object} `options`
    * @return {RegExp} Returns a regex created from the given pattern.
-   * @api public
+   * @api public_components
    */
 
   picomatch.compileRe = (parsed, options, returnOutput = false, returnState = false) => {
@@ -2704,7 +2704,7 @@ var drawChart = (function (exports) {
    * @param {String} `source` Regular expression source string.
    * @param {Object} `options`
    * @return {RegExp}
-   * @api public
+   * @api public_components
    */
 
   picomatch.toRegex = (source, options) => {
@@ -3137,7 +3137,7 @@ var drawChart = (function (exports) {
 
   /**
    * Module exports.
-   * @public
+   * @public_components
    */
 
   bytes$1.exports = bytes;
@@ -3206,7 +3206,7 @@ var drawChart = (function (exports) {
    * @param {string} [options.unitSeparator=]
    *
    * @returns {string|null}
-   * @public
+   * @public_components
    */
 
   function format$1(value, options) {
@@ -3263,7 +3263,7 @@ var drawChart = (function (exports) {
    * @param {number|string} val
    *
    * @returns {number|null}
-   * @public
+   * @public_components
    */
 
   function parse(val) {

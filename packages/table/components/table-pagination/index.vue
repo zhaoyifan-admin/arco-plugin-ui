@@ -28,6 +28,7 @@ const sizeChange = (page: { pageSize: number }) => {
 
 <template>
   <a-pagination
+      :current="page.currentPage"
       :total="page.total"
       :page-size="page.pageSize"
       :page-size-options="page.pageSizes"

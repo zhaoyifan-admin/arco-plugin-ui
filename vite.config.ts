@@ -29,7 +29,7 @@ export default defineConfig({
       resolvers: [ArcoResolver()],
     }),
     vitePluginForArco({
-      // theme: '@arco-themes/vue-eh-arco-plugin',
+      theme: '@arco-themes/vue-eh-arco-plugin',
     }),
   ],
   resolve: {

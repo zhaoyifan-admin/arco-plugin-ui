@@ -25,6 +25,8 @@ declare interface TableOptions {
     columns?: TableColumnData[]
     menuWidth?: number
     search?: boolean
+    searchSpan?: number
+    searchBtnSpan?: number
 }
 
 declare interface Pagination {

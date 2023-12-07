@@ -143,14 +143,16 @@ const sizeChange = (pageSize: number)=> {
 
 ### Options Type
 
-| 名称         | 说明                | 类型                | 默认值   |
-|------------|-------------------|-------------------|-------|
-| loading    | 是否为加载中状态          | boolean           | false |
-| index      | 是否有序号	            | boolean           | false |
-| indexWidth | 序号列宽度             | number            | 50    |
-| columns    | 表单列配置参考Column相关配置 | TableColumnData[] |       |
-| menuWidth  | 操作栏宽度             | number            |       |
-| search     | 是否开启查询            | boolean           | false |
+| 名称            | 说明                | 类型                | 默认值   |
+|---------------|-------------------|-------------------|-------|
+| loading       | 是否为加载中状态          | boolean           | false |
+| index         | 是否有序号	            | boolean           | false |
+| indexWidth    | 序号列宽度             | number            | 50    |
+| columns       | 表单列配置参考Column相关配置 | TableColumnData[] |       |
+| menuWidth     | 操作栏宽度             | number            |       |
+| search        | 是否开启查询            | boolean           | false |
+| searchSpan	   | 搜索项框栅列	           | number            | 6     |
+| searchBtnSpan | 查询表单按钮栅列          | number            | 6     |
 
 ### Pagination Type
 

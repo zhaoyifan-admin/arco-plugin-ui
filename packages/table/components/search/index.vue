@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import {onMounted, reactive, ref, watch} from "vue";
+import {onMounted, defineAsyncComponent, ref, computed} from "vue";
 
-const emit = defineEmits(['searchChange', 'searchReset', 'update:searchForm'])
+const publicComponents = defineAsyncComponent(
+    () => import('../public_components/index.vue')
+);
+const emit = defineEmits(['searchChange', 'searchReset'])
 
 interface Props {
   data?: any[],
@@ -25,17 +28,29 @@ const props = withDefaults(defineProps<Props>(), {
   },
   searchTabs: false,
   options: () => {
-    return {index: false}
+    return {
+      loading: false,
+      index: false,
+      indexWidth: 60,
+      columns: [],
+      menuWidth: 120,
+      search: false,
+      searchSpan: 6,
+      searchBtnSpan: 6,
+    }
   },
 })
 const disabledForm = ref(false);
-let Form: { [key: string]: any } = reactive({})
-const showSearch = ref(false);
-watch(() => props.searchForm, () => {
-  Form = props.searchForm;
-}, {
-  immediate: true
+const publicComponentsRef = ref<any>();
+const searchForm: { [key: string]: any } = computed({
+  get() {
+    return props.searchForm
+  },
+  set(val: object) {
+    emit('update:searchForm', val)
+  }
 })
+const showSearch = ref(false);
 onMounted(() => {
   if (props.options.columns) {
     const index = props.options.columns.findIndex((item) => item.search === true);
@@ -45,64 +60,34 @@ onMounted(() => {
 const done = () => {
   disabledForm.value = false;
 }
-const onSearch = () => {
+const searchChange = () => {
   disabledForm.value = true;
-  emit('update:searchForm', Form);
-  emit('searchChange', Form, done);
+  emit('searchChange', searchForm.value, done);
 };
-const onReset = () => {
-  Form = {};
-  emit('update:searchForm', Form);
-  emit('searchReset', Form);
+const searchReset = () => {
+  publicComponentsRef.value.searchReset();
+  emit('searchReset', {});
 };
+defineExpose({
+  done
+});
 </script>
 
 <template>
   <div class="arco-compontent-page-tab-search-form">
-    <a-form v-if="showSearch" :model="Form" :size="size" :disabled="disabled">
+    <a-form v-if="showSearch" :model="searchForm" :size="size" :disabled="disabled">
       <a-row :gutter="16">
-        <template v-for="(colitem, index) in options.columns" :key="index">
-          <a-col v-if="colitem.search" :span="colitem.span || 6">
-            <a-form-item :field="colitem.title" :label="colitem.title">
-              <a-input
-                  v-if="colitem.type === 'input' || colitem.type === undefined"
-                  v-model="Form[colitem.dataIndex]"
-                  :placeholder="
-                  '请输入 ' +
-                  `${colitem.title}`
-                "
-                  :disabled="disabledForm"
-                  allow-clear
-              />
-              <!--              级联选择 Cascader-->
-              <a-cascader
-                  v-else-if="colitem.type === 'cascader'"
-                  v-model="Form[colitem.dataIndex]"
-                  :options="colitem.options"
-                  :placeholder="
-                  '请选择 ' +
-                  `${colitem.title}`
-                "
-                  allow-clear
-              />
-              <!--              日期选择器 DatePicker-->
-              <a-date-picker v-else-if="colitem.type === 'date'"/>
-              <a-month-picker v-else-if="colitem.type === 'month'"/>
-              <a-year-picker v-else-if="colitem.type === 'year'"/>
-              <a-quarter-picker v-else-if="colitem.type === 'quarter'"/>
-              <a-week-picker v-else-if="colitem.type === 'week'"/>
-            </a-form-item>
-          </a-col>
-        </template>
-        <a-col :span="24" class="t-c">
+        <component :is="publicComponents" ref="publicComponentsRef" :disabledForm="disabledForm" :data="data" :size="size" v-model:searchForm="searchForm"
+                   :options="options"/>
+        <a-col :span="options.searchBtnSpan || 6" class="t-c">
           <a-space>
-            <a-button type="primary" :size="size" @click="onSearch">
+            <a-button type="primary" :size="size" @click="searchChange">
               <template #icon>
                 <i class="rtdp sousuo"></i>
               </template>
               查询
             </a-button>
-            <a-button :size="size" @click="onReset">
+            <a-button :size="size" @click="searchReset">
               <template #icon>
                 <i class="rtdp refresh"></i>
               </template>

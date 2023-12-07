@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, defineAsyncComponent, ref, watch} from "vue";
+import {computed, defineAsyncComponent, ref} from "vue";
 
-const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'update:searchForm'])
+const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset'])
 
 const search = defineAsyncComponent(
     () => import('./components/search/index.vue')
@@ -46,13 +46,14 @@ const props = withDefaults(defineProps<Props>(), {
       columns: [],
       menuWidth: 120,
       search: false,
+      searchSpan: 6,
+      searchBtnSpan: 6,
     }
   },
   page: () => {
     return {currentPage: 1, pageSize: 10, pageSizes: [5, 10, 20, 30, 50], total: 0}
   },
 })
-
 const rowClass = (record: any, rowIndex: number) => {
   if (rowIndex % 2 === 1) {
     return 'warning-row';
@@ -76,8 +77,7 @@ const menuStyle = computed(() => {
   }
   return {...width, ...padding};
 });
-
-const Form: { [key: string]: any } = computed({
+const searchForm: { [key: string]: any } = computed({
   get() {
     return props.searchForm
   },
@@ -91,10 +91,10 @@ const onCollapse = () => {
 const handleMenuClick = (type: string, params: any) => {
   console.log(type, params);
 };
-const onSearch = (object: object, done: any) => {
+const searchChange = (object: object, done: any) => {
   emit('searchChange', object, done)
 };
-const onReset = (object: object) => {
+const searchReset = (object: object) => {
   emit('searchReset', object)
 }
 const currentChange = (page: { currentPage: number }) => { // 分页回调
@@ -115,7 +115,6 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
           v-show="searchTabs"
           :options="options"
           :searchTabs="searchTabs"
-          v-model:searchForm="Form"
       />
       <div class="collapse-btn-box p-absolute" @click="onCollapse"></div>
     </div>
@@ -127,9 +126,9 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
             :size="size"
             :options="options"
             :searchTabs="searchTabs"
-            v-model:searchForm="Form"
-            @search-change="onSearch"
-            @search-reset="onReset"
+            v-model:searchForm="searchForm"
+            @search-change="searchChange"
+            @search-reset="searchReset"
         />
       </div>
       <!--    菜单栏按钮-->
