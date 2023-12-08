@@ -19,6 +19,7 @@ declare interface TableColumnData {
     type?: string
     width?: number
     tooltip?:boolean|object
+    placeholder?: string
 }
 
 declare interface TableOptions {

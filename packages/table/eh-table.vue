@@ -12,8 +12,11 @@ const tabs = defineAsyncComponent(
 const tablePagination = defineAsyncComponent(
     () => import('./components/table-pagination/index.vue')
 );
-const topButton = defineAsyncComponent(
+const menuButton = defineAsyncComponent(
     () => import('./components/top-button/index.vue')
+);
+const menuBtn = defineAsyncComponent(
+    () => import('./components/table-menubtn/index.vue')
 );
 
 interface Props {
@@ -60,6 +63,12 @@ const rowClass = (record: any, rowIndex: number) => {
   }
   return '';
 };
+const renders = (data: any) => {
+  if (data.column === undefined) {
+    console.log(data.rowIndex);
+    return "-"
+  }
+}
 const searchTabs = ref(false);
 const menuStyle = computed(() => {
   const width = {
@@ -87,9 +96,6 @@ const searchForm: { [key: string]: any } = computed({
 })
 const onCollapse = () => {
   searchTabs.value = !searchTabs.value;
-};
-const handleMenuClick = (type: string, params: any) => {
-  console.log(type, params);
 };
 const searchChange = (object: object, done: any) => {
   emit('searchChange', object, done)
@@ -132,7 +138,7 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
         />
       </div>
       <!--    菜单栏按钮-->
-      <component :is="topButton" :size="size" :columns="options.columns">
+      <component :is="menuButton" :size="size" :columns="options.columns">
         <template #menuLeft>
           <slot name="menuLeft" :size="size"></slot>
         </template>
@@ -169,8 +175,15 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                     :tooltip="item.tooltip"
                     :width="item.width"
                 >
-                  <template #cell="{ record }">
-                    {{ record[item.dataIndex as any] }}
+                  <template #title>
+                    <slot :name="item.dataIndex + 'theader'">
+                      {{ item.title }}
+                    </slot>
+                  </template>
+                  <template #cell="{ record, rowIndex }">
+                    <slot :name="item.dataIndex + 'cell'" :scope="{ record, rowIndex }">
+                      {{ record[item.dataIndex as any] }}
+                    </slot>
                   </template>
                 </a-table-column>
               </template>
@@ -181,43 +194,12 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                   fixed="right"
                   title="操作栏"
               >
-                <template #cell="{ record }">
-                  <a-button
-                      :size="size"
-                      type="text"
-                      @click="handleMenuClick('see', record)"
-                  >
-                    <template #icon>
-                      <i class="rtdp chakan"></i>
-                    </template>
-                    查 看
-                  </a-button>
-                  <a-button
-                      :size="size"
-                      type="text"
-                      @click="handleMenuClick('edit', record)"
-                  >
-                    <template #icon>
-                      <i class="rtdp caozuo-bianji"></i>
-                    </template>
-                    编 辑
-                  </a-button>
-                  <a-button
-                      :size="size"
-                      type="text"
-                      @click="handleMenuClick('seeVedio', record)"
-                  >
-                    <template #icon>
-                      <i class="rtdp shipin"></i>
-                    </template>
-                    查看视频
-                  </a-button>
-                  <a-button type="text" :size="size" status="danger">
-                    <template #icon>
-                      <i class="rtdp deletebtn"></i>
-                    </template>
-                    删 除
-                  </a-button>
+                <template #cell="{ record, rowIndex }">
+                  <component
+                      :is="menuBtn"
+                      :record="record"
+                      :rowIndex="rowIndex"
+                  />
                 </template>
               </a-table-column>
             </template>

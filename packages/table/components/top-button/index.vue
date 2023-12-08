@@ -9,12 +9,15 @@ withDefaults(defineProps<Props>(), {
   loading: false,
   size: 'medium',
 })
+const handleClick = () => {
+
+}
 </script>
 
 <template>
   <div class="arco-compontent-page-button d-flex a-center">
     <div class="arco-compontent-page-left-button">
-      <a-button type="primary" :size="size">
+      <a-button type="primary" :size="size" @click="handleClick">
         <template #icon>
           <i class="rtdp xinzeng"></i>
         </template>
