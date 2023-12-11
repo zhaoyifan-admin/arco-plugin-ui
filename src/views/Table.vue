@@ -10,13 +10,14 @@ let page = reactive({
 });
 const options = reactive({
   index: true,
-  menuWidth: 425,
   searchBtnSpan: 6,
+  menuBtnStyle: "icon",
   columns: [
     {
       title: '员工编号',
       dataIndex: 'employeeCode',
       search: true,
+      rules: [{required:true,message:'name is required'},{minLength:5,message:'must be greater than 5 characters'}]
     },
     {
       title: '员工姓名',
@@ -27,6 +28,8 @@ const options = reactive({
       title: '所属部门',
       dataIndex: 'deptName',
       slot: 'job',
+      ellipsis: true,
+      tooltip: true,
       search: true,
     },
     {

@@ -20,6 +20,7 @@ declare interface TableColumnData {
     width?: number
     tooltip?:boolean|object
     placeholder?: string
+    rules?: any[]
 }
 
 declare interface TableOptions {
@@ -31,6 +32,8 @@ declare interface TableOptions {
     search?: boolean
     searchBtnSpan?: number
     searchSpan?: number
+    menuBtnStyle?: string
+    maskClosable?: boolean
 }
 
 declare interface Pagination {

@@ -1,16 +1,19 @@
 <script setup lang="ts">
+const emit = defineEmits(['handleOpenModel'])
+
 interface Props {
   columns?: TableColumnData[]
   loading?: boolean,
   size?: 'mini' | 'small' | 'medium' | 'large',
 }
+
 withDefaults(defineProps<Props>(), {
   columns: () => [],
   loading: false,
   size: 'medium',
 })
 const handleClick = () => {
-
+  emit('handleOpenModel')
 }
 </script>
 
@@ -32,23 +35,32 @@ const handleClick = () => {
           <i class="rtdp refresh"></i>
         </template>
       </a-button>
+      <a-button type="outline" shape="circle" :size="size">
+        <template #icon>
+          <i class="rtdp peizhi"></i>
+        </template>
+      </a-button>
     </div>
   </div>
 </template>
 
 <style scoped lang="less">
 @import '../../styles/index';
+
 .arco-compontent-page-button {
   margin-bottom: 10px;
+
   .arco-compontent-page-left-button,
   .arco-compontent-page-right-button {
     flex: 1;
   }
+
   .arco-compontent-page-left-button {
     button {
       margin-right: 10px;
     }
   }
+
   .arco-compontent-page-right-button {
     button {
       margin-left: 10px;

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {onMounted, defineAsyncComponent, ref, computed} from "vue";
 
-const publicComponents = defineAsyncComponent(
-    () => import('../public_components/index.vue')
+const searchPublic = defineAsyncComponent(
+    () => import('../search_public/index.vue')
 );
 const emit = defineEmits(['searchChange', 'searchReset', 'update:searchForm'])
 
@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<Props>(), {
       index: false,
       indexWidth: 60,
       columns: [],
-      menuWidth: 120,
+      menuWidth: 245,
       search: false,
       searchSpan: 6,
       searchBtnSpan: 6,
@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
 const disabledForm = ref(false);
 const Loading = ref(false);
 const showSearch = ref(false);
-const publicComponentsRef = ref<any>();
+const searchPublicRef = ref<any>();
 const searchForm: { [key: string]: any } = computed({
   get() {
     return props.searchForm
@@ -68,7 +68,7 @@ const searchChange = () => {
   emit('searchChange', searchForm.value, done);
 };
 const searchReset = () => {
-  publicComponentsRef.value.searchReset();
+  searchPublicRef.value.searchReset();
   emit('searchReset', {});
 };
 defineExpose({
@@ -78,13 +78,13 @@ defineExpose({
 
 <template>
   <div class="arco-compontent-page-tab-search-form">
-    <a-form v-if="showSearch" :model="searchForm" :size="size" :disabled="disabled">
+    <a-form v-if="showSearch" :model="searchForm" :size="size" :disabled="disabled" auto-label-width>
       <a-row :gutter="16">
-        <component :is="publicComponents" ref="publicComponentsRef" :disabledForm="disabledForm" :data="data"
+        <component :is="searchPublic" ref="searchPublicRef" :disabledForm="disabledForm" :data="data"
                    :size="size" v-model:searchForm="searchForm"
                    :options="options">
-          <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
-            <slot :name="colitem.dataIndex + 'Label'"></slot>
+          <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`SearchLabel`]>
+            <slot :name="colitem.dataIndex + 'SearchLabel'"></slot>
           </template>
         </component>
         <a-col :span="options.searchBtnSpan || 6" class="t-c">

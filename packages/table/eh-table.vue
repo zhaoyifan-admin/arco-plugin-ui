@@ -13,10 +13,13 @@ const tablePagination = defineAsyncComponent(
     () => import('./components/table-pagination/index.vue')
 );
 const menuButton = defineAsyncComponent(
-    () => import('./components/top-button/index.vue')
+    () => import('./components/menu-button/index.vue')
 );
 const menuBtn = defineAsyncComponent(
     () => import('./components/table-menubtn/index.vue')
+);
+const model = defineAsyncComponent(
+    () => import('./components/model/index.vue')
 );
 
 interface Props {
@@ -47,7 +50,7 @@ const props = withDefaults(defineProps<Props>(), {
       index: false,
       indexWidth: 60,
       loading: false,
-      menuWidth: 120,
+      menuWidth: 245,
       search: false,
       searchBtnSpan: 6,
       searchSpan: 6,
@@ -64,6 +67,8 @@ const rowClass = (record: any, rowIndex: number) => {
   return '';
 };
 const searchTabs = ref(false);
+const menuButtonRef = ref();
+const modelRef = ref()
 const menuStyle = computed(() => {
   const width = {
     width: '0',
@@ -106,6 +111,9 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
 const handleMenuClick = (type: string, params: any) => {
   console.log(type, params);
 }
+const handleOpenModel = () => {
+  modelRef.value.handleOpenModel();
+}
 </script>
 
 <template>
@@ -134,13 +142,13 @@ const handleMenuClick = (type: string, params: any) => {
             @search-change="searchChange"
             @search-reset="searchReset"
         >
-          <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
-            <slot :name="colitem.dataIndex + 'Label'"></slot>
+          <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`SearchLabel`]>
+            <slot :name="colitem.dataIndex + 'SearchLabel'"></slot>
           </template>
         </component>
       </div>
       <!--    菜单栏按钮-->
-      <component :is="menuButton" :size="size" :columns="options.columns">
+      <component :is="menuButton" ref="menuButtonRef" :size="size" :columns="options.columns" @handleOpenModel="handleOpenModel">
         <template #menuLeft>
           <slot name="menuLeft" :size="size"></slot>
         </template>
@@ -199,7 +207,9 @@ const handleMenuClick = (type: string, params: any) => {
                 <template #cell="{ record }">
                   <component
                       :is="menuBtn"
+                      :options="options"
                       :record="record"
+                      :size="size"
                       @handleMenuClick="handleMenuClick"
                   />
                 </template>
@@ -218,6 +228,11 @@ const handleMenuClick = (type: string, params: any) => {
         </div>
       </a-spin>
     </div>
+    <component :is="model" ref="modelRef" :size="size" :options="options">
+      <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
+        <slot :name="colitem.dataIndex + 'Label'"></slot>
+      </template>
+    </component>
   </div>
 </template>
 

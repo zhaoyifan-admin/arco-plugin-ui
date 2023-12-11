@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
       index: false,
       indexWidth: 60,
       columns: [],
-      menuWidth: 120,
+      menuWidth: 245,
       search: false,
       searchSpan: 6,
       searchBtnSpan: 6,
@@ -54,9 +54,9 @@ defineExpose({
 <template>
   <template v-for="(colitem, index) in options.columns" :key="index">
     <a-col v-if="colitem.search" :span="colitem.span || options.searchSpan || 6">
-      <a-form-item :field="colitem.title" :label="colitem.title" label-col-flex="100px">
+      <a-form-item :field="colitem.title" :label="colitem.title" feedback>
         <template #label>
-          <slot :name="colitem.dataIndex + 'Label'"></slot>
+          <slot :name="colitem.dataIndex + 'SearchLabel'"></slot>
         </template>
         <a-input
             v-if="colitem.type === 'input' || colitem.type === undefined"
@@ -89,7 +89,6 @@ defineExpose({
       </a-form-item>
     </a-col>
   </template>
-
 </template>
 
 <style scoped lang="less">
