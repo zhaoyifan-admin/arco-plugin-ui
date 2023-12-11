@@ -35,7 +35,6 @@ const handleOpenModel = () => {
   visible.value = true;
 };
 const handleOk = () => {
-  formRef.value.validate();
   visible.value = false;
 };
 const handleCancel = () => {
