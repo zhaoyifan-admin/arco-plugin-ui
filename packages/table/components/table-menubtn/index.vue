@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const emit = defineEmits(['handleMenuClick'])
+
 interface Props {
   record: any,
   size?: 'mini' | 'small' | 'medium' | 'large',
@@ -23,7 +25,7 @@ withDefaults(defineProps<Props>(), {
 })
 
 const handleMenuClick = (type: string, params: any) => {
-  console.log(type, params);
+  emit('handleMenuClick', params)
 }
 </script>
 

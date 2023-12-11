@@ -63,12 +63,6 @@ const rowClass = (record: any, rowIndex: number) => {
   }
   return '';
 };
-const renders = (data: any) => {
-  if (data.column === undefined) {
-    console.log(data.rowIndex);
-    return "-"
-  }
-}
 const searchTabs = ref(false);
 const menuStyle = computed(() => {
   const width = {
@@ -109,6 +103,9 @@ const currentChange = (page: { currentPage: number }) => { // 分页回调
 const sizeChange = (page: { pageSize: number }) => { // 分页回调
   emit('sizeChange', page)
 }
+const handleMenuClick = (type: string, params: any) => {
+  console.log(type, params);
+}
 </script>
 
 <template>
@@ -121,7 +118,8 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
           :options="options"
           :searchTabs="searchTabs"
           :size="size"
-      />
+      >
+      </component>
       <div class="collapse-btn-box p-absolute" @click="onCollapse"></div>
     </div>
     <!--    主视图-->
@@ -135,7 +133,11 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
             :size="size"
             @search-change="searchChange"
             @search-reset="searchReset"
-        />
+        >
+          <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
+            <slot :name="colitem.dataIndex + 'Label'"></slot>
+          </template>
+        </component>
       </div>
       <!--    菜单栏按钮-->
       <component :is="menuButton" :size="size" :columns="options.columns">
@@ -176,7 +178,7 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                     :width="item.width"
                 >
                   <template #title>
-                    <slot :name="item.dataIndex + 'theader'">
+                    <slot :name="item.dataIndex + 'Theader'">
                       {{ item.title }}
                     </slot>
                   </template>
@@ -194,11 +196,11 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
                   fixed="right"
                   title="操作栏"
               >
-                <template #cell="{ record, rowIndex }">
+                <template #cell="{ record }">
                   <component
                       :is="menuBtn"
                       :record="record"
-                      :rowIndex="rowIndex"
+                      @handleMenuClick="handleMenuClick"
                   />
                 </template>
               </a-table-column>

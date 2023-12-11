@@ -44,7 +44,6 @@ const handleUpdateForm = () => {
 }
 const searchReset = () => {
   searchForm.value = {};
-  console.log('子组件清空方法');
 };
 
 defineExpose({
@@ -55,7 +54,10 @@ defineExpose({
 <template>
   <template v-for="(colitem, index) in options.columns" :key="index">
     <a-col v-if="colitem.search" :span="colitem.span || options.searchSpan || 6">
-      <a-form-item :field="colitem.title" :label="colitem.title">
+      <a-form-item :field="colitem.title" :label="colitem.title" label-col-flex="100px">
+        <template #label>
+          <slot :name="colitem.dataIndex + 'Label'"></slot>
+        </template>
         <a-input
             v-if="colitem.type === 'input' || colitem.type === undefined"
             v-model="searchForm[colitem.dataIndex]"

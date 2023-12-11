@@ -82,7 +82,11 @@ defineExpose({
       <a-row :gutter="16">
         <component :is="publicComponents" ref="publicComponentsRef" :disabledForm="disabledForm" :data="data"
                    :size="size" v-model:searchForm="searchForm"
-                   :options="options"/>
+                   :options="options">
+          <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
+            <slot :name="colitem.dataIndex + 'Label'"></slot>
+          </template>
+        </component>
         <a-col :span="options.searchBtnSpan || 6" class="t-c">
           <a-space>
             <a-button type="primary" :size="size" :loading="Loading" @click="searchChange">

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-const visible = ref(false);
+const visible = ref(true);
 
 const handleOpenMdel = () => {
   visible.value = true;

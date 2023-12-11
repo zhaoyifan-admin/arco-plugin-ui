@@ -21,31 +21,37 @@ const options = reactive({
     {
       title: '员工姓名',
       dataIndex: 'employeeName',
+      search: true,
     },
     {
       title: '所属部门',
       dataIndex: 'deptName',
-      slot: 'job'
+      slot: 'job',
+      search: true,
     },
     {
       title: '所属路队',
-      dataIndex: 'groupName'
+      dataIndex: 'groupName',
+      search: true,
     },
     {
       title: '所属线路',
-      dataIndex: 'lineName'
+      dataIndex: 'lineName',
+      search: true,
     },
     {
       title: '性别',
-      dataIndex: 'gender'
+      dataIndex: 'gender',
+      search: true,
     },
     {
       title: '工种',
-      dataIndex: 'workType'
+      dataIndex: 'workType',
+      search: true,
     }
   ]
 })
-const searchForm = ref({name: '测试'});
+const searchForm = ref({employeeCode: '996'});
 const data = reactive([{
   "employeeNo": 11394,
   "employeeCode": "996",
@@ -298,7 +304,11 @@ const sizeChange = (pageSize: number) => {
             @row-save="rowSave"
             @search-change="searchChange"
             @search-reset="searchReset"
-            @size-change="sizeChange"></eh-table>
+            @size-change="sizeChange">
+    <template #employeeCodeLabel>
+      吃啥ma ?
+    </template>
+  </eh-table>
 </template>
 
 <style scoped lang="less">
