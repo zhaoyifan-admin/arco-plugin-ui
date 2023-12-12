@@ -178,8 +178,9 @@ const sizeChange = (pageSize: number)=> {
 
 ### Events
 
-| 事件名称           | 说明         | 参数               |
-|----------------|------------|------------------|
-| search-change  | 点击查询后触发该事件 | form,done        |
-| current-change | 分页变化时的回调   | current: number  |
-| size-change    | 数据条数改变时触发  | pageSize: number |
+| 事件名称           | 说明              | 参数                |
+|----------------|-----------------|-------------------|
+| current-change | 分页变化时的回调        | current: number   |
+| hanle-save     | 新增数据后点击确定触发该事件	 | form,loading,done |
+| search-change  | 点击查询后触发该事件      | form,done         |
+| size-change    | 数据条数改变时触发       | pageSize: number  |

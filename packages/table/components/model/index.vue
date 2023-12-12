@@ -5,6 +5,8 @@ const modelPublic = defineAsyncComponent(
     () => import('../model_public/index.vue')
 );
 
+const emit = defineEmits(['hanleSave'])
+
 interface Props {
   disabled?: boolean,
   loading?: boolean,
@@ -33,7 +35,7 @@ withDefaults(defineProps<Props>(), {
 const modalRef = ref<any>(null);
 const visible = ref(false);
 const Title = ref("");
-
+const Loading = ref(false);
 const handleOpenModel = (type: string) => {
   if (type === 'add') {
     Title.value = '新增';
@@ -52,8 +54,14 @@ const handleOk = () => {
 const handleCancel = () => {
   visible.value = false;
 }
-const handleSave = () => {
-  modalRef.value.handleSave()
+const handleClick = (type: string) => {
+  Loading.value = true;
+  if (type === 'add') {
+    modalRef.value.handleSave();
+  }
+}
+const hanleSave = (modelForm: object, loading: any, done: any) => {
+  emit('hanleSave', modelForm, loading, done)
 }
 
 defineExpose({
@@ -67,14 +75,15 @@ defineExpose({
     <template #title>
       {{ Title }}
     </template>
-    <component :is="modelPublic" ref="modalRef" :size="size" :options="options">
+    <component :is="modelPublic" ref="modalRef" :size="size" :options="options" v-model:Loading="Loading" v-model:Visible="visible"
+               @hanle-save="hanleSave">
       <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
         <slot :name="colitem.dataIndex + 'Label'"></slot>
       </template>
     </component>
     <template #footer>
       <a-button :size="size" @click="visible = false">取消</a-button>
-      <a-button type="primary" :size="size" @click="handleSave">
+      <a-button type="primary" :size="size" :loading="Loading" @click="handleClick('add')">
         <template #icon>
           <i class="rtdp xinzeng"></i>
         </template>

@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: `Vue Arco UI`,
   description: 'Arco UI 组件库',
-  base: '/arco-plugin-ui-doc/',
+  base: '/arco-plugin-ui/',
 
   head: [ // 网站图标
     ['link', { rel: 'icon', type: 'image/svg+xml', href: 'https://cn.vitejs.dev/viteconf.svg' }]

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed, defineAsyncComponent, ref} from "vue";
 
-const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'update:searchForm'])
+const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'hanleSave', 'update:searchForm'])
 
 const search = defineAsyncComponent(
     () => import('./components/search/index.vue')
@@ -114,6 +114,9 @@ const handleMenuClick = (type: string, params: any) => {
 const handleOpenModel = (type: string) => {
   modelRef.value.handleOpenModel(type);
 }
+const hanleSave = (modelForm: object, loading: any, done: any) => {
+  emit('hanleSave', modelForm, loading, done)
+}
 </script>
 
 <template>
@@ -148,7 +151,8 @@ const handleOpenModel = (type: string) => {
         </component>
       </div>
       <!--    菜单栏按钮-->
-      <component :is="menuButton" ref="menuButtonRef" :size="size" :columns="options.columns" @handleOpenModel="handleOpenModel">
+      <component :is="menuButton" ref="menuButtonRef" :size="size" :columns="options.columns"
+                 @handleOpenModel="handleOpenModel">
         <template #menuLeft>
           <slot name="menuLeft" :size="size"></slot>
         </template>
@@ -228,7 +232,7 @@ const handleOpenModel = (type: string) => {
         </div>
       </a-spin>
     </div>
-    <component :is="model" ref="modelRef" :size="size" :options="options">
+    <component :is="model" ref="modelRef" :size="size" :options="options" @hanle-save="hanleSave">
       <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
         <slot :name="colitem.dataIndex + 'Label'"></slot>
       </template>

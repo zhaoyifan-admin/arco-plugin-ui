@@ -17,12 +17,19 @@ const options = reactive({
       title: '员工编号',
       dataIndex: 'employeeCode',
       search: true,
-      rules: [{required:true,message:'name is required'},{minLength:5,message:'must be greater than 5 characters'}]
+      rules: [{required: true, message: 'name is required'}, {
+        minLength: 5,
+        message: 'must be greater than 5 characters'
+      }]
     },
     {
       title: '员工姓名',
       dataIndex: 'employeeName',
       search: true,
+      rules: [{required: true, message: 'name is required'}, {
+        minLength: 5,
+        message: 'must be greater than 5 characters'
+      }]
     },
     {
       title: '所属部门',
@@ -299,11 +306,17 @@ const sizeChange = (pageSize: number) => {
   page.currentPage = 1
   page.pageSize = pageSize
 }
+const hanleSave = (form: object, loading: any, done: any) => {
+  console.log(form)
+  loading()
+  done()
+}
 </script>
 
 <template>
   <eh-table v-model:page="page" v-model:searchForm="searchForm" :data="data" :options="options"
             @current-change="currentChange"
+            @hanle-save="hanleSave"
             @row-save="rowSave"
             @search-change="searchChange"
             @search-reset="searchReset"

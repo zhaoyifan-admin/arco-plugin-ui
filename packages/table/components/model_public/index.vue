@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import {reactive, ref} from "vue";
 
+const emit = defineEmits(['hanleSave', 'update:Loading', 'update:Visible'])
+
 interface Props {
-  size?: 'mini' | 'small' | 'medium' | 'large',
+  Visible?:boolean,
+  Loading?: boolean,
   options?: TableOptions,
+  size?: 'mini' | 'small' | 'medium' | 'large',
 }
 
 withDefaults(defineProps<Props>(), {
-  size: 'small',
+  Loading: false,
+  Visible: false,
   options: () => {
     return {
       loading: false,
@@ -20,20 +25,29 @@ withDefaults(defineProps<Props>(), {
       searchBtnSpan: 6,
     }
   },
+  size: 'small',
 })
 const disabled = ref(false);
 const formRef = ref<any>(null);
 const modelForm: { [key: string]: any } = reactive({})
 const done = () => {
+  emit('update:Loading', false);
+  emit('update:Visible', false);
+  disabled.value = false;
+}
+const loading = () => {
+  emit('update:Loading', false);
   disabled.value = false;
 }
 const handleSave = () => {
   disabled.value = true;
-  formRef.value.validate((Promise:any)=>{
-    console.log(Promise)
-    setTimeout(()=>{
-      done();
-    },1500)
+  formRef.value.validate((Promise: object) => {
+    if (Promise) {
+      loading();
+      return false;
+    } else {
+      emit('hanleSave',modelForm, loading, done)
+    }
   })
 }
 defineExpose({
