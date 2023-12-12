@@ -39,8 +39,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4
   vue-arco-ui:
-    specifier: ^0.1.51
-    version: 0.1.51(@arco-design/web-vue@2.53.3)
+    specifier: ^0.1.52
+    version: 0.1.52(@arco-design/web-vue@2.53.3)
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.4)
@@ -287,14 +287,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /@arco-themes/vue-eh-arco-plugin@0.0.8(@arco-design/web-vue@2.53.3):
-    resolution: {integrity: sha512-UuYeDVEKZSjIpafmbfc6In14b54GoqRtLyIdElZ42Tnswf+cImFsbP3kkezrll/47eQIj01ZkOAWBuYLvXia4A==}
-    peerDependencies:
-      '@arco-design/web-vue': ^2.53.3
-    dependencies:
-      '@arco-design/web-vue': 2.53.3(vue@3.3.4)
-    dev: false
 
   /@arco-themes/vue-eh-arco-plugin@0.0.9(@arco-design/web-vue@2.53.3):
     resolution: {integrity: sha512-mIT0rUbTapzva4f9tUROlgv01m6zHUG6UqRiutsh/YIcwhPNfkCrUW3z+a4MtlgfHi/EaDscN1unHrgPFlaCLA==}
@@ -3702,10 +3694,10 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
-  /vue-arco-ui@0.1.51(@arco-design/web-vue@2.53.3):
-    resolution: {integrity: sha512-5O/RCR19JV2wRL02mqgFAq6X/uj1N5g/4sXcZLlnsvRii39q8SuL4XJZV6fNHfKvX06nfFdNp7R921z8dJQWkw==}
+  /vue-arco-ui@0.1.52(@arco-design/web-vue@2.53.3):
+    resolution: {integrity: sha512-iokNO0sarJpW4zCd1hdN6Rn90D/q73a888CCZrOmd/7ciPGV+u/CfNZGtBrl8mBQzsXLM2TjRJQmP5mxlvCn6Q==}
     dependencies:
-      '@arco-themes/vue-eh-arco-plugin': 0.0.8(@arco-design/web-vue@2.53.3)
+      '@arco-themes/vue-eh-arco-plugin': 0.0.9(@arco-design/web-vue@2.53.3)
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)
       '@vueuse/core': 10.5.0(vue@3.3.4)
       '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
