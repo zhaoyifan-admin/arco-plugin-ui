@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
 
 interface Props {
   size?: 'mini' | 'small' | 'medium' | 'large',
@@ -21,12 +21,28 @@ withDefaults(defineProps<Props>(), {
     }
   },
 })
+const disabled = ref(false);
+const formRef = ref<any>(null);
 const modelForm: { [key: string]: any } = reactive({})
-
+const done = () => {
+  disabled.value = false;
+}
+const handleSave = () => {
+  disabled.value = true;
+  formRef.value.validate((Promise:any)=>{
+    console.log(Promise)
+    setTimeout(()=>{
+      done();
+    },1500)
+  })
+}
+defineExpose({
+  handleSave
+});
 </script>
 
 <template>
-  <a-form ref="formRef" :model="modelForm" :size="size" auto-label-width>
+  <a-form ref="formRef" :model="modelForm" :size="size" :disabled="disabled" auto-label-width>
     <a-row :gutter="16">
       <template v-for="(colitem, index) in options.columns" :key="index">
         <a-col :span="colitem.span || options.searchSpan || 6">

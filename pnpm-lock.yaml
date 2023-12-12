@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@arco-themes/vue-eh-arco-plugin':
-    specifier: ^0.0.8
-    version: 0.0.8(@arco-design/web-vue@2.53.3)
+    specifier: ^0.0.9
+    version: 0.0.9(@arco-design/web-vue@2.53.3)
   '@vuepic/vue-datepicker':
     specifier: ^6.1.0
     version: 6.1.0(vue@3.3.4)
@@ -290,6 +290,14 @@ packages:
 
   /@arco-themes/vue-eh-arco-plugin@0.0.8(@arco-design/web-vue@2.53.3):
     resolution: {integrity: sha512-UuYeDVEKZSjIpafmbfc6In14b54GoqRtLyIdElZ42Tnswf+cImFsbP3kkezrll/47eQIj01ZkOAWBuYLvXia4A==}
+    peerDependencies:
+      '@arco-design/web-vue': ^2.53.3
+    dependencies:
+      '@arco-design/web-vue': 2.53.3(vue@3.3.4)
+    dev: false
+
+  /@arco-themes/vue-eh-arco-plugin@0.0.9(@arco-design/web-vue@2.53.3):
+    resolution: {integrity: sha512-mIT0rUbTapzva4f9tUROlgv01m6zHUG6UqRiutsh/YIcwhPNfkCrUW3z+a4MtlgfHi/EaDscN1unHrgPFlaCLA==}
     peerDependencies:
       '@arco-design/web-vue': ^2.53.3
     dependencies:

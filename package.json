@@ -37,7 +37,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@arco-themes/vue-eh-arco-plugin": "^0.0.8",
+    "@arco-themes/vue-eh-arco-plugin": "^0.0.9",
     "@vuepic/vue-datepicker": "^6.1.0",
     "@vueuse/core": "^10.5.0",
     "@vueuse/integrations": "^10.5.0",

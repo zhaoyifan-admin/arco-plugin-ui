@@ -15,7 +15,7 @@ const tablePagination = defineAsyncComponent(
 const menuButton = defineAsyncComponent(
     () => import('./components/menu-button/index.vue')
 );
-const menuBtn = defineAsyncComponent(
+const tableMenuBtn = defineAsyncComponent(
     () => import('./components/table-menubtn/index.vue')
 );
 const model = defineAsyncComponent(
@@ -111,8 +111,8 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
 const handleMenuClick = (type: string, params: any) => {
   console.log(type, params);
 }
-const handleOpenModel = () => {
-  modelRef.value.handleOpenModel();
+const handleOpenModel = (type: string) => {
+  modelRef.value.handleOpenModel(type);
 }
 </script>
 
@@ -169,7 +169,7 @@ const handleOpenModel = () => {
                    column-resizable>
             <template #columns>
               <!--            序号-->
-              <a-table-column v-if="options.index" title="序号" align="center">
+              <a-table-column v-if="options.index" title="序号" :width="80" align="center">
                 <template #cell="{ rowIndex }">
                   {{ (page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
                 </template>
@@ -206,7 +206,7 @@ const handleOpenModel = () => {
               >
                 <template #cell="{ record }">
                   <component
-                      :is="menuBtn"
+                      :is="tableMenuBtn"
                       :options="options"
                       :record="record"
                       :size="size"

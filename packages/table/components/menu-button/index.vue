@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
   size: 'medium',
 })
 const handleClick = () => {
-  emit('handleOpenModel')
+  emit('handleOpenModel','add')
 }
 </script>
 
