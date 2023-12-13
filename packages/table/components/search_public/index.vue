@@ -81,11 +81,16 @@ defineExpose({
             allow-clear
         />
         <!--              日期选择器 DatePicker-->
-        <a-date-picker v-else-if="colitem.type === 'date'"/>
-        <a-month-picker v-else-if="colitem.type === 'month'"/>
-        <a-year-picker v-else-if="colitem.type === 'year'"/>
-        <a-quarter-picker v-else-if="colitem.type === 'quarter'"/>
-        <a-week-picker v-else-if="colitem.type === 'week'"/>
+        <a-date-picker v-else-if="colitem.type === 'date'" v-model="searchForm[colitem.dataIndex]"/>
+        <a-month-picker v-else-if="colitem.type === 'month'" v-model="searchForm[colitem.dataIndex]"/>
+        <a-year-picker v-else-if="colitem.type === 'year'" v-model="searchForm[colitem.dataIndex]"/>
+        <a-quarter-picker v-else-if="colitem.type === 'quarter'" v-model="searchForm[colitem.dataIndex]"/>
+        <a-week-picker v-else-if="colitem.type === 'week'" v-model="searchForm[colitem.dataIndex]"/>
+        <a-select v-else-if="colitem.type === 'select'" v-model="searchForm[colitem.dataIndex]">
+          <template v-for="(item,index) in colitem.dicData" :key="index">
+            <a-option :label="item.label" :value="item.value"></a-option>
+          </template>
+        </a-select>
       </a-form-item>
     </a-col>
   </template>

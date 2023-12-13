@@ -2,13 +2,14 @@
 const emit = defineEmits(['handleMenuClick'])
 
 interface Props {
-  record: any,
+  record: object,
   size?: 'mini' | 'small' | 'medium' | 'large',
   options?: TableOptions,
 }
 
 withDefaults(defineProps<Props>(), {
   record: () => {
+    return {}
   },
   size: 'small',
   options: () => {
@@ -25,8 +26,8 @@ withDefaults(defineProps<Props>(), {
   },
 })
 
-const handleMenuClick = (type: string, params: any) => {
-  emit('handleMenuClick', params)
+const handleMenuClick = (type: string, params: object) => {
+  emit('handleMenuClick',type, params)
 }
 </script>
 

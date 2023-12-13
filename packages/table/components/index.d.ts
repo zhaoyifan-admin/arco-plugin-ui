@@ -21,6 +21,7 @@ declare interface TableColumnData {
     tooltip?:boolean|object
     placeholder?: string
     rules?: any[]
+    dicData?: any[]
 }
 
 declare interface TableOptions {

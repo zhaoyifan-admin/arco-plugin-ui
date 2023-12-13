@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed, defineAsyncComponent, ref} from "vue";
 
-const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'hanleSave', 'update:searchForm'])
+const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave','handleUpdate', 'update:searchForm'])
 
 const search = defineAsyncComponent(
     () => import('./components/search/index.vue')
@@ -109,13 +109,16 @@ const sizeChange = (page: { pageSize: number }) => { // 分页回调
   emit('sizeChange', page)
 }
 const handleMenuClick = (type: string, params: any) => {
-  console.log(type, params);
+  modelRef.value.handleOpenModel(type, params);
 }
 const handleOpenModel = (type: string) => {
   modelRef.value.handleOpenModel(type);
 }
-const hanleSave = (modelForm: object, loading: any, done: any) => {
-  emit('hanleSave', modelForm, loading, done)
+const handleSave = (modelForm: object, loading: any, done: any) => {
+  emit('handleSave', modelForm, loading, done)
+}
+const handleUpdate = (modelForm: object, loading: any, done: any) => {
+  emit('handleUpdate', modelForm, loading, done)
 }
 </script>
 
@@ -232,7 +235,7 @@ const hanleSave = (modelForm: object, loading: any, done: any) => {
         </div>
       </a-spin>
     </div>
-    <component :is="model" ref="modelRef" :size="size" :options="options" @hanle-save="hanleSave">
+    <component :is="model" ref="modelRef" :size="size" :options="options" @handle-save="handleSave" @handle-update="handleUpdate">
       <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
         <slot :name="colitem.dataIndex + 'Label'"></slot>
       </template>

@@ -48,7 +48,7 @@
     "qrcode": "^1.5.3",
     "swiper": "^10.3.1",
     "vue": "^3.3.4",
-    "vue-arco-ui": "^0.1.52",
+    "vue-arco-ui": "^0.1.53",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

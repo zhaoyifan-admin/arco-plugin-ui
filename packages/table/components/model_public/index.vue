@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import {reactive, ref} from "vue";
 
-const emit = defineEmits(['hanleSave', 'update:Loading', 'update:Visible'])
+const emit = defineEmits(['handleSave', 'handleUpdate', 'update:Loading', 'update:Visible'])
 
 interface Props {
-  Visible?:boolean,
+  modelType?: string,
+  Visible?: boolean,
   Loading?: boolean,
   options?: TableOptions,
   size?: 'mini' | 'small' | 'medium' | 'large',
 }
 
 withDefaults(defineProps<Props>(), {
+  modelType: "",
   Loading: false,
   Visible: false,
   options: () => {
@@ -29,7 +31,10 @@ withDefaults(defineProps<Props>(), {
 })
 const disabled = ref(false);
 const formRef = ref<any>(null);
-let modelForm: { [key: string]: any } = reactive({})
+const modelForm: { [key: string]: any } = reactive({})
+const deepClone = (params: object) => {
+  Object.assign(modelForm, params)
+}
 const done = () => {
   emit('update:Loading', false);
   emit('update:Visible', false);
@@ -48,18 +53,31 @@ const handleSave = () => {
       loading();
       return false;
     } else {
-      emit('hanleSave',modelForm, loading, done)
+      emit('handleSave', modelForm, loading, done)
+    }
+  })
+}
+const handleUpdate = () => {
+  disabled.value = true;
+  formRef.value.validate((Promise: object) => {
+    if (Promise) {
+      loading();
+      return false;
+    } else {
+      emit('handleUpdate', modelForm, loading, done)
     }
   })
 }
 defineExpose({
   done,
-  handleSave
+  deepClone,
+  handleSave,
+  handleUpdate
 });
 </script>
 
 <template>
-  <a-form ref="formRef" :model="modelForm" :size="size" :disabled="disabled" auto-label-width>
+  <a-form ref="formRef" :model="modelForm" :size="size" :disabled="disabled || modelType === 'see'" auto-label-width>
     <a-row :gutter="16">
       <template v-for="(colitem, index) in options.columns" :key="index">
         <a-col :span="colitem.span || options.searchSpan || 6">
@@ -89,11 +107,16 @@ defineExpose({
                 allow-clear
             />
             <!--              日期选择器 DatePicker-->
-            <a-date-picker v-else-if="colitem.type === 'date'"/>
-            <a-month-picker v-else-if="colitem.type === 'month'"/>
-            <a-year-picker v-else-if="colitem.type === 'year'"/>
-            <a-quarter-picker v-else-if="colitem.type === 'quarter'"/>
-            <a-week-picker v-else-if="colitem.type === 'week'"/>
+            <a-date-picker v-else-if="colitem.type === 'date'" v-model="modelForm[colitem.dataIndex]"/>
+            <a-month-picker v-else-if="colitem.type === 'month'" v-model="modelForm[colitem.dataIndex]"/>
+            <a-year-picker v-else-if="colitem.type === 'year'" v-model="modelForm[colitem.dataIndex]"/>
+            <a-quarter-picker v-else-if="colitem.type === 'quarter'" v-model="modelForm[colitem.dataIndex]"/>
+            <a-week-picker v-else-if="colitem.type === 'week'" v-model="modelForm[colitem.dataIndex]"/>
+            <a-select v-else-if="colitem.type === 'select'" v-model="modelForm[colitem.dataIndex]">
+              <template v-for="(item,index) in colitem.dicData" :key="index">
+                <a-option :label="item.label" :value="item.value"></a-option>
+              </template>
+            </a-select>
           </a-form-item>
         </a-col>
       </template>

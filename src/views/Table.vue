@@ -52,12 +52,15 @@ const options = reactive({
     {
       title: '性别',
       dataIndex: 'gender',
-      search: true,
+      type: 'select',
+      search: true
     },
     {
       title: '工种',
       dataIndex: 'workType',
+      type: 'select',
       search: true,
+      dicData: [{label: '男', value: 1}, {label: '女', value: 2}]
     }
   ]
 })
@@ -306,7 +309,12 @@ const sizeChange = (pageSize: number) => {
   page.currentPage = 1
   page.pageSize = pageSize
 }
-const hanleSave = (form: object, loading: any, done: any) => {
+const handleSave = (form: object, loading: any, done: any) => {
+  console.log(form)
+  loading()
+  done()
+}
+const handleUpdate = (form: object, loading: any, done: any) => {
   console.log(form)
   loading()
   done()
@@ -316,7 +324,8 @@ const hanleSave = (form: object, loading: any, done: any) => {
 <template>
   <eh-table v-model:page="page" v-model:searchForm="searchForm" :data="data" :options="options"
             @current-change="currentChange"
-            @hanle-save="hanleSave"
+            @handle-save="handleSave"
+            @handle-update="handleUpdate"
             @row-save="rowSave"
             @search-change="searchChange"
             @search-reset="searchReset"
