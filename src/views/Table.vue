@@ -311,6 +311,9 @@ const handleUpdate = (form: object, loading: any, done: any) => {
   loading()
   // done()
 }
+const getList = (page: object, params: object) => {
+  console.log(page, params)
+}
 </script>
 
 <template>
@@ -321,7 +324,8 @@ const handleUpdate = (form: object, loading: any, done: any) => {
             @row-save="rowSave"
             @search-change="searchChange"
             @search-reset="searchReset"
-            @size-change="sizeChange">
+            @size-change="sizeChange"
+            @onLoad="getList">
     <template #employeeCodeLabel>
       吃啥ma ?
     </template>

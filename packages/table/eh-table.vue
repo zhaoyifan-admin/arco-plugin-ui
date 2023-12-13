@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, defineAsyncComponent, ref} from "vue";
+import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
 
-const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave','handleUpdate', 'update:searchForm'])
+const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave', 'handleUpdate', 'onLoad', 'update:searchForm'])
 
 const search = defineAsyncComponent(
     () => import('./components/search/index.vue')
@@ -120,6 +120,9 @@ const handleSave = (modelForm: object, loading: any, done: any) => {
 const handleUpdate = (modelForm: object, loading: any, done: any) => {
   emit('handleUpdate', modelForm, loading, done)
 }
+onBeforeMount(()=>{
+  emit('onLoad', props.page, props.searchForm);
+})
 </script>
 
 <template>
@@ -235,7 +238,8 @@ const handleUpdate = (modelForm: object, loading: any, done: any) => {
         </div>
       </a-spin>
     </div>
-    <component :is="model" ref="modelRef" :size="size" :options="options" @handle-save="handleSave" @handle-update="handleUpdate">
+    <component :is="model" ref="modelRef" :size="size" :options="options" @handle-save="handleSave"
+               @handle-update="handleUpdate">
       <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
         <slot :name="colitem.dataIndex + 'Label'"></slot>
       </template>

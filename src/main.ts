@@ -4,7 +4,8 @@ import router from './router';
 import '@/assets/less/global.less';
 import '@arco-design/web-vue/dist/arco.css';
 
-import VueArcoUI from 'vue-arco-ui';
+import VueArcoUI from '../packages'
+// import VueArcoUI from 'vue-arco-ui';
 import 'vue-arco-ui/css';
 
 const app = createApp(App);
