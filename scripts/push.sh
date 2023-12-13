@@ -5,5 +5,5 @@ set -e
 
 # 提交修改到github
 git add .
-git cm -m 'update'
+git cm -m
 git push

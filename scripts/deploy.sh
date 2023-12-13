@@ -15,7 +15,7 @@ cd ../docs/.vitepress/dist
 # 提交打包静态网站到 github-pages 分支
 git init
 git add .
-git commit -m 'deploy'
+git commit -m
 
 # 部署到 https://<username>.github.io/<repo>
 git push -f git@github.com:zhaoyifan-admin/arco-plugin-ui.git master:github-pages
@@ -23,5 +23,5 @@ git push -f git@github.com:zhaoyifan-admin/arco-plugin-ui.git master:github-page
 # 提交所有代码到github
 cd ../../../
 git add .
-git cm -m 'update'
+git cm -m
 git push
