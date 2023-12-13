@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import './assets/less/global.less'
+import './assets/aliIcon/iconfont.css'
 import '@arco-design/web-vue/dist/arco.css';
 
 import VueArcoUI from 'vue-arco-ui';
