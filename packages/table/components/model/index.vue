@@ -65,7 +65,7 @@ const handleClick = (type: string) => {
     modalRef.value.handleSave();
   }
   if (type === 'edit') {
-    modalRef.value.handleSave();
+    modalRef.value.handleUpdate();
   }
 }
 const handleSave = (modelForm: object, loading: any, done: any) => {

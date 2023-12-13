@@ -31,7 +31,7 @@ withDefaults(defineProps<Props>(), {
 })
 const disabled = ref(false);
 const formRef = ref<any>(null);
-const modelForm: { [key: string]: any } = reactive({})
+let modelForm: { [key: string]: any } = reactive({})
 const deepClone = (params: object) => {
   Object.assign(modelForm, params)
 }

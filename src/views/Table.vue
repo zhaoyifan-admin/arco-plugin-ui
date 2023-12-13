@@ -17,19 +17,11 @@ const options = reactive({
       title: '员工编号',
       dataIndex: 'employeeCode',
       search: true,
-      rules: [{required: true, message: 'name is required'}, {
-        minLength: 5,
-        message: 'must be greater than 5 characters'
-      }]
     },
     {
       title: '员工姓名',
       dataIndex: 'employeeName',
       search: true,
-      rules: [{required: true, message: 'name is required'}, {
-        minLength: 5,
-        message: 'must be greater than 5 characters'
-      }]
     },
     {
       title: '所属部门',
@@ -317,7 +309,7 @@ const handleSave = (form: object, loading: any, done: any) => {
 const handleUpdate = (form: object, loading: any, done: any) => {
   console.log(form)
   loading()
-  done()
+  // done()
 }
 </script>
 
