@@ -1,4 +1,5 @@
 import './less/global.less'
+import './less/iconfont.css'
 import {
   dateFormat,
   requestAnimationFrame,
