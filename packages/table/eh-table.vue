@@ -131,7 +131,7 @@ const hanleSave = (modelForm: object, loading: any, done: any) => {
           :size="size"
       >
       </component>
-      <div class="collapse-btn-box p-absolute" @click="onCollapse"></div>
+      <div class="collapse-btn-box p-absolute" @click="onCollapse">功能栏</div>
     </div>
     <!--    主视图-->
     <div class="arco-compontent-page-table d-flex flex-column">

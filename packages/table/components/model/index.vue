@@ -53,6 +53,7 @@ const handleOk = () => {
 };
 const handleCancel = () => {
   visible.value = false;
+  modalRef.value.done();
 }
 const handleClick = (type: string) => {
   Loading.value = true;
@@ -82,7 +83,7 @@ defineExpose({
       </template>
     </component>
     <template #footer>
-      <a-button :size="size" @click="visible = false">取消</a-button>
+      <a-button :size="size" @click="handleCancel">取消</a-button>
       <a-button type="primary" :size="size" :loading="Loading" @click="handleClick('add')">
         <template #icon>
           <i class="rtdp xinzeng"></i>

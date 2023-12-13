@@ -29,10 +29,12 @@ withDefaults(defineProps<Props>(), {
 })
 const disabled = ref(false);
 const formRef = ref<any>(null);
-const modelForm: { [key: string]: any } = reactive({})
+let modelForm: { [key: string]: any } = reactive({})
 const done = () => {
   emit('update:Loading', false);
   emit('update:Visible', false);
+  formRef.value.resetFields();
+  formRef.value.clearValidate();
   disabled.value = false;
 }
 const loading = () => {
@@ -51,6 +53,7 @@ const handleSave = () => {
   })
 }
 defineExpose({
+  done,
   handleSave
 });
 </script>
