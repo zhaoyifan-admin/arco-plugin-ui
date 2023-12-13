@@ -96,19 +96,21 @@ defineExpose({
       </template>
     </component>
     <template #footer>
-      <a-button :size="size" @click="handleCancel">取消</a-button>
-      <a-button type="primary" v-if="modelType === 'add'" :size="size" :loading="Loading" @click="handleClick('add')">
-        <template #icon>
-          <i class="rtdp xinzeng"></i>
-        </template>
-        保存
-      </a-button>
-      <a-button type="primary" v-if="modelType === 'edit'" :size="size" :loading="Loading" @click="handleClick('edit')">
-        <template #icon>
-          <i class="rtdp caozuo-bianji"></i>
-        </template>
-        修改
-      </a-button>
+      <a-space>
+        <a-button :size="size" @click="handleCancel">取消</a-button>
+        <a-button type="primary" v-if="modelType === 'add'" :size="size" :loading="Loading" @click="handleClick('add')">
+          <template #icon>
+            <i class="rtdp xinzeng"></i>
+          </template>
+          保存
+        </a-button>
+        <a-button type="primary" v-if="modelType === 'edit'" :size="size" :loading="Loading" @click="handleClick('edit')">
+          <template #icon>
+            <i class="rtdp caozuo-bianji"></i>
+          </template>
+          修改
+        </a-button>
+      </a-space>
     </template>
   </a-modal>
 </template>
