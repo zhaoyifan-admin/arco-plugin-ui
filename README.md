@@ -96,7 +96,7 @@ Select | 选择器 | Slider | 滑动输入条
 Space | 间距 | Spin | 加载中
 Statistic | 统计数值 | Steps | 步骤条
 Swiper | 触摸滑动插件 | Switch | 开关
-Table | 表格 | Tabs | 标签页
+ehTable | 表格 | Tabs | 标签页
 Tag | 标签 | Textarea | 文本域
 TextScroll | 文字滚动 | Timeline | 时间轴
 Tooltip | 文字提示 | Upload | 上传
