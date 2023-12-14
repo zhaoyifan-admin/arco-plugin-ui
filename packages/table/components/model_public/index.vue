@@ -40,6 +40,7 @@ const done = () => {
   emit('update:Visible', false);
   formRef.value.resetFields();
   formRef.value.clearValidate();
+  modelForm = reactive({});
   disabled.value = false;
 }
 const loading = () => {
