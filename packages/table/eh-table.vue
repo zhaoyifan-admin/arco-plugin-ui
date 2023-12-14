@@ -120,7 +120,10 @@ const handleSave = (modelForm: object, loading: any, done: any) => {
 const handleUpdate = (modelForm: object, loading: any, done: any) => {
   emit('handleUpdate', modelForm, loading, done)
 }
-onBeforeMount(()=>{
+const handleRefresh = () => {
+  emit('onLoad', props.page, props.searchForm);
+}
+onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
 })
 </script>
@@ -158,7 +161,7 @@ onBeforeMount(()=>{
       </div>
       <!--    菜单栏按钮-->
       <component :is="menuButton" ref="menuButtonRef" :size="size" :columns="options.columns"
-                 @handleOpenModel="handleOpenModel">
+                 @handleOpenModel="handleOpenModel" @handleRefresh="handleRefresh">
         <template #menuLeft>
           <slot name="menuLeft" :size="size"></slot>
         </template>

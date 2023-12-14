@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const emit = defineEmits(['handleOpenModel'])
+const emit = defineEmits(['handleOpenModel','handleRefresh'])
 
 interface Props {
   columns?: TableColumnData[]
@@ -14,6 +14,9 @@ withDefaults(defineProps<Props>(), {
 })
 const handleClick = () => {
   emit('handleOpenModel','add')
+}
+const handleRefresh = () => {
+  emit('handleRefresh')
 }
 </script>
 
@@ -30,7 +33,7 @@ const handleClick = () => {
     </div>
     <div class="arco-compontent-page-right-button d-flex a-center j-end">
       <slot name="menuRight"></slot>
-      <a-button type="outline" shape="circle" :size="size">
+      <a-button type="outline" shape="circle" :size="size" @click="handleRefresh">
         <template #icon>
           <i class="rtdp refresh"></i>
         </template>
