@@ -12,7 +12,7 @@ const options = reactive({
   index: true,
   searchBtnSpan: 6,
   menuBtnStyle: "icon",
-  maxHeight: 450,
+  // maxHeight: 450,
   columns: [
     {
       title: '员工编号',

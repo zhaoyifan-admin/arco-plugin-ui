@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
+import * as events from "events";
 
 const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave', 'handleUpdate', 'onLoad', 'update:searchForm'])
 
 const search = defineAsyncComponent(
     () => import('./components/search/index.vue')
-);
-const tabs = defineAsyncComponent(
-    () => import('./components/tabs/index.vue')
 );
 const tablePagination = defineAsyncComponent(
     () => import('./components/table-pagination/index.vue')
@@ -67,25 +65,9 @@ const rowClass = (record: any, rowIndex: number) => {
   }
   return '';
 };
-const searchTabs = ref(false);
 const menuButtonRef = ref();
 const modelRef = ref()
-const menuStyle = computed(() => {
-  const width = {
-    width: '0',
-  };
-  const padding = {
-    padding: '0',
-  };
-  if (searchTabs.value) {
-    width.width = '425px';
-    padding.padding = '10px 10px 10px 0';
-  } else {
-    width.width = '0';
-    padding.padding = '0';
-  }
-  return {...width, ...padding};
-});
+
 const searchForm: { [key: string]: any } = computed({
   get() {
     return props.searchForm
@@ -94,9 +76,6 @@ const searchForm: { [key: string]: any } = computed({
     emit('update:searchForm', val)
   }
 })
-const onCollapse = () => {
-  searchTabs.value = !searchTabs.value;
-};
 const searchChange = (object: object, done: any) => {
   emit('searchChange', object, done)
 };
@@ -124,13 +103,16 @@ const handleUpdate = (modelForm: object, loading: any, done: any) => {
 const handleRefresh = () => {
   emit('onLoad', props.page, props.searchForm);
 }
+const rowContextmenu = (record: any, ev: events) => {
+  console.log(record, ev)
+}
 onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
 })
 </script>
 
 <template>
-  <div ref="atble" class="arco-compontent-page d-flex a-start">
+  <div ref="atble" class="arco-compontent-page">
     <!--    主视图-->
     <div class="arco-compontent-page-table d-flex flex-column">
       <div class="arco-compontent-page-search">
@@ -138,7 +120,6 @@ onBeforeMount(() => {
             :is="search"
             v-model:searchForm="searchForm"
             :options="options"
-            :searchTabs="searchTabs"
             :size="size"
             @search-change="searchChange"
             @search-reset="searchReset"
@@ -168,11 +149,11 @@ onBeforeMount(() => {
                    :pagination="false"
                    :row-class="rowClass"
                    :size="size"
-                   :scroll="{y:options.maxHeight}"
-                   column-resizable>
+                   column-resizable
+                   @row-dblclick="rowContextmenu">
             <template #columns>
               <!--            序号-->
-              <a-table-column v-if="options.index" title="序号" :width="80" align="center">
+              <a-table-column v-if="options.index" title="序号" :width="80" align="center" fixed="left">
                 <template #cell="{ rowIndex }">
                   {{ (page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
                 </template>
@@ -186,7 +167,7 @@ onBeforeMount(() => {
                     :ellipsis="item.ellipsis"
                     :title="item.title"
                     :tooltip="item.tooltip"
-                    :width="item.width"
+                    :width="item.width || 200"
                 >
                   <template #title>
                     <slot :name="item.dataIndex + 'Theader'">
@@ -196,13 +177,19 @@ onBeforeMount(() => {
                   <template #cell="{ record, rowIndex }">
                     <slot :name="item.dataIndex + 'cell'" :scope="{ record, rowIndex }">
                       {{ record[item.dataIndex as any] }}
+                      <!--                      <a-input placeholder="Please enter something" :size="size" allow-clear>-->
+                      <!--                        <template #prefix>-->
+                      <!--                          <i class="rtdp caozuo-bianji"></i>-->
+                      <!--                        </template>-->
+                      <!--                      </a-input>-->
                     </slot>
                   </template>
                 </a-table-column>
               </template>
               <!--            操作栏-->
               <a-table-column
-                  :width="options.menuWidth"
+                  cell-class="Menu-box-shadow"
+                  :width="options.menuWidth || 145"
                   align="center"
                   fixed="right"
                   title="操作栏"
@@ -230,18 +217,6 @@ onBeforeMount(() => {
           />
         </div>
       </a-spin>
-    </div>
-    <!--    Tab操作区-->
-    <div class="arco-compontent-page-tabs p-relative" :style="menuStyle">
-      <component
-          :is="tabs"
-          v-show="searchTabs"
-          :options="options"
-          :searchTabs="searchTabs"
-          :size="size"
-      >
-      </component>
-      <div class="collapse-btn-box p-absolute" @click="onCollapse">功能栏</div>
     </div>
     <component :is="model" ref="modelRef" :size="size" :options="options" @handle-save="handleSave"
                @handle-update="handleUpdate">
