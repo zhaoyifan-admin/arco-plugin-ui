@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
-import * as events from "events";
 
 const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave', 'handleUpdate', 'onLoad', 'update:searchForm'])
 
@@ -103,7 +102,7 @@ const handleUpdate = (modelForm: object, loading: any, done: any) => {
 const handleRefresh = () => {
   emit('onLoad', props.page, props.searchForm);
 }
-const rowContextmenu = (record: any, ev: events) => {
+const rowContextmenu = (record: any, ev: any) => {
   console.log(record, ev)
 }
 onBeforeMount(() => {
