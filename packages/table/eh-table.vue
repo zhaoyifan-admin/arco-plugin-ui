@@ -54,6 +54,7 @@ const props = withDefaults(defineProps<Props>(), {
       search: false,
       searchBtnSpan: 6,
       searchSpan: 6,
+      maxHeight: 450,
     }
   },
   page: () => {
@@ -130,18 +131,6 @@ onBeforeMount(() => {
 
 <template>
   <div ref="atble" class="arco-compontent-page d-flex a-start">
-    <!--    Tab操作区-->
-    <div class="arco-compontent-page-tabs p-relative" :style="menuStyle">
-      <component
-          :is="tabs"
-          v-show="searchTabs"
-          :options="options"
-          :searchTabs="searchTabs"
-          :size="size"
-      >
-      </component>
-      <div class="collapse-btn-box p-absolute" @click="onCollapse">功能栏</div>
-    </div>
     <!--    主视图-->
     <div class="arco-compontent-page-table d-flex flex-column">
       <div class="arco-compontent-page-search">
@@ -179,6 +168,7 @@ onBeforeMount(() => {
                    :pagination="false"
                    :row-class="rowClass"
                    :size="size"
+                   :scroll="{y:options.maxHeight}"
                    column-resizable>
             <template #columns>
               <!--            序号-->
@@ -240,6 +230,18 @@ onBeforeMount(() => {
           />
         </div>
       </a-spin>
+    </div>
+    <!--    Tab操作区-->
+    <div class="arco-compontent-page-tabs p-relative" :style="menuStyle">
+      <component
+          :is="tabs"
+          v-show="searchTabs"
+          :options="options"
+          :searchTabs="searchTabs"
+          :size="size"
+      >
+      </component>
+      <div class="collapse-btn-box p-absolute" @click="onCollapse">功能栏</div>
     </div>
     <component :is="model" ref="modelRef" :size="size" :options="options" @handle-save="handleSave"
                @handle-update="handleUpdate">

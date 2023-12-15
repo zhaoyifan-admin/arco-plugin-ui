@@ -18,7 +18,7 @@ declare interface TableColumnData {
     title: string
     type?: string
     width?: number
-    tooltip?:boolean|object
+    tooltip?: boolean | object
     placeholder?: string
     rules?: any[]
     dicData?: any[]
@@ -35,6 +35,7 @@ declare interface TableOptions {
     searchSpan?: number
     menuBtnStyle?: string
     maskClosable?: boolean
+    maxHeight?: number | string
 }
 
 declare interface Pagination {

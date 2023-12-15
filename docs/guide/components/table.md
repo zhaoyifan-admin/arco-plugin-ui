@@ -151,6 +151,7 @@ const sizeChange = (pageSize: number)=> {
 | columns       | 表单列配置参考Column相关配置 | TableColumnData[] |               |
 | menuWidth     | 操作栏宽度             | number            |               |
 | menuBtnStyle  | 操作栏按钮风格           | string            | 'icon'/'text' |
+| maxHeight     | 表格最大高度            | number,string     | 450           |
 | search        | 是否开启查询            | boolean           | false         |
 | searchSpan	   | 搜索项框栅列	           | number            | 6             |
 | searchBtnSpan | 查询表单按钮栅列          | number            | 6             |
