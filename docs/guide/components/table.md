@@ -168,6 +168,16 @@ const sizeChange = (pageSize: number)=> {
 | ellipsis   | 是否显示为省略                 | boolean                   | false |
 
 
+### < column >  Slot
+
+| 插槽名         | 描述                | 参数                                                         | 默认值 |
+|-------------|-------------------|------------------------------------------------------------|-----|
+| Label       | 弹框标题              | -                                                          |     |
+| Title       | 标题                | -                                                          |     |
+| SearchLabel | 查询表单标题            | -                                                          |     |
+| cell        | 单元格               | record: TableData，column: TableColumnData，rowIndex: number |     |
+
+
 ### Pagination Type
 
 | 名称          | 说明           | 类型       | 默认值                  |

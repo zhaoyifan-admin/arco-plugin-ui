@@ -169,18 +169,13 @@ onBeforeMount(() => {
                     :width="item.width || 200"
                 >
                   <template #title>
-                    <slot :name="item.dataIndex + 'Theader'">
+                    <slot :name="item.dataIndex + 'Title'">
                       {{ item.title }}
                     </slot>
                   </template>
-                  <template #cell="{ record, rowIndex }">
-                    <slot :name="item.dataIndex + 'cell'" :scope="{ record, rowIndex }">
+                  <template #cell="{ record, column, rowIndex }">
+                    <slot :name="item.dataIndex + 'cell'" :record="record" :column="column" :rowIndex="rowIndex">
                       {{ record[item.dataIndex as any] }}
-                      <!--                      <a-input placeholder="Please enter something" :size="size" allow-clear>-->
-                      <!--                        <template #prefix>-->
-                      <!--                          <i class="rtdp caozuo-bianji"></i>-->
-                      <!--                        </template>-->
-                      <!--                      </a-input>-->
                     </slot>
                   </template>
                 </a-table-column>

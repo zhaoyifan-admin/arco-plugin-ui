@@ -990,6 +990,9 @@ const getList = (page: object, params: object) => {
     <template #employeeCodeLabel>
       吃啥ma ?
     </template>
+    <template #employeeCodeTitle>
+      吃啥ma ?
+    </template>
   </eh-table>
 </template>
 
