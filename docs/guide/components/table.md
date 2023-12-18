@@ -156,7 +156,7 @@ const sizeChange = (pageSize: number)=> {
 | searchSpan	   | 搜索项框栅列	           | `number`            | 6             |
 | searchBtnSpan | 查询表单按钮栅列          | `number`            | 6             |
 
-### < column >  Props
+### < columns >  Props
 
 | 参数名                | 描述                              | 类型                                                        |   默认值   |
 |--------------------|---------------------------------|-----------------------------------------------------------|:-------:|
@@ -183,7 +183,7 @@ const sizeChange = (pageSize: number)=> {
 | tooltip            | 在省略时是否显示文字提示                    | `boolean\|object`                                         | `false` |
 
 
-### < column >  Slot
+### < columns >  Slot
 
 | 插槽名         | 描述     | 参数                                                                     | 默认值 |
 |-------------|--------|------------------------------------------------------------------------|-----|
@@ -195,21 +195,23 @@ const sizeChange = (pageSize: number)=> {
 
 ### Pagination Type
 
-| 名称          | 说明           | 类型         | 默认值                  |
-|-------------|--------------|------------|----------------------|
-| currentPage | 当前页码         | `number`   | 1                    |
-| pageSize    | 每页展示的数据条数    | `number`   | 5                    |
-| pageSizes   | 数据条数选择器的选项列表 | `number[]` | [10, 20, 30, 40, 50] |
-| total       | 数据总数         | `number`   |                      |
+| 名称                   | 说明           | 类型         | 默认值                  |
+|----------------------|--------------|------------|----------------------|
+| currentPage(v-model) | 当前页码         | `number`   | 1                    |
+| pageSize(v-model)    | 每页展示的数据条数    | `number`   | 5                    |
+| pageSizes            | 数据条数选择器的选项列表 | `number[]` | [10, 20, 30, 40, 50] |
+| total (必填)           | 数据总数         | `number`   |                      |
 
 ### Events
 
 | 事件名称           | 说明              | 参数                                                                                 |
 |----------------|-----------------|------------------------------------------------------------------------------------|
 | current-change | 分页变化时的回调        | current: `number`                                                                  |
-| hanle-save     | 新增数据后点击确定触发该事件	 | form:`object`<br>loading：`(event: Event) => void`<br>done：`(event: Event) => void` |
-| search-change  | 点击查询后触发该事件      | form:`(event: Event) => void`<br>done:`(event: Event) => void`                     |
-| size-change    | 数据条数改变时触发       | pageSize: `number`                                                                 |
+| handle-save    | 新增数据后点击确定触发该事件	 | form:`object`<br>loading：`(event: Event) => void`<br>done：`(event: Event) => void` |
+| handle-update  | 编辑数据后点击确定触发该事件  | form:`object`<br>loading：`(event: Event) => void`<br>done：`(event: Event) => void` |
+| search-change  | 点击查询后触发该事件      | form:`object`<br>done:`(event: Event) => void`                                     |
+| search-reset   | 清空搜索回调方法	       | form:`object`                                                                      |
+| onLoad         | 表格初始化时触发        |                                                                                    |
 
 ### 字符串解析格式
 

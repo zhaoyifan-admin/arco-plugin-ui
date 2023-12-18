@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {defineAsyncComponent, ref} from "vue";
+import type {TableOptions} from "../index";
 
 const modelPublic = defineAsyncComponent(
     () => import('../model_public/index.vue')

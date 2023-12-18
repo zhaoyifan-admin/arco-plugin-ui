@@ -940,9 +940,6 @@ const data = reactive([{
     planStartTime: null,
   },
 ])
-const rowSave = () => {
-
-}
 const searchChange = (form: object, done: any) => {
   console.log(searchForm.value, 1101)
   console.log(form, 1102);
@@ -983,7 +980,6 @@ const getList = (page: object, params: object) => {
             @current-change="currentChange"
             @handle-save="handleSave"
             @handle-update="handleUpdate"
-            @row-save="rowSave"
             @search-change="searchChange"
             @search-reset="searchReset"
             @size-change="sizeChange"

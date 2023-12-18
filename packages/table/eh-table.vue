@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
+import {computed, defineAsyncComponent, onBeforeMount, ref} from "vue";
+import type {TableBorder} from "./components/types/TableBorder";
+import type {Pagination, TableOptions} from "./components";
 
 const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave', 'handleUpdate', 'onLoad', 'update:searchForm'])
 

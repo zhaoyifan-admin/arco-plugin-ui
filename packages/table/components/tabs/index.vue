@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed} from "vue";
+import type {TableOptions} from "../index";
 
 const emit = defineEmits(['update:searchForm'])
 interface Props {

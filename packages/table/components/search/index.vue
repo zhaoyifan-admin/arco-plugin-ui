@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {onMounted, defineAsyncComponent, ref, computed} from "vue";
+import type {TableOptions} from "../index";
 
 const searchPublic = defineAsyncComponent(
     () => import('../search_public/index.vue')
@@ -54,7 +55,7 @@ const searchForm: { [key: string]: any } = computed({
 })
 onMounted(() => {
   if (props.options.columns) {
-    const index = props.options.columns.findIndex((item) => item.search === true);
+    const index = props.options.columns.findIndex((item:any) => item.search === true);
     showSearch.value = index !== -1;
   }
 })

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type {TableOptions} from "../index";
+
 const emit = defineEmits(['handleMenuClick'])
 
 interface Props {

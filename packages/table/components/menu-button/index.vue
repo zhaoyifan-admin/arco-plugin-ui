@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type {TableColumnData} from "../types/TableColumnData";
+
 const emit = defineEmits(['handleOpenModel','handleRefresh'])
 
 interface Props {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {reactive, ref} from "vue";
+import type {TableOptions} from "../index";
 
 const emit = defineEmits(['handleSave', 'handleUpdate', 'update:Loading', 'update:Visible'])
 
