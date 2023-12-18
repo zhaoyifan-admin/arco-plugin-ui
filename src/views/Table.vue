@@ -46,7 +46,8 @@ const options = reactive({
       title: '性别',
       dataIndex: 'gender',
       type: 'select',
-      search: true
+      search: true,
+      dicData: [{label: '男', value: 1}, {label: '女', value: 2}]
     },
     {
       title: '工种',

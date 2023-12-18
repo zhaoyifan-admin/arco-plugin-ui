@@ -22,6 +22,9 @@ declare interface TableColumnData {
     placeholder?: string
     rules?: any[]
     dicData?: any[]
+    showTime?: boolean
+    timePickerProps?: any
+    format?: string
 }
 
 declare interface TableOptions {
