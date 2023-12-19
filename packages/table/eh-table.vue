@@ -70,6 +70,7 @@ const menuButtonRef = ref();
 const searchRef =ref();
 const atble = ref();
 const modelRef = ref();
+const scorllHeight = ref<any>('100%');
 
 const searchForm: { [key: string]: any } = computed({
   get() {
@@ -114,8 +115,12 @@ onBeforeMount(() => {
 })
 onMounted(()=>{
   setTimeout(()=>{
-    console.log(atble)
-  },200)
+    const parentoffsetHeight = atble.value.offsetHeight;
+    const searchHeight = searchRef.value.offsetHeight;
+    const menuButtonHeight = menuButtonRef.value.offsetHeight;
+    scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 70);
+    console.log(parentoffsetHeight, searchHeight, menuButtonHeight)
+  },300)
 })
 </script>
 
@@ -123,10 +128,9 @@ onMounted(()=>{
   <div ref="atble" class="arco-compontent-page">
     <!--    主视图-->
     <div class="arco-compontent-page-table d-flex flex-column">
-      <div class="arco-compontent-page-search" ref="searchRef">
+      <div ref="searchRef" class="arco-compontent-page-search" data-aos="fade-down">
         <component
             :is="search"
-
             v-model:searchForm="searchForm"
             :options="options"
             :size="size"
@@ -139,17 +143,19 @@ onMounted(()=>{
         </component>
       </div>
       <!--    菜单栏按钮-->
-      <component :is="menuButton" ref="menuButtonRef" :size="size" :columns="options.columns"
-                 @handleOpenModel="handleOpenModel" @handleRefresh="handleRefresh">
-        <template #menuLeft>
-          <slot name="menuLeft" :size="size"></slot>
-        </template>
-        <template #menuRight>
-          <slot name="menuRight" :size="size"></slot>
-        </template>
-      </component>
+      <div ref="menuButtonRef" class="arco-compontent-page-menuButton" data-aos="fade-down">
+        <component :is="menuButton"  :size="size" :columns="options.columns"
+                   @handleOpenModel="handleOpenModel" @handleRefresh="handleRefresh">
+          <template #menuLeft>
+            <slot name="menuLeft" :size="size"></slot>
+          </template>
+          <template #menuRight>
+            <slot name="menuRight" :size="size"></slot>
+          </template>
+        </component>
+      </div>
       <!--      Table展示区-->
-      <a-spin dot :loading="loading" :tip="tip">
+      <a-spin :loading="loading" :tip="tip" data-aos="fade-right" dot>
         <div class="table-show">
           <a-table :bordered="bordered"
                    :columns="options.columns"
@@ -158,7 +164,7 @@ onMounted(()=>{
                    :pagination="false"
                    :row-class="rowClass"
                    :size="size"
-                   :scroll="{y: '500px'}"
+                   :scroll="{y: scorllHeight}"
                    column-resizable
                    @row-dblclick="rowContextmenu">
             <template #columns>

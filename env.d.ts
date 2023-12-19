@@ -11,6 +11,7 @@ declare module 'vue-arco-ui'
 declare module 'naive-ui'
 declare module '*.json'
 declare module 'minimist'
+declare module 'aos'
 
 interface Window {
   rafTimeout: Function
