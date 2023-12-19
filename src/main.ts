@@ -11,7 +11,7 @@ import VueArcoUI from '../packages'
 import 'vue-arco-ui/css';
 
 AOS.init({
-    duration: 1300,
+    duration: 1500,
     easing: 'ease-in-out-back',
 });
 const app = createApp(App);

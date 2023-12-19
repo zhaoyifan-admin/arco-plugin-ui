@@ -120,7 +120,7 @@ onMounted(()=>{
     const menuButtonHeight = menuButtonRef.value.offsetHeight;
     scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 70);
     console.log(parentoffsetHeight, searchHeight, menuButtonHeight,scorllHeight.value)
-  },300)
+  },500)
 })
 </script>
 
