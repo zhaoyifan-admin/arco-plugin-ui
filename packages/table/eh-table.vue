@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, defineAsyncComponent, onBeforeMount, ref} from "vue";
+import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
 import type {TableBorder} from "./components/types/TableBorder";
 import type {Pagination, TableOptions} from "./components";
 
@@ -67,7 +67,9 @@ const rowClass = (record: any, rowIndex: number) => {
   return '';
 };
 const menuButtonRef = ref();
-const modelRef = ref()
+const searchRef =ref();
+const atble = ref();
+const modelRef = ref();
 
 const searchForm: { [key: string]: any } = computed({
   get() {
@@ -110,15 +112,21 @@ const rowContextmenu = (record: any, ev: any) => {
 onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
 })
+onMounted(()=>{
+  setTimeout(()=>{
+    console.log(atble)
+  },200)
+})
 </script>
 
 <template>
   <div ref="atble" class="arco-compontent-page">
     <!--    主视图-->
     <div class="arco-compontent-page-table d-flex flex-column">
-      <div class="arco-compontent-page-search">
+      <div class="arco-compontent-page-search" ref="searchRef">
         <component
             :is="search"
+
             v-model:searchForm="searchForm"
             :options="options"
             :size="size"
@@ -142,7 +150,7 @@ onBeforeMount(() => {
       </component>
       <!--      Table展示区-->
       <a-spin dot :loading="loading" :tip="tip">
-        <div class="table-show d-flex flex-column">
+        <div class="table-show">
           <a-table :bordered="bordered"
                    :columns="options.columns"
                    :data="data"
@@ -150,6 +158,7 @@ onBeforeMount(() => {
                    :pagination="false"
                    :row-class="rowClass"
                    :size="size"
+                   :scroll="{y: '500px'}"
                    column-resizable
                    @row-dblclick="rowContextmenu">
             <template #columns>
