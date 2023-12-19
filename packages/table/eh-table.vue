@@ -118,7 +118,7 @@ onMounted(()=>{
     const parentoffsetHeight = atble.value.offsetHeight;
     const searchHeight = searchRef.value.offsetHeight;
     const menuButtonHeight = menuButtonRef.value.offsetHeight;
-    scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 70);
+    scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 120);
     console.log(parentoffsetHeight, searchHeight, menuButtonHeight,scorllHeight.value)
   },500)
 })
@@ -127,7 +127,7 @@ onMounted(()=>{
 <template>
   <div ref="atble" class="arco-compontent-page">
     <!--    主视图-->
-    <div class="arco-compontent-page-table d-flex flex-column">
+    <div class="arco-compontent-page-table">
       <div ref="searchRef" class="arco-compontent-page-search" data-aos="fade-down">
         <component
             :is="search"
