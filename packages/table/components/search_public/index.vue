@@ -87,6 +87,7 @@ defineExpose({
         <a-year-picker v-else-if="colitem.type === 'year'" v-model="searchForm[colitem.dataIndex]"/>
         <a-quarter-picker v-else-if="colitem.type === 'quarter'" v-model="searchForm[colitem.dataIndex]"/>
         <a-week-picker v-else-if="colitem.type === 'week'" v-model="searchForm[colitem.dataIndex]"/>
+        <!--              选择器 Select-->
         <a-select v-else-if="colitem.type === 'select'" v-model="searchForm[colitem.dataIndex]">
           <template v-for="(item,index) in colitem.dicData" :key="index">
             <a-option :label="item.label" :value="item.value"></a-option>

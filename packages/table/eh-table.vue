@@ -118,7 +118,7 @@ onMounted(()=>{
     const parentoffsetHeight = atble.value.offsetHeight;
     const searchHeight = searchRef.value.offsetHeight;
     const menuButtonHeight = menuButtonRef.value.offsetHeight;
-    scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 120);
+    scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 110);
     console.log(parentoffsetHeight, searchHeight, menuButtonHeight,scorllHeight.value)
   },500)
 })

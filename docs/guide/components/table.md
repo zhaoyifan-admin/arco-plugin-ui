@@ -181,6 +181,7 @@ const sizeChange = (pageSize: number)=> {
 | summary-cell-style | 自定义总结栏单元格样式                     | `CSSProperties \| ((record: TableData) => CSSProperties)` |   `-`   |
 | index              | 用于手动指定选项的 index                 | `number`                                                  |   `-`   |
 | tooltip            | 在省略时是否显示文字提示                    | `boolean\|object`                                         | `false` |
+| type               | 文本框类型，参考[文本框类型](#文本框类型)         | `string`                                                  | `input` |
 
 
 ### < columns >  Slot
@@ -247,5 +248,42 @@ const sizeChange = (pageSize: number)=> {
 | `Do`   | 1st... 3st       |        带序号的月份中的某天 |
 | `X`    | 1410715640.579   |          Unix 时间戳 |
 | `x`    | 1410715640579    |        Unix 毫秒时间戳 |
+
+---
+
+### 文本框类型
+
+| Type           |    描述 |
+|----------------|------:|
+| `input`        |   输入框 |
+| `calendar`     |    日历 |
+| `badge`        |    徽标 |
+| `table`        |    表格 |
+| `popover`      |  气泡卡片 |
+| `inputNumber`  | 数字输入框 |
+| `radio`        |   单选框 |
+| `checkbox`     |   复选框 |
+| `switch`       |    开关 |
+| `dropdown`     |  下拉菜单 |
+| `progress`     |   进度条 |
+| `steps`        |   步骤条 |
+| `slider`       | 滑动输入条 |
+| `rate`         |    评分 |
+| `tag`          |    标签 |
+| `select`       |   选择器 |
+| `inputTag`     | 标签输入框 |
+| `autoComplete` |  自动补全 |
+| `avatar`       |    头像 |
+| `timeline`     |   时间轴 |
+| `datePicker`   | 日期选择器 |
+| `timePicker`   | 时间选择器 |
+| `image`        |    图片 |
+| `upload`       |    上传 |
+| `cascader`     |  级联选择 |
+| `tabs`         |   标签页 |
+| `textarea`     |   文本域 |
+| `transfer`     | 数据穿梭框 |
+| `tree`         |     树 |
+| `treeSelect`   |   树选择 |
 
 ---

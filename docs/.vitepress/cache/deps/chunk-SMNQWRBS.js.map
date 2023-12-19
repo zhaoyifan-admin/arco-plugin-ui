@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../node_modules/.pnpm/vue-arco-ui@0.1.55_@arco-design+web-vue@2.53.3/node_modules/vue-arco-ui/dist/use-merge-state-b57afdbc.js"],
-  "sourcesContent": ["import { ref as s, defineComponent as i, toRefs as c, watch as v, computed as d } from \"vue\";\nimport { a as t } from \"./index-0c9a4424.js\";\nfunction p(r) {\n  const n = s(r);\n  return [n, (e) => {\n    n.value = e;\n  }];\n}\nvar m = i({ name: \"RenderFunction\", props: { renderFunc: { type: Function, required: !0 } }, render() {\n  return this.renderFunc(this.$attrs);\n} });\nfunction F(r, n) {\n  const { value: e } = c(n), [a, u] = p(t(e.value) ? r : e.value);\n  return v(e, (o) => {\n    t(o) && u(void 0);\n  }), [d(() => t(e.value) ? a.value : e.value), u, a];\n}\nexport {\n  m as R,\n  p as a,\n  F as u\n};\n"],
-  "mappings": ";;;;;;;;;;;;AAEA,SAAS,EAAE,GAAG;AACZ,QAAM,IAAI,IAAE,CAAC;AACb,SAAO,CAAC,GAAG,CAAC,MAAM;AAChB,MAAE,QAAQ;AAAA,EACZ,CAAC;AACH;AACA,IAAI,IAAI,gBAAE,EAAE,MAAM,kBAAkB,OAAO,EAAE,YAAY,EAAE,MAAM,UAAU,UAAU,KAAG,EAAE,GAAG,SAAS;AACpG,SAAO,KAAK,WAAW,KAAK,MAAM;AACpC,EAAE,CAAC;AACH,SAAS,EAAE,GAAG,GAAG;AACf,QAAM,EAAE,OAAO,EAAE,IAAI,OAAE,CAAC,GAAG,CAAC,GAAG,CAAC,IAAI,EAAE,GAAE,EAAE,KAAK,IAAI,IAAI,EAAE,KAAK;AAC9D,SAAO,MAAE,GAAG,CAAC,MAAM;AACjB,OAAE,CAAC,KAAK,EAAE,MAAM;AAAA,EAClB,CAAC,GAAG,CAAC,SAAE,MAAM,GAAE,EAAE,KAAK,IAAI,EAAE,QAAQ,EAAE,KAAK,GAAG,GAAG,CAAC;AACpD;",
-  "names": []
-}
