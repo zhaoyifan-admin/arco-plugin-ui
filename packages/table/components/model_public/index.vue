@@ -136,8 +136,8 @@ defineExpose({
             <a-avatar v-else-if="colitem.type === 'avatar'" :imageUrl="modelForm[colitem.dataIndex]"></a-avatar>
             <!--              日期选择器 DatePicker-->
             <a-date-picker v-else-if="colitem.type === 'date'" v-model="modelForm[colitem.dataIndex]"
-                           :show-time="colitem.showTime" :time-picker-props="colitem.timePickerProps"
-                           :format="colitem.format"/>
+                           :format="colitem.format" :show-time="colitem.showTime"
+                           :time-picker-props="colitem.timePickerProps"/>
             <a-month-picker v-else-if="colitem.type === 'month'" v-model="modelForm[colitem.dataIndex]"/>
             <a-year-picker v-else-if="colitem.type === 'year'" v-model="modelForm[colitem.dataIndex]"/>
             <a-quarter-picker v-else-if="colitem.type === 'quarter'" v-model="modelForm[colitem.dataIndex]"/>
