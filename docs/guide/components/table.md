@@ -143,45 +143,62 @@ const sizeChange = (pageSize: number)=> {
 
 ### Options Type
 
-| 名称            | 说明                | 类型                  | 默认值           |
-|---------------|-------------------|---------------------|---------------|
-| loading       | 是否为加载中状态          | `boolean`           | false         |
-| index         | 是否有序号	            | `boolean`           | false         |
-| indexWidth    | 序号列宽度             | `number`            | 50            |
-| columns       | 表单列配置参考Column相关配置 | `TableColumnData[]` |               |
-| menuWidth     | 操作栏宽度             | `number`            |               |
-| menuBtnStyle  | 操作栏按钮风格           | `string`            | 'icon'/'text' |
-| maxHeight     | 表格最大高度            | `number\|string`    | 450           |
-| search        | 是否开启查询            | `boolean`           | false         |
-| searchSpan	   | 搜索项框栅列	           | `number`            | 6             |
-| searchBtnSpan | 查询表单按钮栅列          | `number`            | 6             |
+| 名称            | 说明                                  | 类型                  | 默认值           |
+|---------------|-------------------------------------|---------------------|---------------|
+| loading       | 是否为加载中状态                            | `boolean`           | false         |
+| index         | 是否有序号	                              | `boolean`           | false         |
+| indexWidth    | 序号列宽度                               | `number`            | 50            |
+| columns       | 表单列配置参考[Column相关配置](#columns-props) | `TableColumnData[]` |               |
+| menuWidth     | 操作栏宽度                               | `number`            |               |
+| menuBtnStyle  | 操作栏按钮风格                             | `string`            | 'icon'/'text' |
+| maxHeight     | 表格最大高度                              | `number\|string`    | 450           |
+| search        | 是否开启查询                              | `boolean`           | false         |
+| searchSpan	   | 搜索项框栅列	                             | `number`            | 6             |
+| searchBtnSpan | 查询表单按钮栅列                            | `number`            | 6             |
 
 ### < columns >  Props
 
-| 参数名                | 描述                              | 类型                                                        |   默认值   |
-|--------------------|---------------------------------|-----------------------------------------------------------|:-------:|
-| align              | 对齐方向                            | `TableColumnData['align']`                                |         |
-| data-index         | 列信息的标识，对应TableData中的数据          | `string`                                                  |   `-`   |
-| title              | 列标题                             | `string`                                                  |   `-`   |
-| width              | 列宽度                             | `number`                                                  |   `-`   |
-| align              | 对齐方向                            | `TableColumnData['align']`                                |   `-`   |
-| fixed              | 固定位置                            | `TableColumnData['fixed']`                                |   `-`   |
-| ellipsis           | 是否显示为省略                         | `boolean`                                                 | `false` |
-| sortable           | 排序相关选项                          | `TableSortable`                                           |   `-`   |
-| filterable         | 过滤相关选项                          | `TableFilterable`                                         |   `-`   |
-| format             | 解析值所使用的格式，参考[字符串解析格式](#字符串解析格式) | `string`                                                  |         |
-| width              | 列宽度	                            | `number`                                                  |         |
-| cell-class         | 自定义单元格类名                        | `ClassName`                                               |   `-`   |
-| header-cell-class  | 自定义表头单元格类名                      | `ClassName`                                               |   `-`   |
-| body-cell-class    | 自定义内容单元格类名                      | `ClassName \| ((record: TableData) => ClassName)`         |   `-`   |
-| summary-cell-class | 自定义总结栏单元格类名                     | `ClassName \| ((record: TableData) => ClassName)`         |   `-`   |
-| cell-style         | 自定义单元格样式                        | `CSSProperties`                                           |   `-`   |
-| header-cell-style  | 自定义表头单元格样式                      | `CSSProperties`                                           |   `-`   |
-| body-cell-style    | 自定义内容单元格样式                      | `CSSProperties \| ((record: TableData) => CSSProperties)` |   `-`   |
-| summary-cell-style | 自定义总结栏单元格样式                     | `CSSProperties \| ((record: TableData) => CSSProperties)` |   `-`   |
-| index              | 用于手动指定选项的 index                 | `number`                                                  |   `-`   |
-| tooltip            | 在省略时是否显示文字提示                    | `boolean\|object`                                         | `false` |
-| type               | 文本框类型，参考[文本框类型](#文本框类型)         | `string`                                                  | `input` |
+| 参数名                | 描述                                                                                  | 类型                                                                                                   |                     默认值                      |
+|--------------------|-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:--------------------------------------------:|
+| align              | 对齐方向                                                                                | `'left' \| 'center' \| 'right'`                                                                      |                                              |
+| data               | 穿梭框的数据                                                                              | `TransferItem[]`                                                                                     |                                              |
+| data-index         | 列信息的标识，对应TableData中的数据                                                              | `string`                                                                                             |                     `-`                      |
+| default-value      | 默认值（非受控状态）                                                                          | `string`                                                                                             |                                              |
+| dicData            | 字典                                                                                  | `any[]`                                                                                              |                                              |
+| disabled           | 是否禁用组件                                                                              | `boolean`                                                                                            |                                              |
+| ellipsis           | 是否显示为省略                                                                             | `boolean`                                                                                            |                   `false`                    |
+| fixed              | 固定位置                                                                                | `TableColumnData['fixed']`                                                                           |                     `-`                      |
+| format             | 解析值所使用的格式，参考[字符串解析格式](#字符串解析格式)                                                     | `string`                                                                                             |                                              |
+| hide               | 是否隐藏列                                                                               | `boolean`                                                                                            |                   `false`                    |
+| maxLength          | 输入值的最大长度                                                                            | `number`                                                                                             |                                              |
+| mode               | InputNumber:`模式（embed：按钮内嵌模式，button：左右按钮模式）`<br>DatePicker:`范围选择器的类型`               | InputNumber:`'embed' \| 'button'`<br>DatePicker:`'date' \| 'year' \| 'quarter' \| 'month' \| 'week'` | InputNumber:`'embed'`<br>DatePicker:`'date'` |         |
+| options            | Cascader:参考 [级联选择器的选项](#cascaderoption)<br>Radio\|Checkbox:参考[选项](#radiooption)<br> | Cascader:`CascaderOption[]`<br>Radio\|Checkbox:`Array<string \| number \| Option>`                   |                     `[]`                     |
+| placeholder        | 提示文字                                                                                | `string`                                                                                             |                     `-`                      |
+| readonly           | 是否为只读状态                                                                             | `boolean`                                                                                            |                   `false`                    |
+| rules              | 表单项校验规则（优先级高于 form 的 rules）参考[FieldRule](#fieldrule)                                | `FieldRule \| FieldRule[]`                                                                           |                     `-`                      |
+| width              | 列宽度                                                                                 | `number`                                                                                             |                     `-`                      |
+| align              | 对齐方向                                                                                | `TableColumnData['align']`                                                                           |                     `-`                      |
+| sortable           | 排序相关选项                                                                              | `TableSortable`                                                                                      |                     `-`                      |
+| filterable         | 过滤相关选项                                                                              | `TableFilterable`                                                                                    |                     `-`                      |
+| search             | 是否查询                                                                                | `boolean`                                                                                            |                   `false`                    |
+| showLimit          | 是否显示字数统计                                                                            | `boolean`                                                                                            |                   `false`                    |
+| showTime           | 是否增加时间选择                                                                            | `boolean`                                                                                            |                   `false`                    |
+| span               | 栅栏布局                                                                                | `number`                                                                                             |                     `6`                      |
+| time-picker-props  | 时间显示的参数，参考 [time-picker-props](#time-picker-props)                                  | `Partial<TimePickerProps>`                                                                           |                     `-`                      |
+| title              | 列标题                                                                                 | `string`                                                                                             |                     `-`                      |
+| tooltip            | 在省略时是否显示文字提示                                                                        | `boolean\|object`                                                                                    |                   `false`                    |
+| treeData           | 数据                                                                                  | `TreeNodeData[]`                                                                                     |                     `[]`                     |
+| type               | 文本框类型，参考[文本框类型](#文本框类型)                                                             | `string`                                                                                             |                   `input`                    |
+| width              | 列宽度	                                                                                | `number`                                                                                             |                                              |
+| cell-class         | 自定义单元格类名                                                                            | `ClassName`                                                                                          |                     `-`                      |
+| header-cell-class  | 自定义表头单元格类名                                                                          | `ClassName`                                                                                          |                     `-`                      |
+| body-cell-class    | 自定义内容单元格类名                                                                          | `ClassName \| ((record: TableData) => ClassName)`                                                    |                     `-`                      |
+| summary-cell-class | 自定义总结栏单元格类名                                                                         | `ClassName \| ((record: TableData) => ClassName)`                                                    |                     `-`                      |
+| cell-style         | 自定义单元格样式                                                                            | `CSSProperties`                                                                                      |                     `-`                      |
+| header-cell-style  | 自定义表头单元格样式                                                                          | `CSSProperties`                                                                                      |                     `-`                      |
+| body-cell-style    | 自定义内容单元格样式                                                                          | `CSSProperties \| ((record: TableData) => CSSProperties)`                                            |                     `-`                      |
+| summary-cell-style | 自定义总结栏单元格样式                                                                         | `CSSProperties \| ((record: TableData) => CSSProperties)`                                            |                     `-`                      |
+| index              | 用于手动指定选项的 index                                                                     | `number`                                                                                             |                     `-`                      |
 
 
 ### < columns >  Slot
@@ -283,3 +300,89 @@ const sizeChange = (pageSize: number)=> {
 | `treeSelect`   |   树选择 |
 
 ---
+
+### RadioOption
+
+| 参数名      | 描述          | 类型                 |   默认值   |
+|----------|-------------|--------------------|:-------:|
+| label    | 文案          | `RenderContent`    |   `-`   |
+| value    | 选项的 `value` | `string \| number` |   `-`   |
+| disabled | 是否禁用        | `boolean`          | `false` |
+
+### CheckboxOption
+
+| 参数名           | 描述          | 类型                 |   默认值   |
+|---------------|-------------|--------------------|:-------:|
+| label         | 文案          | `RenderContent`    |   `-`   |
+| value         | 选项的 `value` | `string \| number` |   `-`   |
+| disabled      | 是否禁用        | `boolean`          | `false` |
+| indeterminate | 是否为半选状态     | `boolean`          | `false` |
+
+---
+### CascaderOption
+
+| 参数名      | 描述      | 类型                                        |   默认值   | 版本 |
+|----------|---------|-------------------------------------------|:-------:|:---|
+| value    | 选项值     | `string \| number \| Record<string, any>` |   `-`   |    |
+| label    | 选项文本    | `string`                                  |   `-`   |    |
+| render   | 自定义渲染   | `RenderFunction`                          |   `-`   |    |
+| disabled | 是否禁用    | `boolean`                                 | `false` |    |
+| tagProps | 展示的标签属性 | `TagProps`                                |   `-`   |    |
+| children | 下一级选项   | `CascaderOption[]`                        |   `-`   |    |
+| isLeaf   | 是否是叶子节点 | `boolean`                                 | `false` |    |
+
+---
+### FieldRule
+
+| 参数名       | 描述                     | 类型                                                                                                          |   默认值   |
+|-----------|------------------------|-------------------------------------------------------------------------------------------------------------|:-------:|
+| type      | 校验的值的类型，默认为 `'string'` | `'string'    \| 'number'    \| 'boolean'    \| 'array'    \| 'object'    \| 'email'    \| 'url'    \| 'ip'` |   `-`   |
+| required  | 是否必填                   | `boolean`                                                                                                   | `false` |
+| message   | 校验失败时展示的信息             | `string`                                                                                                    |   `-`   |
+| length    | 校验长度（string, array）    | `number`                                                                                                    |   `-`   |
+| maxLength | 最大长度（string）           | `number`                                                                                                    |   `-`   |
+| minLength | 最小长度（string）           | `number`                                                                                                    |   `-`   |
+| match     | 匹配校验（string）           | `RegExp`                                                                                                    |   `-`   |
+| uppercase | 大写（string）             | `boolean`                                                                                                   | `false` |
+| lowercase | 小写（string）             | `boolean`                                                                                                   | `false` |
+| min       | 最小值（number）            | `number`                                                                                                    |   `-`   |
+| max       | 最大值（number）            | `number`                                                                                                    |   `-`   |
+| equal     | 校验数值（number）           | `number`                                                                                                    |   `-`   |
+| positive  | 正数（number）             | `boolean`                                                                                                   | `false` |
+| negative  | 负数（number）             | `boolean`                                                                                                   | `false` |
+| true      | 是否为 `true`（boolean）    | `boolean`                                                                                                   | `false` |
+| false     | 是否为 `false`（boolean）   | `boolean`                                                                                                   | `false` |
+| includes  | 数组中是否包含给定值（array）      | `any[]`                                                                                                     |   `-`   |
+| deepEqual | 数组元素是否相等（array）        | `any`                                                                                                       |   `-`   |
+| empty     | 是否为空（object）           | `boolean`                                                                                                   | `false` |
+| hasKeys   | 对象是否包含给定属性（object）     | `string[]`                                                                                                  |   `-`   |
+| validator | 自定义校验规则                | `(    value: FieldValue \| undefined,    callback: (error?: string) => void  ) => void`                     |   `-`   |
+
+---
+### `<time-picker>` Props
+
+| 参数名                         | 描述                            | 类型                                                             |     默认值      |
+|-----------------------------|-------------------------------|----------------------------------------------------------------|:------------:|
+| type                        | 选择器类型                         | `'time' \| 'time-range'`                                       |   `'time'`   |
+| model-value **(v-model)**   | 绑定值                           | `string \| number \| Date \| Array<string \| number \| Date>`  |     `-`      |
+| default-value               | 默认值                           | `string \| number \| Date \| Array<string \| number \| Date>`  |     `-`      |
+| placeholder                 | 提示文案                          | `string`                                                       |     `-`      |
+| disabled                    | 是否禁用                          | `boolean`                                                      |   `false`    |
+| allow-clear                 | 是否允许清除                        | `boolean`                                                      |    `true`    |
+| readonly                    | 是否为只读模式                       | `boolean`                                                      |   `false`    |
+| error                       | 是否为错误状态                       | `boolean`                                                      |   `false`    |
+| format                      | 展示日期的格式，参考[字符串解析格式](#字符串解析格式) | `string`                                                       | `'HH:mm:ss'` |
+| size                        | 输入框尺寸                         | `'mini' \| 'small' \| 'medium' \| 'large'`                     |  `'medium'`  |
+| position                    | 弹出的位置                         | `'top' \| 'tl' \| 'tr' \| 'bottom' \| 'bl' \| 'br'`            |    `'bl'`    |
+| popup-visible **(v-model)** | 控制弹出框打开或者关闭                   | `boolean`                                                      |     `-`      |
+| default-popup-visible       | 弹出框默认打开或者关闭                   | `boolean`                                                      |   `false`    |
+| trigger-props               | 可以传入 `Trigger` 组件的参数          | `TriggerProps`                                                 |     `-`      |
+| popup-container             | 弹出框的挂载容器                      | `string \| HTMLElement`                                        |     `-`      |
+| unmount-on-close            | 是否在关闭后销毁 dom 结构               | `boolean`                                                      |   `false`    |
+| use12-hours                 | 12 小时制                        | `boolean`                                                      |   `false`    |
+| step                        | 设置 时 / 分 / 秒 的选择间隔            | `{  hour?: number;  minute?: number;  second?: number;}`       |     `-`      |
+| disabled-hours              | 禁用的部分小时选项                     | `() => number[]`                                               |     `-`      |
+| disabled-minutes            | 禁用的部分分钟选项                     | `(selectedHour?: number) => number[]`                          |     `-`      |
+| disabled-seconds            | 禁用的部分秒数选项                     | `(selectedHour?: number, selectedMinute?: number) => number[]` |     `-`      |
+| hide-disabled-options       | 隐藏禁止选择的选项                     | `boolean`                                                      |   `false`    |
+| disable-confirm             | 禁用确认步骤，开启后直接点选时间不需要点击确认按钮     | `boolean`                                                      |   `false`    |

@@ -62,10 +62,7 @@ defineExpose({
         <a-input
             v-if="colitem.type === 'input' || colitem.type === undefined"
             v-model="searchForm[colitem.dataIndex]"
-            :placeholder="
-                  '请输入 ' +
-                  `${colitem.title}`
-                "
+            :placeholder="'请输入 ' + `${colitem.title}`"
             allow-clear
         />
         <!--            数字输入框 InputNumber-->

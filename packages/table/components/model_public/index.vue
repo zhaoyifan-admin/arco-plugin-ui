@@ -88,17 +88,20 @@ defineExpose({
             <template #label>
               <slot :name="colitem.dataIndex + 'Label'"></slot>
             </template>
-            <a-input
-                v-if="colitem.type === 'input' || colitem.type === undefined"
-                v-model="modelForm[colitem.dataIndex]"
-                :placeholder="
-                  '请输入 ' +
-                  `${colitem.title}`
-                "
-                allow-clear
+            <a-input v-if="colitem.type === 'input' || colitem.type === undefined"
+                     v-model="modelForm[colitem.dataIndex]"
+                     :default-value="colitem.defaultValue"
+                     :size="size"
+                     allow-clear
+                     :disabled="colitem.disabled"
+                     :readonly="colitem.readonly"
+                     :placeholder="'请输入 ' +`${colitem.title}`"
+                     :max-length="colitem.maxLength"
+                     :show-word-limit="colitem.showLimit"
             />
             <!--            数字输入框 InputNumber-->
-            <a-input-number v-else-if="colitem.type === 'number'" v-model="modelForm[colitem.dataIndex]"/>
+            <a-input-number v-else-if="colitem.type === 'number'" v-model="modelForm[colitem.dataIndex]"
+                            :default-value="colitem.defaultValue" :mode="colitem.mode"/>
             <!--            单选框 Radio-->
             <a-radio-group v-else-if="colitem.type === 'radio'" v-model="modelForm[colitem.dataIndex]"
                            :options="colitem.options"/>
