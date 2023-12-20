@@ -1,3 +1,6 @@
+import type {TransferItem} from "./TransferItem";
+import type {TreeNodeData} from "./TreeNodeData";
+
 export interface TableColumnData {
     align?: 'left' | 'center' | 'right'; /*对齐方向*/
     dataIndex: string; /*列信息的标识，对应 `TableData` 中的数据*/
@@ -18,4 +21,7 @@ export interface TableColumnData {
     showTime?: boolean;/*是否增加时间选择|`boolean`|`false`|*/
     timePickerProps?: any;/*时间显示的参数*/
     format?: string;/*展示日期的格式*/
+    mode?: string;/*范围选择器的类型*/
+    data?: TransferItem[];/*穿梭框的数据*/
+    treeData?: TreeNodeData[]/*数据*/
 }

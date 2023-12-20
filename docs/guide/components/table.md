@@ -264,26 +264,22 @@ const sizeChange = (pageSize: number)=> {
 | `radio`        |   单选框 |
 | `checkbox`     |   复选框 |
 | `switch`       |    开关 |
-| `dropdown`     |  下拉菜单 |
 | `progress`     |   进度条 |
-| `steps`        |   步骤条 |
 | `slider`       | 滑动输入条 |
 | `rate`         |    评分 |
-| `tag`          |    标签 |
 | `select`       |   选择器 |
 | `inputTag`     | 标签输入框 |
-| `autoComplete` |  自动补全 |
 | `avatar`       |    头像 |
-| `timeline`     |   时间轴 |
-| `datePicker`   | 日期选择器 |
+| `date`         | 日期选择器 |
+| `month`        | 月份选择器 |
+| `year`         | 年份选择器 |
+| `quarter`      | 季度选择器 |
+| `week`         |  周选择器 |
 | `timePicker`   | 时间选择器 |
-| `image`        |    图片 |
-| `upload`       |    上传 |
+| `range`        | 范围选择器 |
 | `cascader`     |  级联选择 |
-| `tabs`         |   标签页 |
 | `textarea`     |   文本域 |
 | `transfer`     | 数据穿梭框 |
-| `tree`         |     树 |
 | `treeSelect`   |   树选择 |
 
 ---
