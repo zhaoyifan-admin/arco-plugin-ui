@@ -7,7 +7,7 @@
 
 ## Document & Online preview
 
-[Vue Arco UI](https://zhaoyifan-admin.github.io/vue-arco-ui/)
+[Vue Arco UI](https://zhaoyifan-admin.github.io/arco-plugin-ui//)
 
 ## Install & Use
 

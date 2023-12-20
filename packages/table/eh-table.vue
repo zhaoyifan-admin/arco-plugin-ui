@@ -183,7 +183,7 @@ onMounted(()=>{
                     :ellipsis="item.ellipsis"
                     :title="item.title"
                     :tooltip="item.tooltip"
-                    :width="item.width || 200"
+                    :width="item.width"
                 >
                   <template #title>
                     <slot :name="item.dataIndex + 'Title'">

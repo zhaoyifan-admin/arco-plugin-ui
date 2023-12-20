@@ -95,7 +95,7 @@
   "bugs": {
     "url": "https://github.com/zhaoyifan-admin/vue-arco-ui/issues"
   },
-  "homepage": "https://zhaoyifan-admin.github.io/vue-arco-ui",
+  "homepage": "https://zhaoyifan-admin.github.io/arco-plugin-ui/",
   "browserslist": [
     "> 1%",
     "last 2 versions",
