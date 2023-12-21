@@ -202,8 +202,7 @@ export {
 }
 
 AOS.init({
-  duration: 1500,
-  easing: 'ease-in-out-back',
+  duration: 1500
 });
 const VueArcoUI = {
   install
