@@ -258,7 +258,8 @@ defineExpose({
                            :size="size"
                            :time-picker-props="colitem.timePickerProps"
                            :value-format="colitem.valueFormat"
-                           allow-clear/>
+                           allow-clear
+                           style="width: 100%"/>
             <a-month-picker v-else-if="colitem.type === 'month'"
                             v-model="modelForm[colitem.dataIndex]"
                             :abbreviation="colitem.abbreviation"
@@ -280,7 +281,8 @@ defineExpose({
                             :size="size"
                             :time-picker-props="colitem.timePickerProps"
                             :value-format="colitem.valueFormat"
-                            allow-clear/>
+                            allow-clear
+                            style="width: 100%"/>
             <a-year-picker v-else-if="colitem.type === 'year'"
                            v-model="modelForm[colitem.dataIndex]"
                            :abbreviation="colitem.abbreviation"
@@ -301,7 +303,8 @@ defineExpose({
                            :size="size"
                            :time-picker-props="colitem.timePickerProps"
                            :value-format="colitem.valueFormat"
-                           allow-clear/>
+                           allow-clear
+                           style="width: 100%"/>
             <a-quarter-picker v-else-if="colitem.type === 'quarter'"
                               v-model="modelForm[colitem.dataIndex]"
                               :abbreviation="colitem.abbreviation"
@@ -323,7 +326,8 @@ defineExpose({
                               :size="size"
                               :time-picker-props="colitem.timePickerProps"
                               :value-format="colitem.valueFormat"
-                              allow-clear/>
+                              allow-clear
+                              style="width: 100%"/>
             <a-week-picker v-else-if="colitem.type === 'week'"
                            v-model="modelForm[colitem.dataIndex]"
                            :abbreviation="colitem.abbreviation"
@@ -345,7 +349,8 @@ defineExpose({
                            :size="size"
                            :time-picker-props="colitem.timePickerProps"
                            :value-format="colitem.valueFormat"
-                           allow-clear/>
+                           allow-clear
+                           style="width: 100%"/>
             <a-range-picker v-else-if="colitem.type === 'range'"
                             v-model="modelForm[colitem.dataIndex]"
                             :abbreviation="colitem.abbreviation"
@@ -369,7 +374,8 @@ defineExpose({
                             :size="size"
                             :time-picker-props="colitem.timePickerProps"
                             :value-format="colitem.valueFormat"
-                            allow-clear/>
+                            allow-clear
+                            style="width: 100%"/>
             <!--              级联选择 Cascader-->
             <a-cascader v-else-if="colitem.type === 'cascader'"
                         v-model="modelForm[colitem.dataIndex]"
@@ -386,7 +392,7 @@ defineExpose({
                         :size="size"
                         :value-key="colitem.valueKey"
                         allow-clear
-            />
+                        style="width: 100%"/>
             <!--            文本域 Textarea-->
             <a-textarea v-else-if="colitem.type === 'textarea'"
                         v-model="modelForm[colitem.dataIndex]"

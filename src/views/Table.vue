@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 
 import {reactive, ref} from "vue";
 
@@ -40,6 +40,7 @@ const options = reactive({
     {
       title: '所属线路',
       dataIndex: 'lineName',
+      type:'date',
       search: true,
     },
     {
@@ -977,13 +978,13 @@ const getList = (page: object, params: object) => {
 
 <template>
   <eh-table v-model:page="page" v-model:searchForm="searchForm" :data="data" :options="options"
+            @onLoad="getList"
             @current-change="currentChange"
             @handle-save="handleSave"
             @handle-update="handleUpdate"
             @search-change="searchChange"
             @search-reset="searchReset"
-            @size-change="sizeChange"
-            @onLoad="getList">
+            @size-change="sizeChange">
     <template #employeeCodeLabel>
       吃啥ma ?
     </template>
@@ -993,6 +994,6 @@ const getList = (page: object, params: object) => {
   </eh-table>
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 
 </style>
