@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {onMounted, defineAsyncComponent, ref, computed} from "vue";
 import type {TableOptions} from "../index";
 
@@ -69,6 +69,9 @@ const searchChange = () => {
   emit('searchChange', searchForm.value, done);
 };
 const searchReset = () => {
+  props.options.columns?.forEach((item) => {
+    item.defaultValue = undefined;
+  });
   searchPublicRef.value.searchReset();
   emit('searchReset', {});
 };
@@ -79,18 +82,18 @@ defineExpose({
 
 <template>
   <div class="arco-compontent-page-tab-search-form">
-    <a-form v-if="showSearch" :model="searchForm" :size="size" :disabled="disabled" auto-label-width>
+    <a-form v-if="showSearch" :disabled="disabled" :model="searchForm" :size="size" auto-label-width>
       <a-row :gutter="16">
-        <component :is="searchPublic" ref="searchPublicRef" :disabledForm="disabledForm" :data="data"
-                   :size="size" v-model:searchForm="searchForm"
-                   :options="options">
+        <component :is="searchPublic" ref="searchPublicRef" v-model:searchForm="searchForm" :data="data"
+                   :disabledForm="disabledForm" :options="options"
+                   :size="size">
           <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`SearchLabel`]>
             <slot :name="colitem.dataIndex + 'SearchLabel'"></slot>
           </template>
         </component>
         <a-col :span="options.searchBtnSpan || 6" class="t-c">
           <a-space>
-            <a-button type="primary" :size="size" :loading="Loading" @click="searchChange">
+            <a-button :loading="Loading" :size="size" type="primary" @click="searchChange">
               <template #icon>
                 <i class="rtdp sousuo"></i>
               </template>
@@ -109,6 +112,6 @@ defineExpose({
   </div>
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 @import '../../styles/index';
 </style>

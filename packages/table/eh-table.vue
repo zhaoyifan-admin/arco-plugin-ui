@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
 import type {TableBorder} from "./components/types/TableBorder";
 import type {Pagination, TableOptions} from "./components";
@@ -119,7 +119,6 @@ onMounted(()=>{
     const searchHeight = searchRef.value.offsetHeight;
     const menuButtonHeight = menuButtonRef.value.offsetHeight;
     scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 110);
-    console.log(parentoffsetHeight, searchHeight, menuButtonHeight,scorllHeight.value)
   },500)
 })
 </script>
@@ -144,13 +143,13 @@ onMounted(()=>{
       </div>
       <!--    菜单栏按钮-->
       <div ref="menuButtonRef" class="arco-compontent-page-menuButton" data-aos="fade-down">
-        <component :is="menuButton"  :size="size" :columns="options.columns"
+        <component :is="menuButton"  :columns="options.columns" :size="size"
                    @handleOpenModel="handleOpenModel" @handleRefresh="handleRefresh">
           <template #menuLeft>
-            <slot name="menuLeft" :size="size"></slot>
+            <slot :size="size" name="menuLeft"></slot>
           </template>
           <template #menuRight>
-            <slot name="menuRight" :size="size"></slot>
+            <slot :size="size" name="menuRight"></slot>
           </template>
         </component>
       </div>
@@ -163,13 +162,13 @@ onMounted(()=>{
                    :loading="options.loading"
                    :pagination="false"
                    :row-class="rowClass"
-                   :size="size"
                    :scroll="{y: scorllHeight}"
+                   :size="size"
                    column-resizable
                    @row-dblclick="rowContextmenu">
             <template #columns>
               <!--            序号-->
-              <a-table-column v-if="options.index" title="序号" :width="80" align="center" fixed="left">
+              <a-table-column v-if="options.index" :width="80" align="center" fixed="left" title="序号">
                 <template #cell="{ rowIndex }">
                   {{ (page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
                 </template>
@@ -191,7 +190,7 @@ onMounted(()=>{
                     </slot>
                   </template>
                   <template #cell="{ record, column, rowIndex }">
-                    <slot :name="item.dataIndex + 'cell'" :record="record" :column="column" :rowIndex="rowIndex">
+                    <slot :column="column" :name="item.dataIndex + 'cell'" :record="record" :rowIndex="rowIndex">
                       {{ record[item.dataIndex as any] }}
                     </slot>
                   </template>
@@ -199,9 +198,9 @@ onMounted(()=>{
               </template>
               <!--            操作栏-->
               <a-table-column
-                  cell-class="Menu-box-shadow"
                   :width="options.menuWidth || 145"
                   align="center"
+                  cell-class="Menu-box-shadow"
                   fixed="right"
                   title="操作栏"
               >
@@ -229,7 +228,7 @@ onMounted(()=>{
         </div>
       </a-spin>
     </div>
-    <component :is="model" ref="modelRef" :size="size" :options="options" @handle-save="handleSave"
+    <component :is="model" ref="modelRef" :options="options" :size="size" @handle-save="handleSave"
                @handle-update="handleUpdate">
       <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
         <slot :name="colitem.dataIndex + 'Label'"></slot>
@@ -238,6 +237,6 @@ onMounted(()=>{
   </div>
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 @import './styles/index';
 </style>

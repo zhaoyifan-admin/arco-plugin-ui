@@ -34,9 +34,18 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const searchForm: { [key: string]: any } = computed({
   get() {
+    let newForm: any = {};
+    props.options.columns?.forEach((item) => {
+      if (item.defaultValue) {
+        newForm[item.dataIndex] = item.defaultValue;
+      }
+    })
+    Object.assign(props.searchForm, newForm);
     return props.searchForm
   },
   set(val: object) {
+    console.log(123123)
+    console.log(val)
     emit('update:searchForm', val)
   }
 })

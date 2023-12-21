@@ -18,6 +18,7 @@ const options = reactive({
       title: '员工编号',
       dataIndex: 'employeeCode',
       search: true,
+      defaultValue: '786',
     },
     {
       title: '员工姓名',
@@ -59,7 +60,7 @@ const options = reactive({
     }
   ]
 })
-const searchForm = ref({employeeCode: '996'});
+const searchForm = ref();
 const data = reactive([{
   "employeeNo": 11394,
   "employeeCode": "996",

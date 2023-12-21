@@ -23,7 +23,7 @@ export interface TableColumnData {
     data?: TransferItem[];/*穿梭框的数据*/
     dataIndex: string; /*列信息的标识，对应 `TableData` 中的数据*/
     dayStartOfWeek?:0 | 1 | 2 | 3 | 4 | 5 | 6;/*每周的第一天开始于周几，0 - 周日，1 - 周一，以此类推。*/
-    defaultValue?: string;/*默认值（非受控状态）*/
+    defaultValue?: string | number | boolean;/*默认值（非受控状态）*/
     defaultActiveFirstOption?:boolean;/*是否在无值时默认选择第一个选项*/
     defaultPickerValue?:Date | string | number;/*面板默认显示的日期*/
     dicData?: any[];/*字典*/
@@ -93,7 +93,7 @@ export interface TableColumnData {
     treeData?: TreeNodeData[]/*数据*/
     treeProps?:Partial<TreeProps>;/*可以接受所有 Tree 组件的Props*/
     triggerProps?:Partial<TriggerProps>/*可以接受所有 Trigger 组件的Props*/
-    type?: string;/*列属性*/
+    type?: string | undefined;/*列属性*/
     uncheckedValue?: string | number | boolean;/*未选中时的值*/
     uncheckedColor?: string;/*未选中时的开关颜色*/
     uncheckedText?: string;/*关闭状态时的文案（type='line'和size='small'时不生效）*/
