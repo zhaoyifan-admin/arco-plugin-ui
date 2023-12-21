@@ -73,6 +73,7 @@ export interface TableColumnData {
     showText?:boolean;/*是否显示文字*/
     showTime?: boolean;/*是否增加时间选择|`boolean`|`false`|*/
     showWordLimit?:boolean;/*是否显示字数统计*/
+    simple?:boolean;/*是否开启简单模式（点击选项即移动）*/
     size?:number;/*头像的尺寸大小，单位是 px。未填写时使用样式中的大小 40px*/
     slot?: string;
     step?: number;/*数字变化步长*/

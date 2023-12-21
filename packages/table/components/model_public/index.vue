@@ -414,7 +414,7 @@ defineExpose({
             <a-tree-select v-else-if="colitem.type === 'treeSelect'"
                            v-model="modelForm[colitem.dataIndex]"
                            :allow-search="colitem.allowSearch"
-                           :border="colitem.border"
+                           :border="colitem.bordered"
                            :data="colitem.treeData"
                            :default-value="colitem.defaultValue"
                            :disabled="colitem.disabled"
