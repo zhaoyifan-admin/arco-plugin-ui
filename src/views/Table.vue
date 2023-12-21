@@ -61,6 +61,7 @@ const options = reactive({
   ]
 })
 const searchForm = ref();
+const loading = ref(true);
 const data = reactive([{
   "employeeNo": 11394,
   "employeeCode": "996",
@@ -974,11 +975,13 @@ const handleUpdate = (form: object, loading: any, done: any) => {
 }
 const getList = (page: object, params: object) => {
   console.log(page, params)
+  loading.value = false
 }
 </script>
 
 <template>
-  <eh-table v-model:page="page" v-model:searchForm="searchForm" :data="data" :options="options"
+  <eh-table v-model:page="page" v-model:searchForm="searchForm" :data="data" :loading="loading"
+            :options="options"
             @onLoad="getList"
             @current-change="currentChange"
             @handle-save="handleSave"
