@@ -154,8 +154,8 @@ onMounted(()=>{
         </component>
       </div>
       <!--      Table展示区-->
-      <a-spin :loading="loading" :tip="tip" data-aos="fade-right" dot>
-        <div class="table-show">
+      <a-spin :loading="loading" :tip="tip" dot>
+        <div class="table-show" data-aos="fade-right">
           <a-table :bordered="bordered"
                    :columns="options.columns"
                    :data="data"
