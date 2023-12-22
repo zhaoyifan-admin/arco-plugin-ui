@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
+import {computed, defineAsyncComponent, onBeforeMount, onMounted, reactive, ref, toRef} from "vue";
 import type {Pagination, TableOptions} from "./components";
-import type {TableBorder} from "@arco-design/web-vue";
+import type {TableBorder, TableColumnData, TableData} from "@arco-design/web-vue";
 
 const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave', 'handleUpdate', 'onLoad', 'update:searchForm'])
 
@@ -71,7 +71,7 @@ const searchRef =ref();
 const atble = ref();
 const modelRef = ref();
 const scorllHeight = ref<any>('100%');
-
+const tableForm = reactive<any>({});
 const searchForm: { [key: string]: any } = computed({
   get() {
     return props.searchForm
@@ -107,8 +107,8 @@ const handleUpdate = (modelForm: object, loading: any, done: any) => {
 const handleRefresh = () => {
   emit('onLoad', props.page, props.searchForm);
 }
-const rowContextmenu = (record: any, ev: any) => {
-  console.log(record, ev)
+const celldblclick = (record: TableData,column: TableColumnData, ev: Event) => {
+  Object.assign(tableForm, record)
 }
 onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
@@ -136,8 +136,8 @@ onMounted(()=>{
             @search-change="searchChange"
             @search-reset="searchReset"
         >
-          <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`SearchLabel`]>
-            <slot :name="colitem.dataIndex + 'SearchLabel'"></slot>
+          <template v-for="(column, index) in options.columns" :key="index" #[column.dataIndex+`SearchLabel`]>
+            <slot :name="column.dataIndex + 'SearchLabel'"></slot>
           </template>
         </component>
       </div>
@@ -166,7 +166,7 @@ onMounted(()=>{
                    :scroll="{y: scorllHeight}"
                    :size="size"
                    column-resizable
-                   @row-dblclick="rowContextmenu">
+                   @cell-dblclick="celldblclick">
             <template #columns>
               <!--            序号-->
               <a-table-column v-if="options.index" :width="80" align="center" fixed="left" title="序号">
@@ -181,6 +181,7 @@ onMounted(()=>{
                     :key="index"
                     :data-index="item.dataIndex"
                     :ellipsis="item.ellipsis"
+                    :index="index"
                     :title="item.title"
                     :tooltip="item.tooltip"
                     :width="item.width"
@@ -191,8 +192,20 @@ onMounted(()=>{
                     </slot>
                   </template>
                   <template #cell="{ record, column, rowIndex }">
+                    {{rowIndex}}
                     <slot :column="column" :name="item.dataIndex + 'cell'" :record="record" :rowIndex="rowIndex">
                       {{ record[item.dataIndex as any] }}
+<!--                      <a-input v-if="column.type === 'input' || column.type === undefined && item.showForm"
+                               v-model="tableForm[item.dataIndex as any]"
+                               :default-value="column.defaultValue"
+                               :disabled="column.disabled"
+                               :max-length="column.maxLength"
+                               :placeholder="'请输入 ' +`${column.title}`"
+                               :readonly="column.readonly"
+                               :show-word-limit="column.showLimit"
+                               :size="size"
+                               allow-clear
+                      />-->
                     </slot>
                   </template>
                 </a-table-column>
@@ -231,8 +244,8 @@ onMounted(()=>{
     </div>
     <component :is="model" ref="modelRef" :options="options" :size="size" @handle-save="handleSave"
                @handle-update="handleUpdate">
-      <template v-for="(colitem, index) in options.columns" :key="index" #[colitem.dataIndex+`Label`]>
-        <slot :name="colitem.dataIndex + 'Label'"></slot>
+      <template v-for="(column, index) in options.columns" :key="index" #[column.dataIndex+`Label`]>
+        <slot :name="column.dataIndex + 'Label'"></slot>
       </template>
     </component>
   </div>

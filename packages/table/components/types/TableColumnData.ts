@@ -60,6 +60,7 @@ export interface TableColumnData {
     shortcuts?: ShortcutType[];/*预设时间范围快捷选择*/
     shortcutsPosition?: 'left' | 'bottom' | 'right';/*预设范围在面板上的位置，默认放在下方，侧边一般用于大量预设时间的场景*/
     showConfirmBtn?: boolean;/*是否显示确认按钮，showTime = true 的时候始终显示。*/
+    showForm?: boolean;/*是否显示行内组件*/
     showLimit?: boolean;/*是否显示字数统计*/
     showTicks?: boolean;/*是否显示刻度线*/
     showTooltip?: boolean;/*是否显示tooltip*/
