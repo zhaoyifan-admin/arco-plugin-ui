@@ -1,4 +1,5 @@
 import { rafTimeout } from '../../packages'
+import request from '@/utils/request';
 // 获取静态资源地址
 export function getImageUrl (name: any): string {
   return new URL(`../assets/images/${name}.jpg`, import.meta.url).href
@@ -21,3 +22,11 @@ export const setDocumentTitle = function (title: string) {
   }
 }
 export const webTitle = 'Vue Arco UI'
+
+export function getlist(params?: object) {
+  return request({
+    url: '/basic/employeeinfo/page',
+    method: 'get',
+    params,
+  });
+}

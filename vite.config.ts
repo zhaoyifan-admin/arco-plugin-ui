@@ -17,6 +17,8 @@ import terser from '@rollup/plugin-terser'
 // 获取构建选项 build:browser 时，传入的变量: -f iife
 const { f } = minimist(process.argv.slice(2))
 
+const url = 'http://rtdp-gateway:9999';
+const urls = 'http://192.168.132.17:8000';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -125,6 +127,20 @@ export default defineConfig({
   server: {
     host: true, // 指定服务器应该监听哪个 IP 地址。 如果将此设置为 0.0.0.0 或者 true 将监听所有地址，包括局域网和公网地址。
     port: 1117, // 指定开发服务器端口
-    open: true // 开发服务器启动时，自动在浏览器中打开应用程序。当该值为字符串时，它将被用作 URL 的路径名。
+    open: true, // 开发服务器启动时，自动在浏览器中打开应用程序。当该值为字符串时，它将被用作 URL 的路径名。
+    proxy: {
+      '/api': {
+        target: url,
+        ws: true,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      '/ehapi': {
+        target: urls,
+        ws: true,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ehapi/, ''),
+      },
+    },
   }
 })

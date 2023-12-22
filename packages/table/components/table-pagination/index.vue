@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 interface Pagination {
   currentPage: number // 当前页码
   pageSize: number // 每页条数
@@ -18,31 +18,31 @@ withDefaults(defineProps<Props>(), {
   },
 })
 const emit = defineEmits(['currentChange','sizeChange'])
-const currentChange = (page: { currentPage: number }) => {
-  emit('currentChange', page)
+const currentChange = (currentPage: number) => {
+  emit('currentChange', currentPage)
 }
-const sizeChange = (page: { pageSize: number }) => {
-  emit('sizeChange', page)
+const sizeChange = (pageSize: number) => {
+  emit('sizeChange', pageSize)
 }
 </script>
 
 <template>
   <a-pagination
+      :active-page-item-style="{ border: '1px solid #175CFF' }"
+      :buffer-size="2"
       :current="page.currentPage"
-      :total="page.total"
       :page-size="page.pageSize"
       :page-size-options="page.pageSizes"
-      :buffer-size="2"
-      :active-page-item-style="{ border: '1px solid #175CFF' }"
       :size="size"
-      show-total
+      :total="page.total"
       show-jumper
       show-page-size
+      show-total
       @change="currentChange"
       @page-size-change="sizeChange"
   />
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 
 </style>

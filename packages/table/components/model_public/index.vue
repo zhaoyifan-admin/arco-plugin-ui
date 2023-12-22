@@ -10,7 +10,7 @@ interface Props {
   Visible?: boolean,
   Loading?: boolean,
   options?: TableOptions,
-  size?: 'mini' | 'small' | 'medium' | 'large',
+  size?: any,
 }
 
 withDefaults(defineProps<Props>(), {
@@ -355,7 +355,7 @@ defineExpose({
                             v-model="modelForm[colitem.dataIndex]"
                             :abbreviation="colitem.abbreviation"
                             :day-start-of-week="colitem.dayStartOfWeek"
-                            :default-picker-value="colitem.defaultPickerValue"
+                            :default-picker-value="colitem.defaultPickerValue  as (Date | string | number)[]"
                             :disabled="colitem.disabled"
                             :disabled-date="colitem.disabledDate"
                             :disabled-input="colitem.disabledInput"
@@ -364,7 +364,6 @@ defineExpose({
                             :format="colitem.format"
                             :mode="colitem.mode"
                             :picker-value="colitem.pickerValue"
-                            :placeholder="'请选择 ' +`${colitem.title}`"
                             :position="colitem.position"
                             :readonly="colitem.readonly"
                             :shortcuts="colitem.shortcuts"

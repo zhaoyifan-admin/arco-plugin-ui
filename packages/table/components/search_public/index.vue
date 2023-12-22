@@ -8,7 +8,7 @@ interface Props {
   disabledForm: boolean,
   data?: any[],
   searchForm?: object,
-  size?: 'mini' | 'small' | 'medium' | 'large',
+  size?: any,
   options?: TableOptions,
 }
 
@@ -334,7 +334,7 @@ defineExpose({
                         v-model="searchForm[colitem.dataIndex]"
                         :abbreviation="colitem.abbreviation"
                         :day-start-of-week="colitem.dayStartOfWeek"
-                        :default-picker-value="colitem.defaultPickerValue"
+                        :default-picker-value="colitem.defaultPickerValue as (Date | string | number)[]"
                         :disabled="colitem.disabled"
                         :disabled-date="colitem.disabledDate"
                         :disabled-input="colitem.disabledInput"
@@ -343,7 +343,6 @@ defineExpose({
                         :format="colitem.format"
                         :mode="colitem.mode"
                         :picker-value="colitem.pickerValue"
-                        :placeholder="'请选择 ' +`${colitem.title}`"
                         :position="colitem.position"
                         :readonly="colitem.readonly"
                         :shortcuts="colitem.shortcuts"
@@ -376,7 +375,7 @@ defineExpose({
         <a-textarea v-else-if="colitem.type === 'textarea'"
                     v-model="searchForm[colitem.dataIndex]"
                     :auto-size="colitem.autoSize"
-                    :default-value="colitem.defaultValue"
+                    :default-value="colitem.defaultValue as string"
                     :disabled="colitem.disabled"
                     :error="colitem.error"
                     :max-length="colitem.maxLength"
@@ -387,7 +386,7 @@ defineExpose({
         <a-transfer v-else-if="colitem.type === 'transfer'"
                     v-model="searchForm[colitem.dataIndex]"
                     :data="colitem.data"
-                    :default-value="colitem.defaultValue"
+                    :default-value="colitem.defaultValue as string[]"
                     :disabled="colitem.disabled"
                     :one-way="colitem.oneWay"
                     :show-search="colitem.showSearch"
