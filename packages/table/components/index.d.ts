@@ -1,4 +1,5 @@
 import type {TableColumnData} from "./types/TableColumnData";
+import type {TableRowSelection} from "@arco-design/web-vue";
 
 export interface TableBorder {
     bodyCell?: boolean; // 是否展示主体单元格边框
@@ -9,6 +10,7 @@ export interface TableBorder {
 
 export interface TableOptions {
     columns?: TableColumnData[]
+    rowSelection?:TableRowSelection
     index?: boolean
     indexWidth?: number
     loading?: boolean

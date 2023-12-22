@@ -1,11 +1,7 @@
-import type {TransferItem} from "./TransferItem";
-import type {TreeNodeData} from "./TreeNodeData";
-import type {ScrollbarProps} from "./ScrollbarProps";
-import type {TagProps} from "./TagProps";
-import type {ShortcutType} from "./ShortcutType";
-import type {DisabledTimeProps} from "./DisabledTimeProps";
-import type {TreeProps} from "./TreeProps";
-import type {TriggerProps} from "./TriggerProps";
+import type {ScrollbarProps, ShortcutType, TagProps, TreeNodeData, TriggerProps} from "@arco-design/web-vue";
+import type {TransferItem} from "@arco-design/web-vue/es/transfer/interface";
+import type {DisabledTimeProps} from "@arco-design/web-vue/es/date-picker/interface";
+import type {TreeProps} from "@arco-design/web-vue/es/tree/interface";
 
 export interface TableColumnData {
     abbreviation?: boolean;/*是否启用缩写*/

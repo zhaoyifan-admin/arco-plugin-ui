@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {computed, defineAsyncComponent, onBeforeMount, onMounted, ref} from "vue";
-import type {TableBorder} from "./components/types/TableBorder";
 import type {Pagination, TableOptions} from "./components";
+import type {TableBorder} from "@arco-design/web-vue";
 
 const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave', 'handleUpdate', 'onLoad', 'update:searchForm'])
 
@@ -162,6 +162,7 @@ onMounted(()=>{
                    :loading="options.loading"
                    :pagination="false"
                    :row-class="rowClass"
+                   :row-selection="options.rowSelection"
                    :scroll="{y: scorllHeight}"
                    :size="size"
                    column-resizable
