@@ -107,8 +107,9 @@ const handleUpdate = (modelForm: object, loading: any, done: any) => {
 const handleRefresh = () => {
   emit('onLoad', props.page, props.searchForm);
 }
-const celldblclick = (record: TableData,column: TableColumnData, ev: Event) => {
-  Object.assign(tableForm, record)
+const rowdblclick = (record: TableData,ev: Event) => {
+  // Object.assign(tableForm, record)
+  console.log(record)
 }
 onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
@@ -166,7 +167,7 @@ onMounted(()=>{
                    :scroll="{y: scorllHeight}"
                    :size="size"
                    column-resizable
-                   @cell-dblclick="celldblclick">
+                   @row-dblclick="rowdblclick">
             <template #columns>
               <!--            序号-->
               <a-table-column v-if="options.index" :width="80" align="center" fixed="left" title="序号">
