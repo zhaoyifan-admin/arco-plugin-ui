@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {reactive, ref} from 'vue';
+import { reactive, ref } from 'vue';
 import {getlist} from "@/utils/util";
 
 interface Pagination {
@@ -8,7 +8,6 @@ interface Pagination {
   pageSizes?: any[];
   total?: number; // 总条数
 }
-
 const page = reactive({
   total: 20,
   currentPage: 1,
@@ -61,13 +60,13 @@ const options = reactive({
       search: true,
       dicUrl: '/admin/dict/type/work_type',
       dicData: [
-        {label: '男', value: 1},
-        {label: '女', value: 2},
+        { label: '男', value: 1 },
+        { label: '女', value: 2 },
       ],
     },
   ],
 });
-const searchForm = ref({employeeCode: '996'});
+const searchForm = ref({ employeeCode: '996' });
 const state = reactive({
   data: [],
   loading: true,
@@ -80,13 +79,13 @@ const getList = (page: Pagination, params?: object) => {
     size: page.pageSize,
     ...params,
   })
-      .then((res: any) => {
+      .then((res) => {
         state.data = res.data.records;
         page.total = res.data.total;
         state.loading = false;
         console.log(res);
       })
-      .catch((error: any) => {
+      .catch((error) => {
         console.log(error);
         state.loading = false;
       });
