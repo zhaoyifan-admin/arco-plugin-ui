@@ -59,6 +59,7 @@ const options = reactive({
       dataIndex: 'workType',
       type: 'select',
       search: true,
+      dicUrl: '/admin/dict/type/work_type',
       dicData: [
         {label: '男', value: 1},
         {label: '女', value: 2},
@@ -101,12 +102,12 @@ const searchReset = (form: object) => {
 // 分页
 const currentChange = (current: number) => {
   page.currentPage = current;
-  getList(page);
+  getList(page, searchForm.value);
 };
 const sizeChange = (pageSize: number) => {
   page.currentPage = 1;
   page.pageSize = pageSize;
-  getList(page);
+  getList(page, searchForm.value);
 };
 const handleSave = (form: object, loading: any, done: any) => {
   loading();

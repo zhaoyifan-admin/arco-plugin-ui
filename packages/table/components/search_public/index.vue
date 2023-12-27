@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-import {computed} from "vue";
+import {computed, onMounted, reactive} from "vue";
 import type {TableOptions} from "../index";
+import request from "@/utils/request";
+import {getOptions} from "../../../utils/api";
 
 const emit = defineEmits(['update:searchForm'])
 
@@ -44,17 +46,26 @@ const searchForm: { [key: string]: any } = computed({
     return props.searchForm
   },
   set(val: object) {
-    console.log(123123)
-    console.log(val)
     emit('update:searchForm', val)
   }
 })
+const state = reactive({});
 const handleUpdateForm = () => {
   // emit('update:searchForm', searchForm);
 }
 const searchReset = () => {
   searchForm.value = {};
 };
+onMounted(()=>{
+  getOptions().then((res)=>{
+    console.log(res)
+  })
+  // props.options.columns?.forEach((item:object,index:number)=>{
+  //   if(item.dicUrl) {
+  //     console.log(item,'searchItem')
+  //   }
+  // })
+})
 
 defineExpose({
   searchReset

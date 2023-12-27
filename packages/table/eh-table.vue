@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import {computed, defineAsyncComponent, onBeforeMount, onMounted, reactive, ref, toRef} from "vue";
+import {computed, defineAsyncComponent, onBeforeMount, onMounted, reactive, ref} from "vue";
 import type {Pagination, TableOptions} from "./components";
-import type {TableBorder, TableColumnData, TableData} from "@arco-design/web-vue";
+import type {TableBorder, TableData} from "@arco-design/web-vue";
 
-const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave', 'handleUpdate', 'onLoad', 'update:searchForm'])
+const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave','handleSelect', 'handleUpdate', 'onLoad', 'update:searchForm'])
 
 const search = defineAsyncComponent(
     () => import('./components/search/index.vue')
@@ -41,7 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
   searchForm: () => {
     return {}
   },
-  size: 'small',
+  size: 'medium',
   tip: '加载中...',
   options: () => {
     return {
@@ -107,9 +107,8 @@ const handleUpdate = (modelForm: object, loading: any, done: any) => {
 const handleRefresh = () => {
   emit('onLoad', props.page, props.searchForm);
 }
-const rowdblclick = (record: TableData,ev: Event) => {
-  // Object.assign(tableForm, record)
-  console.log(record)
+const handleSelect = (rowKeys: (string | number)[],rowKey: (string | number),record: TableData) => {
+  emit('handleSelect', rowKeys,rowKey,record)
 }
 onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
@@ -122,6 +121,9 @@ onMounted(()=>{
     scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 110);
   },500)
 })
+const spanMethod = ({rowIndex, columnIndex}) => {
+  console.log(rowIndex, columnIndex)
+};
 </script>
 
 <template>
@@ -164,15 +166,19 @@ onMounted(()=>{
                    :pagination="false"
                    :row-class="rowClass"
                    :row-selection="options.rowSelection"
-                   :scroll="{y: scorllHeight}"
+                   :scroll="{x: options.scrollX, y: scorllHeight}"
                    :size="size"
+                   :summary="options.summary || true"
+                   :summary-span-method="spanMethod"
                    column-resizable
-                   @row-dblclick="rowdblclick">
+                   row-key="employeeCode"
+                   summary-text="合计"
+                   @select="handleSelect">
             <template #columns>
               <!--            序号-->
               <a-table-column v-if="options.index" :width="80" align="center" fixed="left" title="序号">
-                <template #cell="{ rowIndex }">
-                  {{ (page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
+                <template #cell="{ record,rowIndex }">
+                  {{ record['__arco_data_index_0']?record['__arco_data_index_0']:(page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
                 </template>
               </a-table-column>
               <!--            columns-->
@@ -193,35 +199,23 @@ onMounted(()=>{
                     </slot>
                   </template>
                   <template #cell="{ record, column, rowIndex }">
-                    {{rowIndex}}
                     <slot :column="column" :name="item.dataIndex + 'cell'" :record="record" :rowIndex="rowIndex">
                       {{ record[item.dataIndex as any] }}
-<!--                      <a-input v-if="column.type === 'input' || column.type === undefined && item.showForm"
-                               v-model="tableForm[item.dataIndex as any]"
-                               :default-value="column.defaultValue"
-                               :disabled="column.disabled"
-                               :max-length="column.maxLength"
-                               :placeholder="'请输入 ' +`${column.title}`"
-                               :readonly="column.readonly"
-                               :show-word-limit="column.showLimit"
-                               :size="size"
-                               allow-clear
-                      />-->
                     </slot>
                   </template>
                 </a-table-column>
               </template>
               <!--            操作栏-->
               <a-table-column
-                  :width="options.menuWidth || 145"
+                  :width="200"
                   align="center"
-                  cell-class="Menu-box-shadow"
                   fixed="right"
                   title="操作栏"
               >
                 <template #cell="{ record }">
                   <component
                       :is="tableMenuBtn"
+                      v-if="!record['__arco_data_index_0']"
                       :options="options"
                       :record="record"
                       :size="size"
