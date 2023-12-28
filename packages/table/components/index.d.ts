@@ -10,17 +10,19 @@ export interface TableBorder {
 
 export interface TableOptions {
     columns?: TableColumnData[]
-    rowSelection?:TableRowSelection
     index?: boolean
     indexWidth?: number
     loading?: boolean
+    maskClosable?: boolean
+    maxHeight?: number | string
+    menuBtnStyle?: string
     menuWidth?: number
+    rowSelection?: TableRowSelection
+    scrollX?: string | number
     search?: boolean
     searchBtnSpan?: number
     searchSpan?: number
-    menuBtnStyle?: string
-    maskClosable?: boolean
-    maxHeight?: number | string
+    summary?: boolean
 }
 
 export interface Pagination {
