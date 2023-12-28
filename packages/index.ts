@@ -1,5 +1,7 @@
 import './less/global.less'
 import './less/iconfont.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import {
   dateFormat,
   requestAnimationFrame,
@@ -199,6 +201,10 @@ export {
   Video
 }
 
+AOS.init({
+  duration: 1500,
+  easing: 'ease-in-out-back',
+});
 const VueArcoUI = {
   install
 }

@@ -78,13 +78,13 @@ const getList = (page: Pagination, params?: object) => {
     size: page.pageSize,
     ...params,
   })
-      .then((res) => {
+      .then((res:any) => {
         state.data = res.data.records;
         page.total = res.data.total;
         state.loading = false;
         console.log(res);
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.log(error);
         state.loading = false;
       });

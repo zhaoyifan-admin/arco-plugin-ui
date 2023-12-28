@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@arco-themes/vue-eh-arco-plugin':
-    specifier: ^0.0.11
-    version: 0.0.11(@arco-design/web-vue@2.53.3)
+    specifier: ^0.0.18
+    version: 0.0.18(@arco-design/web-vue@2.53.3)
   '@vuepic/vue-datepicker':
     specifier: ^6.1.0
     version: 6.1.0(vue@3.3.4)
@@ -16,10 +16,13 @@ dependencies:
     version: 10.5.0(vue@3.3.4)
   '@vueuse/integrations':
     specifier: ^10.5.0
-    version: 10.5.0(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
+    version: 10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
   aos:
     specifier: ^2.3.4
     version: 2.3.4
+  axios:
+    specifier: ^1.6.3
+    version: 1.6.3
   core-js:
     specifier: ^3.33.0
     version: 3.33.0
@@ -42,8 +45,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4
   vue-arco-ui:
-    specifier: ^0.1.74
-    version: 0.1.74(@arco-design/web-vue@2.53.3)
+    specifier: ^0.2.1
+    version: 0.2.1(@arco-design/web-vue@2.53.3)(axios@1.6.3)
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.4)
@@ -108,7 +111,7 @@ devDependencies:
     version: 4.4.11(@types/node@20.8.6)(less@4.2.0)
   vitepress:
     specifier: 1.0.0-rc.21
-    version: 1.0.0-rc.21(@algolia/client-search@4.20.0)(@types/node@20.8.6)(less@4.2.0)(qrcode@1.5.3)(search-insights@2.11.0)
+    version: 1.0.0-rc.21(@algolia/client-search@4.20.0)(@types/node@20.8.6)(axios@1.6.3)(less@4.2.0)(qrcode@1.5.3)(search-insights@2.11.0)
   vue-tsc:
     specifier: ^1.8.19
     version: 1.8.19(typescript@5.2.2)
@@ -293,6 +296,14 @@ packages:
 
   /@arco-themes/vue-eh-arco-plugin@0.0.11(@arco-design/web-vue@2.53.3):
     resolution: {integrity: sha512-RlairrEoW+WRVAH40a6NWxi+z0CK+nEjlxfLfTJ3l0JG5xrNv1ZMgrPGY8xwck+aIwhZuH7BB8b8YYnNS0RkJw==}
+    peerDependencies:
+      '@arco-design/web-vue': ^2.53.3
+    dependencies:
+      '@arco-design/web-vue': 2.53.3(vue@3.3.4)
+    dev: false
+
+  /@arco-themes/vue-eh-arco-plugin@0.0.18(@arco-design/web-vue@2.53.3):
+    resolution: {integrity: sha512-XFDsNmJT/nr12kKZynjlJiNgf5wed9b3vz+OXxNgvqOudQhlduHv/mOnb09Q8AZlJuwk1CZ7X83oFdR+pNBayA==}
     peerDependencies:
       '@arco-design/web-vue': ^2.53.3
     dependencies:
@@ -1241,7 +1252,7 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  /@vueuse/integrations@10.5.0(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4):
+  /@vueuse/integrations@10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4):
     resolution: {integrity: sha512-fm5sXLCK0Ww3rRnzqnCQRmfjDURaI4xMsx+T+cec0ngQqHx/JgUtm8G0vRjwtonIeTBsH1Q8L3SucE+7K7upJQ==}
     peerDependencies:
       async-validator: '*'
@@ -1284,6 +1295,7 @@ packages:
     dependencies:
       '@vueuse/core': 10.5.0(vue@3.3.4)
       '@vueuse/shared': 10.5.0(vue@3.3.4)
+      axios: 1.6.3
       focus-trap: 7.5.4
       qrcode: 1.5.3
       vue-demi: 0.14.6(vue@3.3.4)
@@ -1424,10 +1436,22 @@ packages:
     resolution: {integrity: sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==}
     dev: false
 
+  /asynckit@0.4.0:
+    resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+
   /available-typed-arrays@1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /axios@1.6.3:
+    resolution: {integrity: sha512-fWyNdeawGam70jXSVlKl+SUNVcL6j6W79CuSIPfi6HnDUmSCH6gyUys/HrqHeA/wU0Az41rRgean494d0Jb+ww==}
+    dependencies:
+      follow-redirects: 1.15.3
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
 
   /b-tween@0.3.3:
     resolution: {integrity: sha512-oEHegcRpA7fAuc9KC4nktucuZn2aS8htymCPcP3qkEGPqiBH+GfqtqoG2l7LxHngg6O0HFM7hOeOYExl1Oz4ZA==}
@@ -1568,6 +1592,12 @@ packages:
     dependencies:
       color-convert: 1.9.3
       color-string: 1.9.1
+
+  /combined-stream@1.0.8:
+    resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      delayed-stream: 1.0.0
 
   /commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -1716,6 +1746,10 @@ packages:
       has-property-descriptors: 1.0.0
       object-keys: 1.1.1
     dev: true
+
+  /delayed-stream@1.0.0:
+    resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
+    engines: {node: '>=0.4.0'}
 
   /dijkstrajs@1.0.3:
     resolution: {integrity: sha512-qiSlmBq9+BCdCA/L46dw8Uy93mloxsPSbwnm5yrKn2vMPiy8KyAskTF6zuV/j5BMsmOGZDPs7KjU+mjb670kfA==}
@@ -2077,6 +2111,15 @@ packages:
     dependencies:
       tabbable: 6.2.0
 
+  /follow-redirects@1.15.3:
+    resolution: {integrity: sha512-1VzOtuEM8pC9SFU1E+8KfTjZyMztRsgEfwQl44z8A25uy13jSzTj6dyK2Df52iV0vgHCfBwLhDWevLn95w5v6Q==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+
   /for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -2090,6 +2133,14 @@ packages:
       cross-spawn: 7.0.3
       signal-exit: 4.1.0
     dev: true
+
+  /form-data@4.0.0:
+    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
+    engines: {node: '>= 6'}
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
 
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
@@ -2670,6 +2721,16 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /mime-db@1.52.0:
+    resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
+    engines: {node: '>= 0.6'}
+
+  /mime-types@2.1.35:
+    resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      mime-db: 1.52.0
+
   /mime@1.6.0:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
@@ -3017,6 +3078,9 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dev: true
+
+  /proxy-from-env@1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
   /prr@1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
@@ -3657,7 +3721,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress@1.0.0-rc.21(@algolia/client-search@4.20.0)(@types/node@20.8.6)(less@4.2.0)(qrcode@1.5.3)(search-insights@2.11.0):
+  /vitepress@1.0.0-rc.21(@algolia/client-search@4.20.0)(@types/node@20.8.6)(axios@1.6.3)(less@4.2.0)(qrcode@1.5.3)(search-insights@2.11.0):
     resolution: {integrity: sha512-eHX057NgAqmrj6FIqh7Sqsbk/kftrFMBUpCKjuQIZ+c+bYTbmzXsXrHSbT5b4WWy4vLx1993a+H3wIRy2dHi8g==}
     hasBin: true
     peerDependencies:
@@ -3674,7 +3738,7 @@ packages:
       '@types/markdown-it': 13.0.2
       '@vue/devtools-api': 6.5.1
       '@vueuse/core': 10.5.0(vue@3.3.4)
-      '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
+      '@vueuse/integrations': 10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
       focus-trap: 7.5.4
       mark.js: 8.11.1
       minisearch: 6.1.0
@@ -3725,13 +3789,13 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
-  /vue-arco-ui@0.1.74(@arco-design/web-vue@2.53.3):
+  /vue-arco-ui@0.1.74(@arco-design/web-vue@2.53.3)(axios@1.6.3):
     resolution: {integrity: sha512-jX/eGKza61vZ5bAbJ2rchQ5IORTnyvrqoE6GfXAY/9001pCoS+FMipzLfRAFxG+V8Op0nntPf6QIT06CHnAhYg==}
     dependencies:
       '@arco-themes/vue-eh-arco-plugin': 0.0.9(@arco-design/web-vue@2.53.3)
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)
       '@vueuse/core': 10.5.0(vue@3.3.4)
-      '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
+      '@vueuse/integrations': 10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
       aos: 2.3.4
       core-js: 3.33.0
       date-fns: 2.30.0
@@ -3740,6 +3804,39 @@ packages:
       qrcode: 1.5.3
       swiper: 10.3.1
       vue: 3.3.4
+      vue-router: 4.2.5(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@arco-design/web-vue'
+      - '@vue/composition-api'
+      - async-validator
+      - axios
+      - change-case
+      - drauu
+      - focus-trap
+      - fuse.js
+      - idb-keyval
+      - jwt-decode
+      - nprogress
+      - sortablejs
+      - universal-cookie
+    dev: false
+
+  /vue-arco-ui@0.2.1(@arco-design/web-vue@2.53.3)(axios@1.6.3):
+    resolution: {integrity: sha512-6Swp0RuUnQq0H3wKH5e7F3xSZRIB7jytmpj5TEMsxGj9/u9rh0PyHSwTvuEGGWET6pG7qXIpqQwS4A+6Da3IoQ==}
+    dependencies:
+      '@arco-themes/vue-eh-arco-plugin': 0.0.11(@arco-design/web-vue@2.53.3)
+      '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)
+      '@vueuse/core': 10.5.0(vue@3.3.4)
+      '@vueuse/integrations': 10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
+      aos: 2.3.4
+      core-js: 3.33.0
+      date-fns: 2.30.0
+      mitt: 3.0.1
+      naive-ui: 2.35.0(vue@3.3.4)
+      qrcode: 1.5.3
+      swiper: 10.3.1
+      vue: 3.3.4
+      vue-arco-ui: 0.1.74(@arco-design/web-vue@2.53.3)(axios@1.6.3)
       vue-router: 4.2.5(vue@3.3.4)
     transitivePeerDependencies:
       - '@arco-design/web-vue'

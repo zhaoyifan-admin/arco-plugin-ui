@@ -34,7 +34,7 @@ service.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
+  (error:any) => {
     // 对请求错误做些什么
     return Promise.reject(error);
   }
@@ -42,7 +42,7 @@ service.interceptors.request.use(
 
 // 添加响应拦截器
 service.interceptors.response.use(
-  (response) => {
+  (response:any) => {
     // 对响应数据做点什么
     const status = Number(response.status) || 200;
     const message = response.data.msg;
@@ -64,7 +64,7 @@ service.interceptors.response.use(
     }
     return response.data;
   },
-  (error) => {
+  (error:any) => {
     // 对响应错误做点什么
     if (error.message.indexOf('timeout') !== -1) {
       Notification.error({
