@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as a}from"./chunks/framework.afdd2c89.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/components/table.md","filePath":"guide/components/table.md"}'),o={name:"guide/components/table.md"};function n(s,c,r,p,d,i){return t(),a("div")}const _=e(o,[["render",n]]);export{l as __pageData,_ as default};
