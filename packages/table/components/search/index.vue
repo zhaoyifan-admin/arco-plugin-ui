@@ -105,6 +105,16 @@ defineExpose({
               </template>
               重置
             </a-button>
+            <a-button :size="size" status="warning" title="收起" type="outline">
+              <template #icon>
+                <i class="rtdp shouqi"></i>
+              </template>
+            </a-button>
+            <a-button :size="size" status="warning" title="展开" type="outline">
+              <template #icon>
+                <i class="rtdp zhankai"></i>
+              </template>
+            </a-button>
           </a-space>
         </a-col>
       </a-row>

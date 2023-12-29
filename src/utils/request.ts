@@ -18,7 +18,7 @@ service.interceptors.request.use(
     // 在发送请求之前做些什么 token
     const language = 'zh-CN';
     const tenantId = '1';
-    const token = '0b9482ad-b4c5-43e8-b0bb-0f50d675f46f';
+    const token = 'fda491f0-4dde-46cf-bc3b-ae2c8480c5d7';
     if (token) {
       config.headers.Authorization = `Bearer ${token}`; // token
     }

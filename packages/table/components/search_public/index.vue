@@ -44,9 +44,17 @@ const searchForm: { [key: string]: any } = computed({
     return props.searchForm
   },
   set(val: object) {
-    console.log(123123)
-    console.log(val)
     emit('update:searchForm', val)
+  }
+})
+const sortColumns: { [key: string]: any } = computed({
+  get() {
+    let newForm: any = props.options.columns;
+    newForm = newForm.sort((a: any, b: any) => a.sort - b.sort);
+    return newForm;
+  },
+  set(val: object) {
+    console.log(val)
   }
 })
 const handleUpdateForm = () => {
@@ -62,7 +70,7 @@ defineExpose({
 </script>
 
 <template>
-  <template v-for="(colitem, index) in options.columns" :key="index">
+  <template v-for="(colitem, index) in sortColumns" :key="index">
     <a-col v-if="colitem.search" :span="colitem.span || options.searchSpan || 6">
       <a-form-item :field="colitem.title" :label="colitem.title" feedback>
         <template #label>

@@ -23,11 +23,13 @@ const options = reactive({
       title: '员工编号',
       dataIndex: 'employeeCode',
       search: true,
+      sort: 2,
     },
     {
       title: '员工姓名',
       dataIndex: 'employeeName',
       search: true,
+      sort: 1,
     },
     {
       title: '所属部门',

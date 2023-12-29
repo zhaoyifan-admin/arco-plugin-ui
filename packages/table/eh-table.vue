@@ -26,6 +26,7 @@ interface Props {
   data?: any[],
   loading?: boolean,
   options?: TableOptions,
+  summarySpanMethod?: any,
   page?: Pagination,
   searchForm?: object,
   size?: 'mini' | 'small' | 'medium' | 'large',
@@ -166,6 +167,7 @@ onMounted(()=>{
                    :scroll="{x: options.scrollX, y: scorllHeight}"
                    :size="size"
                    :summary="options.summary || true"
+                   :summary-span-method="summarySpanMethod"
                    column-resizable
                    row-key="employeeCode"
                    summary-text="合计"
