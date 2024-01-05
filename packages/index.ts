@@ -68,7 +68,12 @@ import TextScroll from './textscroll'
 import Timeline from './timeline'
 import Tooltip from './tooltip'
 import Video from './video'
-
+import i18n from "./utils/local";
+export interface InstallationOptions {
+  locale?: any,
+  i18n?: any,
+  size?: string
+}
 // 所有组件列表
 const components = [
   Alert,
@@ -119,9 +124,11 @@ const components = [
   Tooltip,
   Video
 ]
-
 // 定义 install 方法
-const install = (app: App): void => {
+const install = (app: App, options?: InstallationOptions): void => {
+  console.log(options);
+  // 国际化
+  i18n.global.locale = options?.locale || 'zh-CN';
   // 遍历注册所有组件
   /*
     component.__name ts报错
@@ -205,6 +212,6 @@ AOS.init({
   easing: 'ease-in-out-back',
 });
 const VueArcoUI = {
-  install
+  install,
 }
 export default VueArcoUI

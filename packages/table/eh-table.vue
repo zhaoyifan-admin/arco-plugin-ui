@@ -2,6 +2,7 @@
 import {computed, defineAsyncComponent, onBeforeMount, onMounted, reactive, ref} from "vue";
 import type {Pagination, TableOptions} from "./components";
 import type {TableBorder, TableData} from "@arco-design/web-vue";
+import i18n from "../utils/local";
 
 const emit = defineEmits(['currentChange', 'sizeChange', 'searchChange', 'searchReset', 'handleSave','handleSelect', 'handleUpdate', 'onLoad', 'update:searchForm'])
 
@@ -71,6 +72,8 @@ const menuButtonRef = ref();
 const searchRef =ref();
 const atble = ref();
 const modelRef = ref();
+const LocalMessage = reactive(i18n.global.messages.value);
+const systemLocal = reactive(i18n.global.locale);
 const scorllHeight = ref<any>('100%');
 const tableForm = reactive<any>({});
 const searchForm: { [key: string]: any } = computed({
@@ -122,6 +125,7 @@ onMounted(()=>{
     scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 110);
   },500)
 })
+
 </script>
 
 <template>
@@ -157,81 +161,83 @@ onMounted(()=>{
       <!--      Table展示区-->
       <a-spin :loading="loading" :tip="tip" dot>
         <div class="table-show" data-aos="fade-right">
-          <a-table :bordered="bordered"
-                   :columns="options.columns"
-                   :data="data"
-                   :loading="options.loading"
-                   :pagination="false"
-                   :row-class="rowClass"
-                   :row-selection="options.rowSelection"
-                   :scroll="{x: options.scrollX, y: scorllHeight}"
-                   :size="size"
-                   :summary="options.summary || true"
-                   :summary-span-method="summarySpanMethod"
-                   column-resizable
-                   row-key="employeeCode"
-                   summary-text="合计"
-                   @select="handleSelect">
-            <template #columns>
-              <!--            序号-->
-              <a-table-column v-if="options.index" :width="80" align="center" fixed="left" title="序号">
-                <template #cell="{ record,rowIndex }">
-                  {{ record['__arco_data_index_0']?record['__arco_data_index_0']:(page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
-                </template>
-              </a-table-column>
-              <!--            columns-->
-              <template v-for="(item, index) in options.columns">
-                <a-table-column
-                    v-if="!item.hide"
-                    :key="index"
-                    :data-index="item.dataIndex"
-                    :ellipsis="item.ellipsis"
-                    :index="index"
-                    :title="item.title"
-                    :tooltip="item.tooltip"
-                    :width="item.width"
-                >
-                  <template #title>
-                    <slot :name="item.dataIndex + 'Title'">
-                      {{ item.title }}
-                    </slot>
+          <a-config-provider :locale="LocalMessage[systemLocal]">
+            <a-table :bordered="bordered"
+                     :columns="options.columns"
+                     :data="data"
+                     :loading="options.loading"
+                     :pagination="false"
+                     :row-class="rowClass"
+                     :row-selection="options.rowSelection"
+                     :scroll="{x: options.scrollX, y: scorllHeight}"
+                     :size="size"
+                     :summary="options.summary || true"
+                     :summary-span-method="summarySpanMethod"
+                     column-resizable
+                     row-key="employeeCode"
+                     summary-text="合计"
+                     @select="handleSelect">
+              <template #columns>
+                <!--            序号-->
+                <a-table-column v-if="options.index" :width="80" align="center" fixed="left" title="序号">
+                  <template #cell="{ record,rowIndex }">
+                    {{ record['__arco_data_index_0']?record['__arco_data_index_0']:(page.currentPage - 1) * page.pageSize + parseInt(rowIndex) + 1 }}
                   </template>
-                  <template #cell="{ record, column, rowIndex }">
-                    <slot :column="column" :name="item.dataIndex + 'cell'" :record="record" :rowIndex="rowIndex">
-                      {{ record[item.dataIndex as any] }}
-                    </slot>
+                </a-table-column>
+                <!--            columns-->
+                <template v-for="(item, index) in options.columns">
+                  <a-table-column
+                      v-if="!item.hide"
+                      :key="index"
+                      :data-index="item.dataIndex"
+                      :ellipsis="item.ellipsis"
+                      :index="index"
+                      :title="item.title"
+                      :tooltip="item.tooltip"
+                      :width="item.width"
+                  >
+                    <template #title>
+                      <slot :name="item.dataIndex + 'Title'">
+                        {{ item.title }}
+                      </slot>
+                    </template>
+                    <template #cell="{ record, column, rowIndex }">
+                      <slot :column="column" :name="item.dataIndex + 'cell'" :record="record" :rowIndex="rowIndex">
+                        {{ record[item.dataIndex as any] }}
+                      </slot>
+                    </template>
+                  </a-table-column>
+                </template>
+                <!--            操作栏-->
+                <a-table-column
+                    :width="200"
+                    align="center"
+                    fixed="right"
+                    title="操作栏"
+                >
+                  <template #cell="{ record }">
+                    <component
+                        :is="tableMenuBtn"
+                        v-if="!record['__arco_data_index_0']"
+                        :options="options"
+                        :record="record"
+                        :size="size"
+                        @handleMenuClick="handleMenuClick"
+                    />
                   </template>
                 </a-table-column>
               </template>
-              <!--            操作栏-->
-              <a-table-column
-                  :width="200"
-                  align="center"
-                  fixed="right"
-                  title="操作栏"
-              >
-                <template #cell="{ record }">
-                  <component
-                      :is="tableMenuBtn"
-                      v-if="!record['__arco_data_index_0']"
-                      :options="options"
-                      :record="record"
-                      :size="size"
-                      @handleMenuClick="handleMenuClick"
-                  />
-                </template>
-              </a-table-column>
-            </template>
-          </a-table>
-          <!--        分页-->
-          <component
-              :is="tablePagination"
-              :data="data"
-              :page="page"
-              :size="size"
-              @current-change="currentChange"
-              @size-change="sizeChange"
-          />
+            </a-table>
+            <!--        分页-->
+            <component
+                :is="tablePagination"
+                :data="data"
+                :page="page"
+                :size="size"
+                @current-change="currentChange"
+                @size-change="sizeChange"
+            />
+          </a-config-provider>
         </div>
       </a-spin>
     </div>
