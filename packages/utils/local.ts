@@ -1,5 +1,6 @@
 import {createI18n} from 'vue-i18n';
 import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
+import tzhCN from '../table/local/zh-CN';
 import zhTW from '@arco-design/web-vue/es/locale/lang/zh-tw';
 import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
 import esES from '@arco-design/web-vue/es/locale/lang/es-es';
@@ -60,12 +61,12 @@ const i18n = createI18n({
             ...viVN
         },
         'zh-CN':{
-            ...zhCN
+            ...zhCN,
+            ...tzhCN
         },
         'zh-TW':{
             ...zhTW
         },
     },
 });
-console.log(i18n)
 export default i18n;

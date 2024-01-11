@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
         <template #icon>
           <i class="rtdp xinzeng"></i>
         </template>
-        新 增
+        {{$t('menu.addBtn')}}
       </a-button>
       <slot :size="props.size" name="menuLeft"></slot>
     </div>
