@@ -1,7 +1,8 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type {TableColumnData} from "../types/TableColumnData";
+import {defineEmits, defineProps, withDefaults} from 'vue';
 
-const emit = defineEmits(['handleOpenModel','handleRefresh'])
+const emit = defineEmits(['handleOpenModel', 'handleRefresh'])
 
 interface Props {
   columns?: TableColumnData[]
@@ -9,38 +10,36 @@ interface Props {
   size?: 'mini' | 'small' | 'medium' | 'large',
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   columns: () => [],
   loading: false,
   size: 'medium',
-})
-const handleClick = () => {
-  emit('handleOpenModel','add')
-}
-const handleRefresh = () => {
+}), handleClick = () => {
+  emit('handleOpenModel', 'add')
+}, handleRefresh = () => {
   emit('handleRefresh')
-}
+};
 </script>
 
 <template>
   <div class="arco-compontent-page-button d-flex a-center">
     <div class="arco-compontent-page-left-button">
-      <a-button type="primary" :size="size" @click="handleClick">
+      <a-button :size="props.size" type="primary" @click="handleClick">
         <template #icon>
           <i class="rtdp xinzeng"></i>
         </template>
         新 增
       </a-button>
-      <slot name="menuLeft" :size="size"></slot>
+      <slot :size="props.size" name="menuLeft"></slot>
     </div>
     <div class="arco-compontent-page-right-button d-flex a-center j-end">
       <slot name="menuRight"></slot>
-      <a-button type="outline" shape="circle" :size="size" @click="handleRefresh">
+      <a-button :size="props.size" shape="circle" type="outline" @click="handleRefresh">
         <template #icon>
           <i class="rtdp refresh"></i>
         </template>
       </a-button>
-      <a-button type="outline" shape="circle" :size="size">
+      <a-button :size="props.size" shape="circle" type="outline">
         <template #icon>
           <i class="rtdp peizhi"></i>
         </template>
@@ -49,7 +48,7 @@ const handleRefresh = () => {
   </div>
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 @import '../../styles/index';
 
 .arco-compontent-page-button {
@@ -71,5 +70,10 @@ const handleRefresh = () => {
       margin-left: 10px;
     }
   }
+}
+
+::v-deep(.arco-progress-circle-wrapper) {
+  width: 30px !important;
+  height: 30px !important;
 }
 </style>

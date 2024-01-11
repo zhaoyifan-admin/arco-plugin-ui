@@ -28,5 +28,8 @@ export function getlist(params?: object) {
     url: '/basic/employeeinfo/page',
     method: 'get',
     params,
+    onDownloadProgress(ProgressEvent) {
+      console.log('进度事件', ProgressEvent);
+    }
   });
 }

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {defineAsyncComponent, ref} from "vue";
 import type {TableOptions} from "../index";
 
@@ -6,7 +6,7 @@ const modelPublic = defineAsyncComponent(
     () => import('../model_public/index.vue')
 );
 
-const emit = defineEmits(['handleSave','handleUpdate'])
+const emit = defineEmits(['handleSave', 'handleUpdate'])
 
 interface Props {
   disabled?: boolean,
@@ -33,48 +33,39 @@ withDefaults(defineProps<Props>(), {
     }
   },
 })
-const modalRef = ref<any>(null);
-const visible = ref(false);
-const Title = ref("");
-const Loading = ref(false);
-const modelType = ref("");
-const handleOpenModel = (type: string, params: object) => {
-  modelType.value = type;
-  if (type === 'add') {
-    Title.value = '新增';
-  }
-  if (type === 'edit') {
-    Title.value = '编辑';
-    modalRef.value.deepClone(params);
-  }
-  if (type === 'see') {
-    Title.value = '查看';
-    modalRef.value.deepClone(params);
-  }
-  visible.value = true;
-};
-const handleOk = () => {
-  visible.value = false;
-};
-const handleCancel = () => {
-  visible.value = false;
-  modalRef.value.done();
-}
-const handleClick = (type: string) => {
-  Loading.value = true;
-  if (type === 'add') {
-    modalRef.value.handleSave();
-  }
-  if (type === 'edit') {
-    modalRef.value.handleUpdate();
-  }
-}
-const handleSave = (modelForm: object, loading: any, done: any) => {
-  emit('handleSave', modelForm, loading, done)
-}
-const handleUpdate = (modelForm: object, loading: any, done: any) => {
-  emit('handleUpdate', modelForm, loading, done)
-}
+const modalRef = ref<any>(null), visible = ref(false), Title = ref(""), Loading = ref(false), modelType = ref(""),
+    handleOpenModel = (type: string, params: object) => {
+      modelType.value = type;
+      if (type === 'add') {
+        Title.value = '新增';
+      }
+      if (type === 'edit') {
+        Title.value = '编辑';
+        modalRef.value.deepClone(params);
+      }
+      if (type === 'see') {
+        Title.value = '查看';
+        modalRef.value.deepClone(params);
+      }
+      visible.value = true;
+    }, handleOk = () => {
+      visible.value = false;
+    }, handleCancel = () => {
+      visible.value = false;
+      modalRef.value.done();
+    }, handleClick = (type: string) => {
+      Loading.value = true;
+      if (type === 'add') {
+        modalRef.value.handleSave();
+      }
+      if (type === 'edit') {
+        modalRef.value.handleUpdate();
+      }
+    }, handleSave = (modelForm: object, loading: any, done: any) => {
+      emit('handleSave', modelForm, loading, done)
+    }, handleUpdate = (modelForm: object, loading: any, done: any) => {
+      emit('handleUpdate', modelForm, loading, done)
+    };
 defineExpose({
   handleOpenModel
 });
@@ -99,13 +90,14 @@ defineExpose({
     <template #footer>
       <a-space>
         <a-button :size="size" @click="handleCancel">取消</a-button>
-        <a-button type="primary" v-if="modelType === 'add'" :size="size" :loading="Loading" @click="handleClick('add')">
+        <a-button v-if="modelType === 'add'" :loading="Loading" :size="size" type="primary" @click="handleClick('add')">
           <template #icon>
             <i class="rtdp xinzeng"></i>
           </template>
           保存
         </a-button>
-        <a-button type="primary" v-if="modelType === 'edit'" :size="size" :loading="Loading" @click="handleClick('edit')">
+        <a-button v-if="modelType === 'edit'" :loading="Loading" :size="size" type="primary"
+                  @click="handleClick('edit')">
           <template #icon>
             <i class="rtdp caozuo-bianji"></i>
           </template>
@@ -116,6 +108,6 @@ defineExpose({
   </a-modal>
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 
 </style>

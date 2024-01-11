@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {computed} from "vue";
 import type {TableOptions} from "../index";
 
@@ -20,32 +20,28 @@ const props = withDefaults(defineProps<Props>(), {
   loading: false,
   size: 'small',
   tip: '加载中...',
-  searchForm: ()=>{
+  searchForm: () => {
     return {}
   },
   searchTabs: false,
   options: () => {
     return {index: false}
   },
-})
-const Form: { [key: string]: any } = computed({
+}), Form: { [key: string]: any } = computed({
   get() {
     return props.searchForm
   },
   set(val) {
     emit('update:searchForm', val)
   }
-})
-const onSearch = () => {
+}), onSearch = () => {
 
-};
-const onReset = () => {
+}, onReset = () => {
 
-};
-</script>
+};</script>
 
 <template>
-  <a-tabs position="left" :size="size" style="height: 100%">
+  <a-tabs :size="size" position="left" style="height: 100%">
     <a-tab-pane key="1">
       <template #title>
         <i class="rtdp sousuo"></i>
@@ -54,10 +50,10 @@ const onReset = () => {
       <div class="arco-compontent-page-tab-search-box d-flex flex-column">
         <div class="arco-compontent-page-tab-search-form">
           <a-form
+              :disabled="disabled"
               :model="Form"
               :size="size"
               layout="vertical"
-              :disabled="disabled"
           >
             <template v-for="(colitem, index) in options.columns" :key="index">
               <a-form-item v-if="colitem.search" :field="colitem.title" :label="colitem.title">
@@ -76,7 +72,7 @@ const onReset = () => {
         <a-divider :margin="10"/>
         <div class="arco-compontent-page-tab-search-btns">
           <a-space>
-            <a-button type="primary" :size="size" @click="onSearch">
+            <a-button :size="size" type="primary" @click="onSearch">
               <template #icon>
                 <i class="rtdp sousuo"></i>
               </template>
@@ -100,6 +96,6 @@ const onReset = () => {
   </a-tabs>
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 @import '../../styles/index';
 </style>

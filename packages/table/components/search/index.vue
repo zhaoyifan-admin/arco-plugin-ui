@@ -62,13 +62,11 @@ onMounted(() => {
 const done = () => {
   disabledForm.value = false;
   Loading.value = false;
-}
-const searchChange = () => {
+}, searchChange = () => {
   Loading.value = true;
   disabledForm.value = true;
   emit('searchChange', searchForm.value, done);
-};
-const searchReset = () => {
+}, searchReset = () => {
   props.options.columns?.forEach((item) => {
     item.defaultValue = undefined;
   });
@@ -97,23 +95,25 @@ defineExpose({
               <template #icon>
                 <i class="rtdp sousuo"></i>
               </template>
-              查询
+              <slot name="searchBtn">查询</slot>
             </a-button>
             <a-button :size="size" @click="searchReset">
               <template #icon>
                 <i class="rtdp refresh"></i>
               </template>
-              重置
+              <slot name="resetBtn">重置</slot>
             </a-button>
-            <a-button :size="size" status="warning" title="收起" type="outline">
+            <a-button :size="size" status="warning" type="outline">
               <template #icon>
                 <i class="rtdp shouqi"></i>
               </template>
+              <slot name="retractBtn">收起</slot>
             </a-button>
-            <a-button :size="size" status="warning" title="展开" type="outline">
+            <a-button :size="size" status="warning" type="outline">
               <template #icon>
                 <i class="rtdp zhankai"></i>
               </template>
+              <slot name="expandBtn">展开</slot>
             </a-button>
           </a-space>
         </a-col>

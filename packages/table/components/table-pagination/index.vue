@@ -17,14 +17,11 @@ withDefaults(defineProps<Props>(), {
     return {currentPage: 1, pageSize: 10, pageSizes: [5, 10, 20, 30, 50], total: 0}
   },
 })
-const emit = defineEmits(['currentChange','sizeChange'])
-const currentChange = (currentPage: number) => {
+const emit = defineEmits(['currentChange', 'sizeChange']), currentChange = (currentPage: number) => {
   emit('currentChange', currentPage)
-}
-const sizeChange = (pageSize: number) => {
+}, sizeChange = (pageSize: number) => {
   emit('sizeChange', pageSize)
-}
-</script>
+};</script>
 
 <template>
   <a-pagination

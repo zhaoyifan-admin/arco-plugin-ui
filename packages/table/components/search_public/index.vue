@@ -31,8 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
       searchBtnSpan: 6,
     }
   },
-})
-const searchForm: { [key: string]: any } = computed({
+}), searchForm: { [key: string]: any } = computed({
   get() {
     let newForm: any = {};
     props.options.columns?.forEach((item) => {
@@ -46,8 +45,7 @@ const searchForm: { [key: string]: any } = computed({
   set(val: object) {
     emit('update:searchForm', val)
   }
-})
-const sortColumns: { [key: string]: any } = computed({
+}), sortColumns: { [key: string]: any } = computed({
   get() {
     let newForm: any = props.options.columns;
     newForm = newForm.sort((a: any, b: any) => a.sort - b.sort);
@@ -56,14 +54,11 @@ const sortColumns: { [key: string]: any } = computed({
   set(val: object) {
     console.log(val)
   }
-})
-const handleUpdateForm = () => {
+}), handleUpdateForm = () => {
   // emit('update:searchForm', searchForm);
-}
-const searchReset = () => {
+}, searchReset = () => {
   searchForm.value = {};
 };
-
 defineExpose({
   searchReset
 });

@@ -36,20 +36,17 @@ const formRef = ref<any>(null);
 let modelForm: { [key: string]: any } = reactive({})
 const deepClone = (params: object) => {
   Object.assign(modelForm, params)
-}
-const done = () => {
+}, done = () => {
   emit('update:Loading', false);
   emit('update:Visible', false);
   formRef.value.resetFields();
   formRef.value.clearValidate();
   modelForm = reactive({});
   disabled.value = false;
-}
-const loading = () => {
+}, loading = () => {
   emit('update:Loading', false);
   disabled.value = false;
-}
-const handleSave = () => {
+}, handleSave = () => {
   disabled.value = true;
   formRef.value.validate((Promise: object) => {
     if (Promise) {
@@ -59,8 +56,7 @@ const handleSave = () => {
       emit('handleSave', modelForm, loading, done)
     }
   })
-}
-const handleUpdate = () => {
+}, handleUpdate = () => {
   disabled.value = true;
   formRef.value.validate((Promise: object) => {
     if (Promise) {
@@ -70,7 +66,7 @@ const handleUpdate = () => {
       emit('handleUpdate', modelForm, loading, done)
     }
   })
-}
+};
 defineExpose({
   done,
   deepClone,
