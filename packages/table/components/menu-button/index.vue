@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type {TableColumnData} from "../types/TableColumnData";
 import {defineEmits, defineProps, withDefaults} from 'vue';
+import i18n from "../../../utils/local";
 
 const emit = defineEmits(['handleOpenModel', 'handleRefresh'])
 
@@ -9,7 +10,6 @@ interface Props {
   loading?: boolean,
   size?: 'mini' | 'small' | 'medium' | 'large',
 }
-
 const props = withDefaults(defineProps<Props>(), {
   columns: () => [],
   loading: false,
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
         <template #icon>
           <i class="rtdp xinzeng"></i>
         </template>
-        {{$t('menu.addBtn')}}
+        {{i18n.global.t('menu.addBtn')}}
       </a-button>
       <slot :size="props.size" name="menuLeft"></slot>
     </div>

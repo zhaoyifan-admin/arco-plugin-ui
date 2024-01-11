@@ -9,9 +9,8 @@ import VueArcoUI from '../packages'
 // import VueArcoUI from 'vue-arco-ui';
 // import 'vue-arco-ui/css';
 import '../dist/style.css'
-import i18n from "../packages/utils/local";
 
 const app = createApp(App);
 // window.rafTimeout = rafTimeout // 挂载到window上，全局可用，无需引入
 
-app.use(router).use(VueArcoUI).use(i18n).mount('#app')
+app.use(router).use(VueArcoUI).mount('#app')
