@@ -26,7 +26,8 @@ const i18n = createI18n({
             ...deDE
         },
         'en-US':{
-            ...enUS
+            ...enUS,
+            ...LocalenUS
         },
         'es-ES':{
             ...esES
