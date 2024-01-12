@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {defineAsyncComponent, ref} from "vue";
 import type {TableOptions} from "../index";
+import i18n from "../../../utils/local";
 
 const modelPublic = defineAsyncComponent(
     () => import('../model_public/index.vue')
@@ -37,14 +38,14 @@ const modalRef = ref<any>(null), visible = ref(false), Title = ref(""), Loading 
     handleOpenModel = (type: string, params: object) => {
       modelType.value = type;
       if (type === 'add') {
-        Title.value = '新增';
+        Title.value = i18n.global.t('modal.addTitle');
       }
       if (type === 'edit') {
-        Title.value = '编辑';
+        Title.value = i18n.global.t('modal.editTitle');
         modalRef.value.deepClone(params);
       }
       if (type === 'see') {
-        Title.value = '查看';
+        Title.value = i18n.global.t('modal.viewTitle');
         modalRef.value.deepClone(params);
       }
       visible.value = true;
@@ -89,19 +90,21 @@ defineExpose({
     </component>
     <template #footer>
       <a-space>
-        <a-button :size="size" @click="handleCancel">取消</a-button>
+        <a-button :size="size" @click="handleCancel">
+          {{ i18n.global.t('modal.cancelBtn') }}
+        </a-button>
         <a-button v-if="modelType === 'add'" :loading="Loading" :size="size" type="primary" @click="handleClick('add')">
           <template #icon>
             <i class="rtdp xinzeng"></i>
           </template>
-          保存
+          {{ i18n.global.t('modal.saveBtn') }}
         </a-button>
         <a-button v-if="modelType === 'edit'" :loading="Loading" :size="size" type="primary"
                   @click="handleClick('edit')">
           <template #icon>
             <i class="rtdp caozuo-bianji"></i>
           </template>
-          修改
+          {{ i18n.global.t('modal.updateBtn') }}
         </a-button>
       </a-space>
     </template>

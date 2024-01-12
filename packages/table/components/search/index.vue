@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {onMounted, defineAsyncComponent, ref, computed} from "vue";
 import type {TableOptions} from "../index";
+import i18n from "../../../utils/local";
 
 const searchPublic = defineAsyncComponent(
     () => import('../search_public/index.vue')
@@ -55,7 +56,7 @@ const searchForm: { [key: string]: any } = computed({
 })
 onMounted(() => {
   if (props.options.columns) {
-    const index = props.options.columns.findIndex((item:any) => item.search === true);
+    const index = props.options.columns.findIndex((item: any) => item.search === true);
     showSearch.value = index !== -1;
   }
 })
@@ -95,25 +96,33 @@ defineExpose({
               <template #icon>
                 <i class="rtdp sousuo"></i>
               </template>
-              <slot name="searchBtn">查询</slot>
+              <slot name="searchBtn">
+                {{ i18n.global.t('search.searchBtn') }}
+              </slot>
             </a-button>
             <a-button :size="size" @click="searchReset">
               <template #icon>
                 <i class="rtdp refresh"></i>
               </template>
-              <slot name="resetBtn">重置</slot>
+              <slot name="resetBtn">
+                {{ i18n.global.t('search.resetBtn') }}
+              </slot>
             </a-button>
             <a-button :size="size" status="warning" type="outline">
               <template #icon>
                 <i class="rtdp shouqi"></i>
               </template>
-              <slot name="retractBtn">收起</slot>
+              <slot name="retractBtn">
+                {{ i18n.global.t('search.retractBtn') }}
+              </slot>
             </a-button>
             <a-button :size="size" status="warning" type="outline">
               <template #icon>
                 <i class="rtdp zhankai"></i>
               </template>
-              <slot name="expandBtn">展开</slot>
+              <slot name="expandBtn">
+                {{ i18n.global.t('search.expandBtn') }}
+              </slot>
             </a-button>
           </a-space>
         </a-col>

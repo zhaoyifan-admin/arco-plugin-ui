@@ -1,5 +1,6 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type {TableOptions} from "../index";
+import i18n from "../../../utils/local";
 
 const emit = defineEmits(['handleMenuClick'])
 
@@ -34,7 +35,7 @@ const handleMenuClick = (type: string, params: object) => {
 </script>
 
 <template>
-  <div class="text-icon-btn" v-if="options.menuBtnStyle === 'text'">
+  <div v-if="options.menuBtnStyle === 'text'" class="text-icon-btn">
     <a-button
         :size="size"
         type="text"
@@ -43,7 +44,7 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp chakan"></i>
       </template>
-      查 看
+      {{ i18n.global.t('menu.viewBtn') }}
     </a-button>
     <a-button
         :size="size"
@@ -53,7 +54,7 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp caozuo-bianji"></i>
       </template>
-      编 辑
+      {{ i18n.global.t('menu.editBtn') }}
     </a-button>
     <a-button
         :size="size"
@@ -63,17 +64,17 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp shipin"></i>
       </template>
-      查看视频
+      {{ i18n.global.t('menu.vedioBtn') }}
     </a-button>
-    <a-button type="text" :size="size" status="danger">
+    <a-button :size="size" status="danger" type="text">
       <template #icon>
         <i class="rtdp deletebtn"></i>
       </template>
-      删 除
+      {{ i18n.global.t('menu.delBtn') }}
     </a-button>
   </div>
-  <div class="icon-btn" v-if="options.menuBtnStyle === 'icon'">
-    <a-tooltip content="查看">
+  <div v-if="options.menuBtnStyle === 'icon'" class="icon-btn">
+    <a-tooltip :content="i18n.global.t('menu.viewBtn')">
       <a-button
           :size="size"
           type="text"
@@ -84,7 +85,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip content="编 辑">
+    <a-tooltip :content="i18n.global.t('menu.viewBtn')">
       <a-button
           :size="size"
           type="text"
@@ -95,7 +96,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip content="查看视频">
+    <a-tooltip :content="i18n.global.t('menu.vedioBtn')">
       <a-button
           :size="size"
           type="text"
@@ -106,8 +107,8 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip content="删 除">
-      <a-button type="text" :size="size" status="danger">
+    <a-tooltip :content="i18n.global.t('menu.delBtn')">
+      <a-button :size="size" status="danger" type="text">
         <template #icon>
           <i class="rtdp deletebtn"></i>
         </template>
@@ -116,6 +117,6 @@ const handleMenuClick = (type: string, params: object) => {
   </div>
 </template>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 
 </style>

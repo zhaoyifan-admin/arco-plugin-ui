@@ -1,8 +1,9 @@
 import {createI18n} from 'vue-i18n';
 import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
-import tzhCN from '../table/local/zh-CN';
+import LocalzhCN from '../table/local/zh-CN';
 import zhTW from '@arco-design/web-vue/es/locale/lang/zh-tw';
 import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
+import LocalenUS from '../table/local/en-US';
 import esES from '@arco-design/web-vue/es/locale/lang/es-es';
 import jaJP from '@arco-design/web-vue/es/locale/lang/ja-jp';
 import idID from '@arco-design/web-vue/es/locale/lang/id-id';
@@ -62,7 +63,7 @@ const i18n = createI18n({
         },
         'zh-CN':{
             ...zhCN,
-            ...tzhCN
+            ...LocalzhCN
         },
         'zh-TW':{
             ...zhTW
