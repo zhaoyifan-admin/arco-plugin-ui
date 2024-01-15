@@ -13,4 +13,4 @@ import '../dist/style.css'
 const app = createApp(App);
 // window.rafTimeout = rafTimeout // 挂载到window上，全局可用，无需引入
 
-app.use(router).use(VueArcoUI).mount('#app')
+app.use(router).use(VueArcoUI,{locale: "en-US"}).mount('#app')

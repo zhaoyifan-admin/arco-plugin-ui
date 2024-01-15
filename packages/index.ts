@@ -126,9 +126,8 @@ const components = [
 ]
 // 定义 install 方法
 const install = (app: App, options?: InstallationOptions): void => {
-  console.log(options);
   // 国际化
-  i18n.global.locale = options?.locale || 'zh-CN';
+  i18n.global.locale.value = options?.locale || 'zh-CN';
   // 遍历注册所有组件
   /*
     component.__name ts报错

@@ -16,6 +16,7 @@ import thTH from '@arco-design/web-vue/es/locale/lang/th-th';
 import viVN from '@arco-design/web-vue/es/locale/lang/vi-vn';
 import msMY from '@arco-design/web-vue/es/locale/lang/ms-my';
 import kmKH from '@arco-design/web-vue/es/locale/lang/km-kh';
+
 const i18n = createI18n({
     fallbackLocale: 'zh-CN',
     globalInjection: true,
