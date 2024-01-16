@@ -45,8 +45,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4
   vue-arco-ui:
-    specifier: ^0.2.22
-    version: 0.2.22(@arco-design/web-vue@2.53.3)
+    specifier: ^0.2.23
+    version: 0.2.23(@arco-design/web-vue@2.53.3)
   vue-i18n:
     specifier: ^9.8.0
     version: 9.8.0(vue@3.3.4)
@@ -4218,8 +4218,8 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
-  /vue-arco-ui@0.2.22(@arco-design/web-vue@2.53.3):
-    resolution: {integrity: sha512-rBeMKn0EXBTlJushy3CX1rDwFvUZQS5FqfT7q6DVDooDQ6Tf6KlaeOnBoRX8Si7iY3VRKIvBB5SuAwqtVNYi4g==}
+  /vue-arco-ui@0.2.23(@arco-design/web-vue@2.53.3):
+    resolution: {integrity: sha512-dx3y8DZ5vQsgeSM9+pVLz+bKguI8M2U6t2PlizTPdgsMf8okMqr9y3Q8A2Dr9LGGw7MY3+IbkAlPfOAFhjZSGA==}
     dependencies:
       '@arco-themes/vue-eh-arco-plugin': 0.0.18(@arco-design/web-vue@2.53.3)
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)

@@ -105,6 +105,7 @@ onMounted(() => {
     const searchHeight = searchRef.value.offsetHeight;
     const menuButtonHeight = menuButtonRef.value.offsetHeight;
     scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 145);
+    console.log(LocalMessage['en-US'])
   }, 500)
 })
 
