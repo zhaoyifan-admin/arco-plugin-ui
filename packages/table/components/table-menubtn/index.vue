@@ -44,7 +44,7 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp chakan"></i>
       </template>
-      {{ i18n.global.t('menu.viewBtn') }}
+      {{ i18n.global.t('arcomenu.viewBtn') }}
     </a-button>
     <a-button
         :size="size"
@@ -54,7 +54,7 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp caozuo-bianji"></i>
       </template>
-      {{ i18n.global.t('menu.editBtn') }}
+      {{ i18n.global.t('arcomenu.editBtn') }}
     </a-button>
     <a-button
         :size="size"
@@ -64,17 +64,17 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp shipin"></i>
       </template>
-      {{ i18n.global.t('menu.vedioBtn') }}
+      {{ i18n.global.t('arcomenu.vedioBtn') }}
     </a-button>
     <a-button :size="size" status="danger" type="text">
       <template #icon>
         <i class="rtdp deletebtn"></i>
       </template>
-      {{ i18n.global.t('menu.delBtn') }}
+      {{ i18n.global.t('arcomenu.delBtn') }}
     </a-button>
   </div>
   <div v-if="options.menuBtnStyle === 'icon'" class="icon-btn">
-    <a-tooltip :content="i18n.global.t('menu.viewBtn')">
+    <a-tooltip :content="i18n.global.t('arcomenu.viewBtn')">
       <a-button
           :size="size"
           type="text"
@@ -85,7 +85,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip :content="i18n.global.t('menu.viewBtn')">
+    <a-tooltip :content="i18n.global.t('arcomenu.viewBtn')">
       <a-button
           :size="size"
           type="text"
@@ -96,7 +96,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip :content="i18n.global.t('menu.vedioBtn')">
+    <a-tooltip :content="i18n.global.t('arcomenu.vedioBtn')">
       <a-button
           :size="size"
           type="text"
@@ -107,7 +107,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip :content="i18n.global.t('menu.delBtn')">
+    <a-tooltip :content="i18n.global.t('arcomenu.delBtn')">
       <a-button :size="size" status="danger" type="text">
         <template #icon>
           <i class="rtdp deletebtn"></i>

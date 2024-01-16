@@ -1,18 +1,18 @@
 export default {
-    menu: {
+    arcomenu: {
         addBtn: "Add",
         viewBtn: "View",
         editBtn: "Editing",
         vedioBtn: "View Video",
         delBtn: "Delete",
     },
-    search: {
+    arcosearch: {
         searchBtn: "Search",
         resetBtn: "Reset",
         retractBtn: "Contract",
         expandBtn: "Expand"
     },
-    modals: {
+    arcomodals: {
         addTitle: "Add",
         editTitle: "Editing",
         viewTitle: "View",

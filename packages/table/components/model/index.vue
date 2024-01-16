@@ -91,20 +91,20 @@ defineExpose({
     <template #footer>
       <a-space>
         <a-button :size="size" @click="handleCancel">
-          {{ i18n.global.t('modals.cancelBtn') }}
+          {{ i18n.global.t('arcomodals.cancelBtn') }}
         </a-button>
         <a-button v-if="modelType === 'add'" :loading="Loading" :size="size" type="primary" @click="handleClick('add')">
           <template #icon>
             <i class="rtdp xinzeng"></i>
           </template>
-          {{ i18n.global.t('modals.saveBtn') }}
+          {{ i18n.global.t('arcomodals.saveBtn') }}
         </a-button>
         <a-button v-if="modelType === 'edit'" :loading="Loading" :size="size" type="primary"
                   @click="handleClick('edit')">
           <template #icon>
             <i class="rtdp caozuo-bianji"></i>
           </template>
-          {{ i18n.global.t('modals.updateBtn') }}
+          {{ i18n.global.t('arcomodals.updateBtn') }}
         </a-button>
       </a-space>
     </template>
