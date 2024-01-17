@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 interface Props {
   width?: string|number // 区域总宽度
@@ -39,14 +39,14 @@ const gap = computed(() => {
 </script>
 <template>
   <div
-    class="m-space"
     :class="[`${direction} ${align}`, {wrap: wrap}]"
-    :style="`width: ${spaceWidth}; gap: ${gap}; margin-bottom: -${Array.isArray(props.size) && wrap ? props.size[1] : 0}px;`">
+    :style="`width: ${spaceWidth}; gap: ${gap}; margin-bottom: -${Array.isArray(props.size) && wrap ? props.size[1] : 0}px;`"
+    class="eh-space">
     <slot></slot>
   </div>
 </template>
 <style lang="less" scoped>
-.m-space {
+.eh-space {
   display: inline-flex;
   font-size: 14px;
   color: rgba(0, 0, 0, .88);

@@ -18,10 +18,11 @@ import msMY from '@arco-design/web-vue/es/locale/lang/ms-my';
 import kmKH from '@arco-design/web-vue/es/locale/lang/km-kh';
 
 const i18n = createI18n({
+    locale: 'zh-CN',
     fallbackLocale: 'zh-CN', // 设置备用语言
     globalInjection: true,
     legacy: false, // you must specify 'legacy: false' option
-    locale: 'zh-CN',
+    allowComposition: true,
     messages: {
         'de-DE':{
             ...deDE

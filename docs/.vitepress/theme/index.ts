@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import './global.less' // global less
 import ArcoVue from '@arco-design/web-vue';
+import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 // import VueArcoUI from 'vue-arco-ui'
 import VueArcoUI from '../../../dist/vue-arco-ui'
 import '@arco-design/web-vue/dist/arco.css';
@@ -11,6 +12,7 @@ export default {
   extends: DefaultTheme, // or ...DefaultTheme
   enhanceApp ({ app }) {
     app.use(ArcoVue)
+    app.use(ArcoVueIcon)
     app.use(VueArcoUI)
   }
 }

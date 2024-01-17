@@ -26,7 +26,7 @@ import Avatar from './avatar'
 import BackTop from './backtop'
 import Badge from './badge'
 import Breadcrumb from './breadcrumb'
-import Button from './button'
+import ehButton from './button'
 import Card from './card'
 import Cascader from './cascader'
 import Checkbox from './checkbox'
@@ -81,7 +81,7 @@ const components = [
   BackTop,
   Badge,
   Breadcrumb,
-  Button,
+  ehButton,
   Card,
   Cascader,
   Checkbox,
@@ -163,7 +163,7 @@ export {
   BackTop,
   Badge,
   Breadcrumb,
-  Button,
+  ehButton,
   Card,
   Cascader,
   Checkbox,

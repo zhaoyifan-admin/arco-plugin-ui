@@ -35,6 +35,9 @@ dependencies:
   naive-ui:
     specifier: ^2.35.0
     version: 2.35.0(vue@3.3.4)
+  pinia:
+    specifier: ^2.1.7
+    version: 2.1.7(typescript@5.2.2)(vue@3.3.4)
   qrcode:
     specifier: ^1.5.3
     version: 1.5.3
@@ -45,8 +48,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4
   vue-arco-ui:
-    specifier: ^0.2.23
-    version: 0.2.23(@arco-design/web-vue@2.53.3)
+    specifier: ^0.2.24
+    version: 0.2.24(@arco-design/web-vue@2.53.3)
   vue-i18n:
     specifier: ^9.8.0
     version: 9.8.0(vue@3.3.4)
@@ -3404,6 +3407,24 @@ packages:
     dev: true
     optional: true
 
+  /pinia@2.1.7(typescript@5.2.2)(vue@3.3.4):
+    resolution: {integrity: sha512-+C2AHFtcFqjPih0zpYuvof37SFxMQ7OEG2zV9jRI12i9BOy3YQVAHwdKtyyc8pDcDyIc33WCIsZaCFWU7WWxGQ==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.3.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.5.1
+      typescript: 5.2.2
+      vue: 3.3.4
+      vue-demi: 0.14.6(vue@3.3.4)
+    dev: false
+
   /pngjs@5.0.0:
     resolution: {integrity: sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==}
     engines: {node: '>=10.13.0'}
@@ -3997,7 +4018,6 @@ packages:
     resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -4218,8 +4238,8 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
-  /vue-arco-ui@0.2.23(@arco-design/web-vue@2.53.3):
-    resolution: {integrity: sha512-dx3y8DZ5vQsgeSM9+pVLz+bKguI8M2U6t2PlizTPdgsMf8okMqr9y3Q8A2Dr9LGGw7MY3+IbkAlPfOAFhjZSGA==}
+  /vue-arco-ui@0.2.24(@arco-design/web-vue@2.53.3):
+    resolution: {integrity: sha512-e+VvfSEdnvpsVKe0W8vd0rxtmeKfiENJBvSORD2O4UgWpkvkwcAl/FS7IpTu5ruR4yZ4rgakjU/1TJdWeeUqNw==}
     dependencies:
       '@arco-themes/vue-eh-arco-plugin': 0.0.18(@arco-design/web-vue@2.53.3)
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)

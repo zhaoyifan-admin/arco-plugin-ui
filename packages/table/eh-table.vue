@@ -35,77 +35,78 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  bordered: () => {
-    return {cell: true}
-  },
-  data: () => [],
-  loading: false,
-  searchForm: () => {
-    return {}
-  },
-  size: 'medium',
-  tip: '加载中...',
-  options: () => {
-    return {
-      columns: [],
-      index: false,
-      indexWidth: 60,
+      bordered: () => {
+        return {cell: true}
+      },
+      data: () => [],
       loading: false,
-      menuWidth: 245,
-      search: false,
-      searchBtnSpan: 6,
-      searchSpan: 6,
-      maxHeight: 450,
-    }
-  },
-  page: () => {
-    return {currentPage: 1, pageSize: 10, pageSizes: [5, 10, 20, 30, 50], total: 0}
-  },
-}), rowClass = (record: any, rowIndex: number) => {
-  if (rowIndex % 2 === 1) {
-    return 'warning-row';
-  }
-  return '';
-}, menuButtonRef = ref(), searchRef = ref(), atble = ref(), modelRef = ref(),
-LocalMessage = reactive(i18n.global.messages.value), systemLocal = reactive(i18n.global.locale),
-scorllHeight = ref<any>('100%'), tableForm = reactive<any>({}), searchForm: { [key: string]: any } = computed({
-  get() {
-    return props.searchForm
-  },
-  set(val) {
-    emit('update:searchForm', val)
-  }
-}), searchChange = (object: object, done: any) => {
-  emit('searchChange', object, done)
-}, searchReset = (object: object) => {
-  emit('searchReset', object)
-}, currentChange = (page: { currentPage: number }) => { // 分页回调
-  emit('currentChange', page)
-}, sizeChange = (page: { pageSize: number }) => { // 分页回调
-  emit('sizeChange', page)
-}, handleMenuClick = (type: string, params: any) => {
-  modelRef.value.handleOpenModel(type, params);
-}, handleOpenModel = (type: string) => {
-  modelRef.value.handleOpenModel(type);
-}, handleSave = (modelForm: object, loading: any, done: any) => {
-  emit('handleSave', modelForm, loading, done)
-}, handleUpdate = (modelForm: object, loading: any, done: any) => {
-  emit('handleUpdate', modelForm, loading, done)
-}, handleRefresh = () => {
-  emit('onLoad', props.page, props.searchForm);
-}, handleSelect = (rowKeys: (string | number)[], rowKey: (string | number), record: TableData) => {
-  emit('handleSelect', rowKeys, rowKey, record)
-};
+      searchForm: () => {
+        return {}
+      },
+      size: 'medium',
+      tip: '加载中...',
+      options: () => {
+        return {
+          columns: [],
+          index: false,
+          indexWidth: 60,
+          loading: false,
+          menuWidth: 245,
+          search: false,
+          searchBtnSpan: 6,
+          searchSpan: 6,
+          maxHeight: 450,
+        }
+      },
+      page: () => {
+        return {currentPage: 1, pageSize: 10, pageSizes: [5, 10, 20, 30, 50], total: 0}
+      },
+    }), rowClass = (record: any, rowIndex: number) => {
+      if (rowIndex % 2 === 1) {
+        return 'warning-row';
+      }
+      return '';
+    }, menuButtonRef = ref(), searchRef = ref(), atble = ref(), modelRef = ref(),
+    systemLocal = reactive(i18n.global.locale),
+    LocalMessage = reactive(i18n.global.getLocaleMessage(systemLocal.toString())),
+    scorllHeight = ref<any>('100%'), tableForm = reactive<any>({}), searchForm: { [key: string]: any } = computed({
+      get() {
+        return props.searchForm
+      },
+      set(val) {
+        emit('update:searchForm', val)
+      }
+    }), searchChange = (object: object, done: any) => {
+      emit('searchChange', object, done)
+    }, searchReset = (object: object) => {
+      emit('searchReset', object)
+    }, currentChange = (page: { currentPage: number }) => { // 分页回调
+      emit('currentChange', page)
+    }, sizeChange = (page: { pageSize: number }) => { // 分页回调
+      emit('sizeChange', page)
+    }, handleMenuClick = (type: string, params: any) => {
+      modelRef.value.handleOpenModel(type, params);
+    }, handleOpenModel = (type: string) => {
+      modelRef.value.handleOpenModel(type);
+    }, handleSave = (modelForm: object, loading: any, done: any) => {
+      emit('handleSave', modelForm, loading, done)
+    }, handleUpdate = (modelForm: object, loading: any, done: any) => {
+      emit('handleUpdate', modelForm, loading, done)
+    }, handleRefresh = () => {
+      emit('onLoad', props.page, props.searchForm);
+    }, handleSelect = (rowKeys: (string | number)[], rowKey: (string | number), record: TableData) => {
+      emit('handleSelect', rowKeys, rowKey, record)
+    };
 onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
 })
 onMounted(() => {
+  console.log(i18n.global)
   setTimeout(() => {
     const parentoffsetHeight = atble.value.offsetHeight;
     const searchHeight = searchRef.value.offsetHeight;
     const menuButtonHeight = menuButtonRef.value.offsetHeight;
     scorllHeight.value = parentoffsetHeight - (searchHeight + menuButtonHeight + 145);
-    console.log(LocalMessage['en-US'])
   }, 500)
 })
 
@@ -147,7 +148,7 @@ onMounted(() => {
         <!--      Table展示区-->
         <a-spin :loading="loading" :tip="tip" dot>
           <div class="table-show" data-aos="fade-right">
-            <a-config-provider :locale="LocalMessage[systemLocal]">
+            <a-config-provider :locale="LocalMessage">
               <a-table :bordered="bordered"
                        :columns="options.columns"
                        :data="data"
