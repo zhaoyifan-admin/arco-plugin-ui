@@ -1,7 +1,7 @@
 import './less/global.less'
 import './less/iconfont.css'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 import {
   dateFormat,
   requestAnimationFrame,
@@ -209,10 +209,10 @@ export {
   Tooltip,
   Video
 }
-AOS.init({
-  duration: 1500,
-  easing: 'ease-in-out-back',
-});
+// AOS.init({
+//   duration: 1500,
+//   easing: 'ease-in-out-back',
+// });
 const VueArcoUI = {
   install,
 }

@@ -262,6 +262,33 @@ const loading = ref(false)
 
 :::
 
+## 组合按钮
+
+<Space>
+  <eh-Button-Group>
+    <eh-Button type="primary">Primary Button</eh-Button>
+    <eh-Button type="primary">Primary Button</eh-Button>
+    <eh-Button type="primary">Primary Button</eh-Button>
+  </eh-Button-Group>
+</Space>
+
+::: details Show Code
+
+```vue
+
+<template>
+  <Space>
+    <eh-Button-Group>
+      <eh-Button type="primary">Primary Button</eh-Button>
+      <eh-Button type="primary">Primary Button</eh-Button>
+      <eh-Button type="primary">Primary Button</eh-Button>
+    </eh-Button-Group>
+  </Space>
+</template>
+```
+
+:::
+
 ## APIs
 
 | 参数       | 说明                                          | 类型                                                                       | 默认值       | 必传    |

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import EhButton from '../../packages/button'
+import EhButtonGroup from '../../packages/buttongroup'
 </script>
 <template>
   <div>
@@ -104,6 +106,14 @@
       <eh-Button :loading="true" type="danger">Danger Button</eh-Button>
       <eh-Button :loading="true" type="dashed">Dashed Button</eh-Button>
       <eh-Button :loading="true" type="text">Text Button</eh-Button>
+    </Space>
+    <h2 class="mt30 mb10">组合按钮</h2>
+    <Space>
+      <eh-Button-Group>
+        <eh-Button type="primary">Primary Button</eh-Button>
+        <eh-Button type="primary">Primary Button</eh-Button>
+        <eh-Button type="primary">Primary Button</eh-Button>
+      </eh-Button-Group>
     </Space>
   </div>
 </template>

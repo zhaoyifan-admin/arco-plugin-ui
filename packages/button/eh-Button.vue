@@ -801,4 +801,42 @@ function onClick(e: Event) {
 .eh-btn-size-small.eh-btn-shape-round {
   border-radius: 18px;
 }
+
+.eh-button-group {
+  .eh-btn-dashed:not(:first-child){
+    margin-left: -1px
+  }
+  .eh-btn-primary:not(:last-child) {
+    border-right: 1px solid rgb(var(--primary-5))
+  }
+  .eh-btn-reverse:not(:last-child) {
+    border-right: 1px solid var(--color-secondary-hover)
+  }
+  .eh-btn-status-warning:not(:last-child) {
+    border-right: 1px solid rgb(var(--warning-5))
+  }
+  .eh-btn-status-warning:not(:last-child) {
+    border-right: 1px solid rgb(var(--warning-5))
+  }
+  .eh-btn-status-danger:not(:last-child) {
+    border-right: 1px solid rgb(var(--danger-5))
+  }
+  .eh-btn-status-success:not(:last-child) {
+    border-right: 1px solid rgb(var(--success-5))
+  }
+  .eh-btn-dashed:hover,.eh-btn-dashed:active {
+    z-index: 2
+  }
+  .eh-btn:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+  }
+  .eh-btn:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+  }
+  .eh-btn:not(:first-child):not(:last-child) {
+    border-radius: 0
+  }
+}
 </style>
