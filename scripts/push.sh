@@ -5,5 +5,5 @@ set -e
 
 # 提交修改到github
 git add .
-git commit -m 'update'
+git commit -m '优化脚本：提交信息修改'
 git push
