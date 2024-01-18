@@ -205,7 +205,7 @@ function onClick(e: Event) {
 
 .eh-btn-default.eh-btn-status-success:hover {
   color: rgb(var(--success-6));
-  border-color: var(--color-success-light-2);
+  background-color: var(--color-success-light-2);
 }
 
 .eh-btn-default.eh-btn-status-success:focus-visible {
