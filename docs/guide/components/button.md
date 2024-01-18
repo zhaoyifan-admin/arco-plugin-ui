@@ -264,20 +264,25 @@ const loading = ref(false)
 
 ## APIs
 
-| 参数       | 说明                                          | 类型                                                                                     | 默认值       | 必传    |
-|----------|---------------------------------------------|----------------------------------------------------------------------------------------|-----------|-------|
-| name     | 按钮文本                                        | string &#124; slot                                                                     | '按钮'      | false |
-| type     | 按钮类型                                        | 'default' &#124; 'primary' &#124; 'danger' &#124; 'dashed' &#124; 'text' &#124; 'link' | 'default' | false |
-| effect   | 悬浮变化效果，只有 `type` 为 `default` 时，`effect` 才生效 | 'fade' &#124; 'reverse'                                                                | 'fade'    | false |
-| size     | 按钮尺寸                                        | 'small' &#124; 'middle' &#124; 'large'                                                 | 'middle'  | false |
-| route    | 跳转目标 `URL` 地址                               | {path?: string&#44; query?: object}                                                    | {}        | false |
-| target   | 如何打开目标URL，设置 `route` 时生效                    | '_self' &#124; '_blank'                                                                | '_self'   | false |
-| disabled | 是否禁用                                        | boolean                                                                                | false     | false |
-| loading  | 是否加载中                                       | boolean                                                                                | false     | false |
-| center   | 是否将按钮宽度调整为其父宽度并居中展示                         | boolean                                                                                | false     | false |
+| 参数       | 说明                                          | 类型                                                                       | 默认值       | 必传    |
+|----------|---------------------------------------------|--------------------------------------------------------------------------|-----------|-------|
+| name     | 按钮文本                                        | string &#124; slot                                                       | '按钮'      | false |
+| type     | 按钮类型                                        | 'default' &#124; 'primary' &#124; 'danger' &#124; 'dashed' &#124; 'text' | 'default' | false |
+| effect   | 悬浮变化效果，只有 `type` 为 `default` 时，`effect` 才生效 | 'fade' &#124; 'reverse'                                                  | 'fade'    | false |
+| size     | 按钮尺寸                                        | 'small' &#124; 'middle' &#124; 'large'                                   | 'middle'  | false |
+| shape    | 按钮的形状                                       | 'square' &#124; 'round' &#124; 'circle'                                  | 'square'  | false |
+| disabled | 是否禁用                                        | boolean                                                                  | false     | false |
+| loading  | 是否加载中                                       | boolean                                                                  | false     | false |
+| status   | 按钮的状态                                       | 'normal' &#124; 'success' &#124; 'warning' &#124; 'danger'               | 'normal'  | false |
 
 ## Events
 
-| 事件名称  | 说明                       | 参数                 |
-|-------|--------------------------|--------------------|
-| click | 点击按钮时的回调，未设置 `route` 时生效 | (e: Event) => void |
+| 事件名称  | 说明       | 参数                 |
+|-------|----------|--------------------|
+| click | 点击按钮时的回调 | (e: Event) => void |
+
+## Slots
+
+| 插槽名  | 说明 | 参数 |
+|------|----|----|
+| icon | 图标 | -  |

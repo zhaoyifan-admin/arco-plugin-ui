@@ -5,14 +5,9 @@ interface Query {
   [propName: string]: any // 添加一个字符串索引签名，用于包含带有任意数量的其他属性
 }
 
-interface Route {
-  path?: string // 路由地址
-  query?: Query // 路由查询参数
-}
-
 interface Props {
   name?: string // 按钮文本 string | slot
-  type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link' // 按钮类型
+  type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' // 按钮类型
   effect?: 'fade' | 'reverse' // 悬浮变化效果，只有 type 为 default 时，effect 才生效
   size?: 'mini' | 'small' | 'medium' | 'large' // 按钮尺寸
   shape?: string, // 按钮的形状
@@ -29,8 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
   shape: '',
   status: '',
   disabled: false,
-  loading: false,
-  center: false
+  loading: false
 })
 const emit = defineEmits(['click'])
 

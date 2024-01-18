@@ -41,6 +41,7 @@
     "@vuepic/vue-datepicker": "^6.1.0",
     "@vueuse/core": "^10.5.0",
     "@vueuse/integrations": "^10.5.0",
+    "aos": "^2.3.4",
     "axios": "^1.6.3",
     "core-js": "^3.33.0",
     "date-fns": "^2.30.0",
