@@ -17,9 +17,6 @@ dependencies:
   '@vueuse/integrations':
     specifier: ^10.5.0
     version: 10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
-  aos:
-    specifier: ^2.3.4
-    version: 2.3.4
   axios:
     specifier: ^1.6.3
     version: 1.6.3
@@ -48,8 +45,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4
   vue-arco-ui:
-    specifier: ^0.2.24
-    version: 0.2.24(@arco-design/web-vue@2.53.3)
+    specifier: ^0.2.26
+    version: 0.2.26(@arco-design/web-vue@2.53.3)(typescript@5.2.2)
   vue-i18n:
     specifier: ^9.8.0
     version: 9.8.0(vue@3.3.4)
@@ -1721,14 +1718,6 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /aos@2.3.4:
-    resolution: {integrity: sha512-zh/ahtR2yME4I51z8IttIt4lC1Nw0ktsFtmeDzID1m9naJnWXhCoARaCgNOGXb5CLy3zm+wqmRAEgMYB5E2HUw==}
-    dependencies:
-      classlist-polyfill: 1.2.0
-      lodash.debounce: 4.0.8
-      lodash.throttle: 4.1.1
-    dev: false
-
   /argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
     dev: true
@@ -1869,10 +1858,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
-
-  /classlist-polyfill@1.2.0:
-    resolution: {integrity: sha512-GzIjNdcEtH4ieA2S8NmrSxv7DfEV5fmixQeyTmqmRmRJPGpRBaSnA2a0VrCjyT8iW8JjEdMbKzDotAJf+ajgaQ==}
-    dev: false
 
   /cliui@6.0.0:
     resolution: {integrity: sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ==}
@@ -3013,17 +2998,9 @@ packages:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
-  /lodash.debounce@4.0.8:
-    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-    dev: false
-
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
-
-  /lodash.throttle@4.1.1:
-    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
-    dev: false
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
@@ -4238,19 +4215,19 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
-  /vue-arco-ui@0.2.24(@arco-design/web-vue@2.53.3):
-    resolution: {integrity: sha512-e+VvfSEdnvpsVKe0W8vd0rxtmeKfiENJBvSORD2O4UgWpkvkwcAl/FS7IpTu5ruR4yZ4rgakjU/1TJdWeeUqNw==}
+  /vue-arco-ui@0.2.26(@arco-design/web-vue@2.53.3)(typescript@5.2.2):
+    resolution: {integrity: sha512-EMXSoUnNxuC4B+VWmForgVgTvpSrjoWrg9X/6rXpCytrdviKIASBcxxUalTC5B6NPkFwONalmMs2/uaSCre7HQ==}
     dependencies:
       '@arco-themes/vue-eh-arco-plugin': 0.0.18(@arco-design/web-vue@2.53.3)
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)
       '@vueuse/core': 10.5.0(vue@3.3.4)
       '@vueuse/integrations': 10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
-      aos: 2.3.4
       axios: 1.6.3
       core-js: 3.33.0
       date-fns: 2.30.0
       mitt: 3.0.1
       naive-ui: 2.35.0(vue@3.3.4)
+      pinia: 2.1.7(typescript@5.2.2)(vue@3.3.4)
       qrcode: 1.5.3
       swiper: 10.3.1
       vue: 3.3.4
@@ -4269,6 +4246,7 @@ packages:
       - jwt-decode
       - nprogress
       - sortablejs
+      - typescript
       - universal-cookie
     dev: false
 
