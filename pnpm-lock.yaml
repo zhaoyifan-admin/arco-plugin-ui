@@ -48,8 +48,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4
   vue-arco-ui:
-    specifier: ^0.2.26
-    version: 0.2.26(@arco-design/web-vue@2.53.3)(typescript@5.2.2)
+    specifier: ^0.2.27
+    version: 0.2.27(@arco-design/web-vue@2.53.3)(typescript@5.2.2)
   vue-i18n:
     specifier: ^9.8.0
     version: 9.8.0(vue@3.3.4)
@@ -4238,13 +4238,14 @@ packages:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
-  /vue-arco-ui@0.2.26(@arco-design/web-vue@2.53.3)(typescript@5.2.2):
-    resolution: {integrity: sha512-EMXSoUnNxuC4B+VWmForgVgTvpSrjoWrg9X/6rXpCytrdviKIASBcxxUalTC5B6NPkFwONalmMs2/uaSCre7HQ==}
+  /vue-arco-ui@0.2.27(@arco-design/web-vue@2.53.3)(typescript@5.2.2):
+    resolution: {integrity: sha512-g7lYtQoM8ZFe6vSGXf+yew7GE5HRlVBJYD15mKpxPxojlv0VfH1lq3I90X9e4Y/62bNiZJzrRWrs1bcXPWh4BQ==}
     dependencies:
       '@arco-themes/vue-eh-arco-plugin': 0.0.18(@arco-design/web-vue@2.53.3)
       '@vuepic/vue-datepicker': 6.1.0(vue@3.3.4)
       '@vueuse/core': 10.5.0(vue@3.3.4)
       '@vueuse/integrations': 10.5.0(axios@1.6.3)(focus-trap@7.5.4)(qrcode@1.5.3)(vue@3.3.4)
+      aos: 2.3.4
       axios: 1.6.3
       core-js: 3.33.0
       date-fns: 2.30.0
