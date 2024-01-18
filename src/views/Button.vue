@@ -1,9 +1,4 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-const loading = ref(false)
-function onClick (e: Event) {
-  console.log('click', e)
-}
 </script>
 <template>
   <div>

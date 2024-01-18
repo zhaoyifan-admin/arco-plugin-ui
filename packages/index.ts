@@ -27,6 +27,7 @@ import BackTop from './backtop'
 import Badge from './badge'
 import Breadcrumb from './breadcrumb'
 import ehButton from './button'
+import ehButtonGroup from './button'
 import Card from './card'
 import Cascader from './cascader'
 import Checkbox from './checkbox'
@@ -82,6 +83,7 @@ const components = [
   Badge,
   Breadcrumb,
   ehButton,
+  ehButtonGroup,
   Card,
   Cascader,
   Checkbox,
@@ -164,6 +166,7 @@ export {
   Badge,
   Breadcrumb,
   ehButton,
+  ehButtonGroup,
   Card,
   Cascader,
   Checkbox,

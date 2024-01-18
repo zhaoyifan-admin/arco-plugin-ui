@@ -6,4 +6,4 @@ ehButton.install = (app: App) => {
   app.component(ehButton.__name as string, ehButton)
 }
 
-export default ehButton
+export default ehButton;

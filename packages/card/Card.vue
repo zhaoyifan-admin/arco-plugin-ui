@@ -33,11 +33,11 @@ onMounted(() => {
 </script>
 <template>
   <div
-    class="m-card"
-    :class="{'bordered': bordered, 'm-small-card': size === 'small'}"
+    class="eh-card"
+    :class="{'bordered': bordered, 'eh-small-card': size === 'small'}"
     :style="`width: ${cardWidth};`">
-    <div class="m-card-head" :style="headStyle" v-if="showHead">
-      <div class="m-head-wrapper" ref="headRef">
+    <div class="eh-card-head" :style="headStyle" v-if="showHead">
+      <div class="eh-head-wrapper" ref="headRef">
         <div class="u-title">
           <slot name="title">{{ title }}</slot>
         </div>
@@ -46,7 +46,7 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <div class="m-card-body" :style="bodyStyle">
+    <div class="eh-card-body" :style="bodyStyle">
       <slot></slot>
     </div>
   </div>
@@ -55,7 +55,7 @@ onMounted(() => {
 .bordered {
   border: 1px solid #f0f0f0;
 }
-.m-card {
+.eh-card {
   font-size: 14px;
   color: rgba(0, 0, 0, .88);
   line-height: 1.5714285714285714;
@@ -63,20 +63,20 @@ onMounted(() => {
   background: #ffffff;
   border-radius: 8px;
   text-align: left;
-  .m-card-head {
+  .eh-card-head {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    min-height: 56px;
+    min-height: 46px;
     margin-bottom: -1px;
-    padding: 0 24px;
+    padding: 0 16px;
     color: rgba(0, 0, 0, .88);
     font-weight: 600;
     font-size: 16px;
     background: transparent;
     border-bottom: 1px solid #f0f0f0;
     border-radius: 8px 8px 0 0;
-    .m-head-wrapper {
+    .eh-head-wrapper {
       width: 100%;
       display: flex;
       align-items: center;
@@ -94,18 +94,18 @@ onMounted(() => {
       }
     }
   }
-  .m-card-body {
+  .eh-card-body {
     padding: 24px;
     border-radius: 0 0 8px 8px;
   }
 }
-.m-small-card {
-  .m-card-head {
+.eh-small-card {
+  .eh-card-head {
     min-height: 38px;
     padding: 0 12px;
     font-size: 14px;
   }
-  .m-card-body {
+  .eh-card-body {
     padding: 12px;
   }
 }

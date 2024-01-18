@@ -1,10 +1,6 @@
 <script lang="ts" setup>
 import {computed} from 'vue'
 
-interface Query {
-  [propName: string]: any // 添加一个字符串索引签名，用于包含带有任意数量的其他属性
-}
-
 interface Props {
   name?: string // 按钮文本 string | slot
   type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' // 按钮类型
@@ -29,10 +25,10 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits(['click'])
 
 const cls = computed(() => [
-  `eh-btn-${props.type}`,
-  `eh-btn-size-${props.size}`,
-  `eh-btn-shape-${props.shape}`,
   {
+    [`eh-btn-${props.type}`]: props.type,
+    [`eh-btn-size-${props.size}`]: props.size,
+    [`eh-btn-shape-${props.shape}`]: props.shape,
     [`eh-btn-status-${props.status}`]: props.status,
     [`eh-btn-status-${props.shape}`]: props.shape,
     [`eh-btn-disabled`]: props.disabled,

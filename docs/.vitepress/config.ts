@@ -95,6 +95,14 @@ export default defineConfig({
           text: '组件',
           items: [
             {
+              text: '按钮 Button',
+              link: '/guide/components/button'
+            },
+            {
+              text: '表格 Table',
+              link: '/guide/components/table'
+            },
+            {
               text: '警告提示 Alert',
               link: '/guide/components/alert'
             },
@@ -113,10 +121,6 @@ export default defineConfig({
             {
               text: '面包屑 Breadcrumb',
               link: '/guide/components/breadcrumb'
-            },
-            {
-              text: '按钮 Button',
-              link: '/guide/components/button'
             },
             {
               text: '卡片 Card',
@@ -265,10 +269,6 @@ export default defineConfig({
             {
               text: '开关 Switch',
               link: '/guide/components/switch'
-            },
-            {
-              text: '表格 Table',
-              link: '/guide/components/table'
             },
             {
               text: '标签页 Tabs',
