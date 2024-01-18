@@ -19,5 +19,5 @@ pnpm up vue-arco-ui@$version
 
 # 提交版本更新代码到github
 git add .
-git cm -m "update $version"
+git commit -m "update $version"
 git push
