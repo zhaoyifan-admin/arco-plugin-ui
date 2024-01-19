@@ -9,6 +9,8 @@ version=`jq -r .version ../package.json`
 # 打包构建
 pnpm build
 
+git push -f git@github.com:zhaoyifan-admin/arco-plugin-ui.git master:master
+
 # 发布到npm，pnpm(高性能的npm)
 pnpm publish
 
@@ -18,4 +20,4 @@ pnpm up vue-arco-ui@$version
 # 提交版本更新代码到github
 git add .
 git commit -m "update $version"
-git push
+git push -f git@github.com:zhaoyifan-admin/arco-plugin-ui.git master:master
