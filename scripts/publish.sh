@@ -9,8 +9,6 @@ version=`jq -r .version ../package.json`
 # 打包构建
 pnpm build
 
-pnpm push
-
 # 发布到npm，pnpm(高性能的npm)
 pnpm publish
 
