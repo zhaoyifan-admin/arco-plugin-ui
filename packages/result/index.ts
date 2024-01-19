@@ -1,9 +1,9 @@
 import type { App } from 'vue'
-import Result from './Result.vue'
+import ehResult from './eh-Result.vue'
 
 // 使用install方法，在app.use挂载
-Result.install = (app: App): void => {
-  app.component(Result.__name as string, Result)
+ehResult.install = (app: App): void => {
+  app.component(ehResult.__name as string, ehResult)
 }
 
-export default Result
+export default ehResult

@@ -52,7 +52,7 @@ import Progress from './progress'
 import QRCode from './qrcode'
 import Radio from './radio'
 import Rate from './rate'
-import Result from './result'
+import ehResult from './result'
 import Row from './row'
 import Select from './select'
 import Slider from './slider'
@@ -108,7 +108,7 @@ const components = [
   QRCode,
   Radio,
   Rate,
-  Result,
+  ehResult,
   Row,
   Select,
   Slider,
@@ -191,7 +191,7 @@ export {
   QRCode,
   Radio,
   Rate,
-  Result,
+  ehResult,
   Row,
   Select,
   Slider,
