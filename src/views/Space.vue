@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import EhButton from '../../packages/button'
 const sizeNum = ref(8)
 const options = ref([
         {
@@ -23,9 +24,9 @@ const size = ref('small')
     <h2 class="mt30 mb10">基本使用</h2>
     <Space align="center">
       Space
-      <Button type="primary">Button</Button>
+      <eh-Button type="primary">eh-Button</eh-Button>
       <Popconfirm title="Are you sure delete this task?" ok-text="Yes" cancel-text="No">
-        <Button>Confirm</Button>
+        <eh-Button>Confirm</eh-Button>
       </Popconfirm>
     </Space>
     <h2 class="mt30 mb10">自定义间距</h2>
@@ -33,19 +34,19 @@ const size = ref('small')
     <br />
     <br />
     <Space :size="sizeNum">
-      <Button type="primary">Primary</Button>
-      <Button>Default</Button>
-      <Button type="dashed">Dashed</Button>
-      <Button type="link">Link</Button>
+      <eh-Button type="primary">Primary</eh-Button>
+      <eh-Button>Default</eh-Button>
+      <eh-Button type="dashed">Dashed</eh-Button>
+      <eh-Button type="link">Link</eh-Button>
     </Space>
     <h2 class="mt30 mb10">预设间距</h2>
     <Radio :options="options" v-model:value="size" />
     <br/><br/>
     <Space :size="size">
-      <Button type="primary">Primary</Button>
-      <Button>Default</Button>
-      <Button type="dashed">Dashed</Button>
-      <Button type="link">Link</Button>
+      <eh-Button type="primary">Primary</eh-Button>
+      <eh-Button>Default</eh-Button>
+      <eh-Button type="dashed">Dashed</eh-Button>
+      <eh-Button type="link">Link</eh-Button>
     </Space>
     <h2 class="mt30 mb10">垂直间距</h2>
     <Space direction="vertical">
@@ -63,28 +64,28 @@ const size = ref('small')
       <div class="space-align-block">
         <Space align="center">
           center
-          <Button type="primary">Primary</Button>
+          <eh-Button type="primary">Primary</eh-Button>
           <span class="mock-block">Block</span>
         </Space>
       </div>
       <div class="space-align-block">
         <Space align="start">
           start
-          <Button type="primary">Primary</Button>
+          <eh-Button type="primary">Primary</eh-Button>
           <span class="mock-block">Block</span>
         </Space>
       </div>
       <div class="space-align-block">
         <Space align="end">
           end
-          <Button type="primary">Primary</Button>
+          <eh-Button type="primary">Primary</eh-Button>
           <span class="mock-block">Block</span>
         </Space>
       </div>
       <div class="space-align-block">
         <Space align="baseline">
           baseline
-          <Button type="primary">Primary</Button>
+          <eh-Button type="primary">Primary</eh-Button>
           <span class="mock-block">Block</span>
         </Space>
       </div>
@@ -92,7 +93,7 @@ const size = ref('small')
     <h2 class="mt30 mb10">自动换行</h2>
     <Space :size="[8, 16]" style="width: 600px;">
       <template v-for="n in 10" :key="n">
-        <Button>Button</Button>
+        <eh-Button>eh-Button</eh-Button>
       </template>
     </Space>
   </div>

@@ -50,7 +50,7 @@ function onClick(e: Event) {
       type="button"
       @click="onClick">
     <span v-if="loading || $slots.icon" class="eh-btn-icon">
-      <icon-loading v-if="loading" spin="true"/>
+      <icon-loading v-if="loading"/>
       <slot v-else name="icon"/>
     </span>
     <span class="text">
@@ -727,7 +727,7 @@ function onClick(e: Event) {
 }
 
 .eh-btn-size-mini {
-  font-size: 14px;
+  font-size: 12px;
   height: 24px;
   padding: 0 7px;
   border-radius: var(--border-radius-small);
