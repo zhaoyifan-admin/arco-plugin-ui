@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
         <template #icon>
           <i class="rtdp xinzeng"></i>
         </template>
-        {{i18n.global.t('arcomenu.addBtn')}}
+        新 增
       </a-button>
       <slot :size="props.size" name="menuLeft"></slot>
     </div>

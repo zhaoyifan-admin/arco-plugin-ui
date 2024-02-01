@@ -38,14 +38,14 @@ const modalRef = ref<any>(null), visible = ref(false), Title = ref(""), Loading 
     handleOpenModel = (type: string, params: object) => {
       modelType.value = type;
       if (type === 'add') {
-        Title.value = i18n.global.t('modal.addTitle');
+        Title.value = "新 增";
       }
       if (type === 'edit') {
-        Title.value = i18n.global.t('modal.editTitle');
+        Title.value = "编 辑";
         modalRef.value.deepClone(params);
       }
       if (type === 'see') {
-        Title.value = i18n.global.t('modal.viewTitle');
+        Title.value = "查 看";
         modalRef.value.deepClone(params);
       }
       visible.value = true;
@@ -91,20 +91,20 @@ defineExpose({
     <template #footer>
       <a-space>
         <a-button :size="size" @click="handleCancel">
-          {{ i18n.global.t('arcomodals.cancelBtn') }}
+          取 消
         </a-button>
         <a-button v-if="modelType === 'add'" :loading="Loading" :size="size" type="primary" @click="handleClick('add')">
           <template #icon>
             <i class="rtdp xinzeng"></i>
           </template>
-          {{ i18n.global.t('arcomodals.saveBtn') }}
+          保 存
         </a-button>
         <a-button v-if="modelType === 'edit'" :loading="Loading" :size="size" type="primary"
                   @click="handleClick('edit')">
           <template #icon>
             <i class="rtdp caozuo-bianji"></i>
           </template>
-          {{ i18n.global.t('arcomodals.updateBtn') }}
+          修 改
         </a-button>
       </a-space>
     </template>

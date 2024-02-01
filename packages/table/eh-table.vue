@@ -67,8 +67,8 @@ const props = withDefaults(defineProps<Props>(), {
       }
       return '';
     }, menuButtonRef = ref(), searchRef = ref(), atble = ref(), modelRef = ref(),
-    systemLocal = reactive(i18n.global.locale),
-    LocalMessage = reactive(i18n.global.getLocaleMessage(systemLocal.toString())),
+    systemLocal = i18n.global.locale,
+    LocalMessage = i18n.global.getLocaleMessage(systemLocal),
     scorllHeight = ref<any>('100%'), tableForm = reactive<any>({}), searchForm: { [key: string]: any } = computed({
       get() {
         return props.searchForm
@@ -101,7 +101,6 @@ onBeforeMount(() => {
   emit('onLoad', props.page, props.searchForm);
 })
 onMounted(() => {
-  console.log(i18n.global)
   setTimeout(() => {
     const parentoffsetHeight = atble.value.offsetHeight;
     const searchHeight = searchRef.value.offsetHeight;

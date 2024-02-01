@@ -44,7 +44,7 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp chakan"></i>
       </template>
-      {{ i18n.global.t('arcomenu.viewBtn') }}
+      查 看
     </a-button>
     <a-button
         :size="size"
@@ -54,7 +54,7 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp caozuo-bianji"></i>
       </template>
-      {{ i18n.global.t('arcomenu.editBtn') }}
+      编 辑
     </a-button>
     <a-button
         :size="size"
@@ -64,17 +64,17 @@ const handleMenuClick = (type: string, params: object) => {
       <template #icon>
         <i class="rtdp shipin"></i>
       </template>
-      {{ i18n.global.t('arcomenu.vedioBtn') }}
+      查看视频
     </a-button>
     <a-button :size="size" status="danger" type="text">
       <template #icon>
         <i class="rtdp deletebtn"></i>
       </template>
-      {{ i18n.global.t('arcomenu.delBtn') }}
+      删 除
     </a-button>
   </div>
   <div v-if="options.menuBtnStyle === 'icon'" class="icon-btn">
-    <a-tooltip :content="i18n.global.t('arcomenu.viewBtn')">
+    <a-tooltip content="查 看">
       <a-button
           :size="size"
           type="text"
@@ -85,7 +85,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip :content="i18n.global.t('arcomenu.viewBtn')">
+    <a-tooltip content="编 辑">
       <a-button
           :size="size"
           type="text"
@@ -96,7 +96,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip :content="i18n.global.t('arcomenu.vedioBtn')">
+    <a-tooltip content="查看视频">
       <a-button
           :size="size"
           type="text"
@@ -107,7 +107,7 @@ const handleMenuClick = (type: string, params: object) => {
         </template>
       </a-button>
     </a-tooltip>
-    <a-tooltip :content="i18n.global.t('arcomenu.delBtn')">
+    <a-tooltip content="删 除">
       <a-button :size="size" status="danger" type="text">
         <template #icon>
           <i class="rtdp deletebtn"></i>

@@ -97,7 +97,7 @@ defineExpose({
                 <i class="rtdp sousuo"></i>
               </template>
               <slot name="searchBtn">
-                {{ i18n.global.t('arcosearch.searchBtn') }}
+                查 询
               </slot>
             </a-button>
             <a-button :size="size" @click="searchReset">
@@ -105,7 +105,7 @@ defineExpose({
                 <i class="rtdp refresh"></i>
               </template>
               <slot name="resetBtn">
-                {{ i18n.global.t('arcosearch.resetBtn') }}
+                重 置
               </slot>
             </a-button>
             <a-button :size="size" status="warning" type="outline">
@@ -113,7 +113,7 @@ defineExpose({
                 <i class="rtdp shouqi"></i>
               </template>
               <slot name="retractBtn">
-                {{ i18n.global.t('arcosearch.retractBtn') }}
+                收 起
               </slot>
             </a-button>
             <a-button :size="size" status="warning" type="outline">
@@ -121,7 +121,7 @@ defineExpose({
                 <i class="rtdp zhankai"></i>
               </template>
               <slot name="expandBtn">
-                {{ i18n.global.t('arcosearch.expandBtn') }}
+                展 开
               </slot>
             </a-button>
           </a-space>
